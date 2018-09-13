@@ -132,9 +132,9 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>produce</id>
+			<id>prod</id>
 			<properties>
-				<spring.active>produce</spring.active>
+				<spring.active>prod</spring.active>
 			</properties>
 		</profile>
 	</profiles>
