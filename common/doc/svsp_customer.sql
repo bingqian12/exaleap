@@ -85,7 +85,7 @@ CREATE TABLE `customer_login` (
   `password` char(32) COLLATE utf8_bin NOT NULL COMMENT 'md5加密的密码',
   `user_stats` tinyint(4) NOT NULL DEFAULT '1' COMMENT '用户状态',
   `modified_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  `mobile_phone` int(11) NOT NULL,
+  `mobile_phone` bigint(20) NOT NULL,
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `fk_customer_login_name` (`login_name`) USING HASH,
   UNIQUE KEY `fk_customer_login_phone` (`mobile_phone`) USING HASH

@@ -1,3 +1,9 @@
+### 文档路径 ./common/doc
+
+### sql 文件
+>  ./common/doc/*.sql
+
+
 ###  @EnableFeignClients
 
 > 调用方， 需要加@EnableFeignClients 注解
@@ -30,4 +36,6 @@ public interface CustomerService {
 
 
 ```
+
+
 
