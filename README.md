@@ -4,6 +4,18 @@
 >  ./common/doc/*.sql
 
 
+###启动端口
+
+需要配置IDEA 的启动选项， 端口号不设置在代码里面， 由外部配置文件启动。 
+
+```apple js
+
+vm  Options:   -Dserver.port=8761
+ Program   arguments : --spring.profiles.active=dev
+
+```
+
+
 ### 权限控制
 > 需要控制的权限  添加到 zuul application.yml 
 

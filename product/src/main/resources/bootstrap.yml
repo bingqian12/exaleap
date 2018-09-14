@@ -1,13 +1,12 @@
 spring:
   application:
-    name: customer
+    name: product
   cloud:
     config:
       discovery:
         enabled: true
         service-id: config
       profile: dev       #${profiles}
-
 eureka:
   instance:
     prefer-ip-address: true #使用IP注册
@@ -20,9 +19,10 @@ eureka:
       service-url:
         defaultZone: http://127.0.0.1:8761/eureka/
 
-mybatis:
-  typeAliasesPackage: com.jzg.svsp.customer.entity
-  mapperLocations: classpath:mapping/*.xml
+#mybatis:
+#  typeAliasesPackage: com.jzg.svsp.customer.entity
+#  mapperLocations: classpath:mapping/*.xml
 
 #  启动参数    --spring.profiles.active=local
+
 

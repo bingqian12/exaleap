@@ -67,6 +67,12 @@
 		</dependency>
 		<!--  swagger end-->
 
+		<!-- config 中心 start -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+		</dependency>
+		<!-- config 中心 end -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
