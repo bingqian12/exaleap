@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 public class CommonDao extends  SqlSessionDaoSupport{
     @Resource
+    @Override
     public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
         super.setSqlSessionFactory(sqlSessionFactory);
     }

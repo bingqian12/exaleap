@@ -2,6 +2,7 @@ package com.jzg.svsp.common.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -153,7 +154,7 @@ public final class WebUtils {
 
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
-            if (ip.equals("127.0.0.1") || ip.equals("0:0:0:0:0:0:0:1")) {
+            if ("127.0.0.1".equals(ip) || "0:0:0:0:0:0:0:1".equals(ip)) {
                 //根据网卡取本机配置的IP
                 InetAddress inet = null;
                 try {
@@ -215,7 +216,7 @@ public final class WebUtils {
     public static String getRequestBrowserInfo(HttpServletRequest request) {
         String browserVersion = null;
         String header = request.getHeader("user-agent");
-        if (header == null || header.equals("")) {
+        if (StringUtils.isEmpty(header)) {
             return "";
         }
         if (header.indexOf("MSIE") > 0) {
@@ -243,7 +244,7 @@ public final class WebUtils {
     public static String getRequestSystemInfo(HttpServletRequest request) {
         String systenInfo = null;
         String header = request.getHeader("user-agent");
-        if (header == null || header.equals("")) {
+        if (StringUtils.isEmpty(header)) {
             return "";
         }
         //得到用户的操作系统

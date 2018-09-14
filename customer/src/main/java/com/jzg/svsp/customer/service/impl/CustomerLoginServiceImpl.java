@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Service(value = "customerLoginService")
-public class CustomerLoginService implements ICustomerLoginService {
+public class CustomerLoginServiceImpl implements ICustomerLoginService {
 
 
     @Autowired
@@ -73,8 +73,8 @@ public class CustomerLoginService implements ICustomerLoginService {
     @Override
     public ResultVo loginByValidateCode(String mobile, String validateCode) {
         ResultVo resultVo = new ResultVo();
-        String _validateCode = redisClient.get(Constants.VALIDATE_CODE_PREFIX + mobile);
-        if (StringUtils.isBlank(_validateCode) || !validateCode.equals(_validateCode)) {
+        String redisValidateCode = redisClient.get(Constants.VALIDATE_CODE_PREFIX + mobile);
+        if (StringUtils.isBlank(redisValidateCode) || !validateCode.equals(redisValidateCode)) {
             resultVo.setStatus(RetStatus.InValid.getValue());
             resultVo.setMsg("验证码错误");
             return resultVo;

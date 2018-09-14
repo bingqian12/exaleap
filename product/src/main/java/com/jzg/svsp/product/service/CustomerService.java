@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 //,fallback = CustomerServiceImpl.class
 @FeignClient(name = "customer")
 public interface CustomerService {
+    /**
+     * 测试代码
+     * @param customerId
+     * @return
+     */
     @GetMapping("/getCustomerById/{customerId}")
     public CustomerLoginVo getCustomerById(@PathVariable("customerId") Long customerId);
 }

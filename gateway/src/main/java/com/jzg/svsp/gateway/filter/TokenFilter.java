@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -49,10 +50,10 @@ public class TokenFilter extends ZuulFilter {
         LOG.info("send {} request to {}  ",  request.getServletPath());
         String accessToken = String.valueOf(request.getParameter("token"));
 
-        String requestPath =  request.getServletPath() ;
+
         for(String url : authUrlListConfig.getUrls()){
 
-            if(requestPath.startsWith(url)  && !accessToken.equals("111")){
+            if(request.getServletPath().startsWith(url)  && (StringUtils.isEmpty(accessToken) || !"111".equals(accessToken))){
                 LOG.info("requestPath {} ------------ authUrl {}  ",  request.getServletPath() , url);
                 ctx.setSendZuulResponse(false);
                 ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());

@@ -26,7 +26,7 @@ import java.util.Map;
  */
 @Service(value = "smsService")
 @Slf4j
-public class SmsService implements ISmsService {
+public class SmsServiceImpl implements ISmsService {
 
     @Value("${sms.url}")
     private String smsUrl;
@@ -46,7 +46,7 @@ public class SmsService implements ISmsService {
         redisClient.set(Constants.VALIDATE_CODE_PREFIX + mobile, validateCode, Constants.VALIDATE_CODE_EFFECTIVE_TIME);//向redis里存入数据和设置缓存时间
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("appId", appId);
-        paramMap.put("templateCode", SmsTemplateCode.ValidateCodeTpl.getValue());
+        paramMap.put("templateCode", SmsTemplateCode.VALIDATE_CODE_TPL.getValue());
         JSONObject jsonPara = new JSONObject();
         jsonPara.put("code", validateCode);
         paramMap.put("jsonPara", jsonPara.toJSONString());

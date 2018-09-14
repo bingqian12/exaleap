@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 读取配置文件 application.yml
+ * 读取配置文件
  */
 @Component
 @ConfigurationProperties(prefix="auth-props")

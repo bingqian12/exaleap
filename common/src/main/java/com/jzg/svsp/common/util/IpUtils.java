@@ -2,16 +2,6 @@ package com.jzg.svsp.common.util;
 
 public class IpUtils {
 
-    public static void main(String[] args) {
-
-        IpUtils obj = new IpUtils();
-
-        System.out.println("iptoLong  : " + obj.ipToLong("192.168.1.2"));
-
-        System.out.println("longToIp  : " + obj.longToIp(3232237260L));
-
-    }
-
     // example : 192.168.1.2
     public static long ipToLong(String ipAddress) {
         String[] ipAddressInArray = ipAddress.split("\\.");

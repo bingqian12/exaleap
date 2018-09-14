@@ -6,7 +6,10 @@ package com.jzg.svsp.common.enums;
  */
 public enum SmsTemplateCode {
 
-    ValidateCodeTpl("SMS_33845078", "验证码模版"), RegisterTpl("SMS_33910103", "注册"), DefaultTpl("SMS_10000001", "默认模板");
+    /**
+     * 注册码模板
+     */
+    VALIDATE_CODE_TPL("SMS_33845078", "验证码模版"), RegisterTpl("SMS_33910103", "注册"), DefaultTpl("SMS_10000001", "默认模板");
 
     private String value;
     private String text;

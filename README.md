@@ -150,3 +150,11 @@ public interface CustomerService {
 
 
 
+### rabbitmq 安装
+
+```apple js
+docker pull rabbitmq:management
+
+docker run -d --name rabbitmq --publish 5671:5671 --publish 15672:15672 \rabbitmq:management
+
+```
