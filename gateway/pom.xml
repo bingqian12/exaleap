@@ -48,6 +48,13 @@
 		</dependency>
 		<!--  swagger end-->
 
+		<!--链路追踪 包含 zipkin sleuth -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+		<!--链路追踪 end -->
+
         <!--Ribbon-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -41,3 +41,6 @@ eureka:
   client:
       service-url:
         defaultZone: http://127.0.0.1:9010/eureka/
+#默认管理路径 为application 修改为/
+management:
+  context-path: /

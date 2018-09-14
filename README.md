@@ -33,6 +33,51 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 ------------
 
+### 熔断降级 HystrixDashboard
+添加pom 依赖
+
+``` 
+
+		<!-- hystrix start -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- hystrix end -->
+
+```
+添加注解 @EnableHystrixDashboard
+```
+
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients
++@EnableHystrixDashboard
+@MapperScan("com.jzg.svsp.customer.dao")
+public class CustomerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CustomerApplication.class, args);
+	}
+}
+
+
+
+```
+
+
+
+
 
 ###  @EnableFeignClients
 
