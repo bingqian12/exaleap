@@ -9,7 +9,7 @@ public class CustomerLoginLog {
 
     private Date loginTime;
 
-    private Integer loginIp;
+    private Long loginIp;
 
     private Byte loginType;
 
@@ -37,11 +37,11 @@ public class CustomerLoginLog {
         this.loginTime = loginTime;
     }
 
-    public Integer getLoginIp() {
+    public Long getLoginIp() {
         return loginIp;
     }
 
-    public void setLoginIp(Integer loginIp) {
+    public void setLoginIp(Long loginIp) {
         this.loginIp = loginIp;
     }
 

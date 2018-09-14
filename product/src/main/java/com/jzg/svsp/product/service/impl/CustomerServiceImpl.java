@@ -1,6 +1,6 @@
 package com.jzg.svsp.product.service.impl;
 
-import com.jzg.svsp.common.vo.CustomerLoginVo;
+import com.jzg.svsp.common.vo.login.CustomerLoginVo;
 import com.jzg.svsp.product.service.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

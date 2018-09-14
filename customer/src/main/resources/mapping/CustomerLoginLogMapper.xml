@@ -5,7 +5,7 @@
     <id column="login_id" property="loginId" jdbcType="BIGINT" />
     <result column="customer_id" property="customerId" jdbcType="BIGINT" />
     <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
-    <result column="login_ip" property="loginIp" jdbcType="INTEGER" />
+    <result column="login_ip" property="loginIp" jdbcType="BIGINT" />
     <result column="login_type" property="loginType" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >

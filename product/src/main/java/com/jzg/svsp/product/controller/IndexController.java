@@ -2,7 +2,7 @@ package com.jzg.svsp.product.controller;
 
 
 import com.alibaba.fastjson.JSON;
-import com.jzg.svsp.common.vo.CustomerLoginVo;
+import com.jzg.svsp.common.vo.login.CustomerLoginVo;
 import com.jzg.svsp.product.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

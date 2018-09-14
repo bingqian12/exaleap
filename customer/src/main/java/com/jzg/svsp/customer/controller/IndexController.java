@@ -1,12 +1,10 @@
 package com.jzg.svsp.customer.controller;
 
 
-import com.jzg.svsp.common.vo.CustomerLoginVo;
+import com.jzg.svsp.common.vo.login.CustomerLoginVo;
 import com.jzg.svsp.customer.entity.CustomerLogin;
 import com.jzg.svsp.customer.service.ICustomerLoginService;
-import com.jzg.svsp.customer.service.impl.CustomerLoginService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

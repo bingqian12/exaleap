@@ -11,6 +11,8 @@ public interface CustomerLoginMapper {
 
     CustomerLogin selectByPrimaryKey(Long customerId);
 
+    CustomerLogin selectByMobilePhone(Long mobilePhone);
+
     int updateByPrimaryKeySelective(CustomerLogin record);
 
     int updateByPrimaryKey(CustomerLogin record);

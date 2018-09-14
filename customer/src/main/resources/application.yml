@@ -44,3 +44,8 @@ eureka:
 #默认管理路径 为application 修改为/
 management:
   context-path: /
+
+#短信配置
+sms.url: http://message.jingzhengu.com/sms/sendShortMessage
+sms.appId: 1
+sms.appKey: e10adc3949ba59abbe56e057f20f883e

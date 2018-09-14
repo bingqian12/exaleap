@@ -1,6 +1,6 @@
 package com.jzg.svsp.product.service;
 
-import com.jzg.svsp.common.vo.CustomerLoginVo;
+import com.jzg.svsp.common.vo.login.CustomerLoginVo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
