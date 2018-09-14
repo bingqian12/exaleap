@@ -4,6 +4,30 @@
 >  ./common/doc/*.sql
 
 
+### 权限控制
+> 需要控制的权限  添加到 zuul application.yml 
+
+
+``` 
+#需要权限控制的url
+auth-props:
+  testurl: abcdedf
+  urls:
+    - /customer/api      #以这些开头的会验证token
+    - /product/api
+
+```
+
+
+```
+
+
+
+```
+
+
+
+
 ### 启动zipkin 链路追踪
 1. 先启动docker 服务
 
