@@ -23,7 +23,7 @@ public class IndexController {
     CustomerService customerService;
 
     @ApiOperation(value="根据商品ID 获取商品详细信息", notes="   测试  ")
-    @GetMapping("/product/{productId}")
+    @GetMapping("/api/{productId}")
     public String info(@PathVariable("productId") Long productId){
 
         Long customerId = 3L;

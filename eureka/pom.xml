@@ -6,7 +6,7 @@
 	<groupId>com.jzg.svsp</groupId>
 	<artifactId>eureka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>eureka</name>
 	<description>Eureka server</description>
