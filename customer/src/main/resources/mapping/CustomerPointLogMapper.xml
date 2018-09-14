@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jzg.svsp.customer.dao.CustomerPointLogMapper" >
+  <resultMap id="BaseResultMap" type="com.jzg.svsp.customer.entity.CustomerPointLog" >
+    <id column="point_id" property="pointId" jdbcType="INTEGER" />
+    <result column="customer_id" property="customerId" jdbcType="BIGINT" />
+    <result column="source" property="source" jdbcType="TINYINT" />
+    <result column="refer_number" property="referNumber" jdbcType="INTEGER" />
+    <result column="change_point" property="changePoint" jdbcType="SMALLINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    point_id, customer_id, source, refer_number, change_point, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from customer_point_log
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from customer_point_log
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jzg.svsp.customer.entity.CustomerPointLog" >
+    insert into customer_point_log (point_id, customer_id, source, 
+      refer_number, change_point, create_time
+      )
+    values (#{pointId,jdbcType=INTEGER}, #{customerId,jdbcType=BIGINT}, #{source,jdbcType=TINYINT}, 
+      #{referNumber,jdbcType=INTEGER}, #{changePoint,jdbcType=SMALLINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jzg.svsp.customer.entity.CustomerPointLog" >
+    insert into customer_point_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pointId != null" >
+        point_id,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="referNumber != null" >
+        refer_number,
+      </if>
+      <if test="changePoint != null" >
+        change_point,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pointId != null" >
+        #{pointId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="referNumber != null" >
+        #{referNumber,jdbcType=INTEGER},
+      </if>
+      <if test="changePoint != null" >
+        #{changePoint,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jzg.svsp.customer.entity.CustomerPointLog" >
+    update customer_point_log
+    <set >
+      <if test="customerId != null" >
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="referNumber != null" >
+        refer_number = #{referNumber,jdbcType=INTEGER},
+      </if>
+      <if test="changePoint != null" >
+        change_point = #{changePoint,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jzg.svsp.customer.entity.CustomerPointLog" >
+    update customer_point_log
+    set customer_id = #{customerId,jdbcType=BIGINT},
+      source = #{source,jdbcType=TINYINT},
+      refer_number = #{referNumber,jdbcType=INTEGER},
+      change_point = #{changePoint,jdbcType=SMALLINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </update>
+</mapper>
