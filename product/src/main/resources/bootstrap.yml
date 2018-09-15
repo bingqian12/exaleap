@@ -25,4 +25,6 @@ eureka:
 
 #  启动参数    --spring.profiles.active=local
 
-
+ribbon:
+  ReadTimeout: 5000 # 请求处理超时时间
+  ConnectTimeout: 2000 # 请求连接超时时间

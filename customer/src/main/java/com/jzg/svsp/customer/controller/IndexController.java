@@ -27,6 +27,11 @@ public class IndexController {
     @GetMapping("getCustomerById/{customerId}")
     public CustomerLoginVo getCustomerById(@PathVariable("customerId") Long customerId){
 
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         CustomerLoginVo customerVO = new CustomerLoginVo();
         CustomerLogin customerLogin = customerLoginService.findByCustomerId(1L);
         if(customerLogin == null ){

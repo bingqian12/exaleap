@@ -16,7 +16,12 @@ import java.util.List;
 @Data
 public class AuthPropConfig {
 
-    private List<String> urls =new ArrayList<String>();
-    private String testurl ;
+    private List<String> apiUrls =new ArrayList<String>();
+    private List<String> monitorUrls = new ArrayList<>();
+    private String accessToken;
+    private String accessIp;
+
+
+
 
 }

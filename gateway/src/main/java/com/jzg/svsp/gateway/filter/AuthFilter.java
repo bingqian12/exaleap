@@ -2,12 +2,14 @@ package com.jzg.svsp.gateway.filter;
 
 import com.jzg.svsp.gateway.config.AuthPropConfig;
 import com.netflix.zuul.ZuulFilter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class AuthFilter extends ZuulFilter {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthFilter.class);
@@ -33,7 +35,7 @@ public class AuthFilter extends ZuulFilter {
     @Override
     public Object run() {
 
-        //TODO:  未来在这里做权限验证
+        //TODO:  在这里做权限验证
 
         return null;
     }
