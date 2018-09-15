@@ -24,5 +24,8 @@ mybatis:
   typeAliasesPackage: com.jzg.svsp.customer.entity
   mapperLocations: classpath:mapping/*.xml
 
+
 #  启动参数    --spring.profiles.active=local
+
+
 

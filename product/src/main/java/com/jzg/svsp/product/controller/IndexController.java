@@ -35,7 +35,7 @@ public class IndexController {
      * @return
      */
     @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "3000"),
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "6000"),
 
 
             @HystrixProperty(name = "circuitBreaker.enabled" , value = "true"), //开启熔断
@@ -46,15 +46,16 @@ public class IndexController {
     })
     @ApiOperation(value="根据商品ID 获取商品详细信息", notes="   测试  ")
     @GetMapping("/api/{productId}")
-    public String info(@PathVariable("productId") Long productId){
+    public String info(@PathVariable("productId") Long productId) throws Exception {
 
-        Long customerId = 3L;
-        CustomerLoginVo customerVo = customerService.getCustomerById(customerId);
+        CustomerLoginVo customerVo = customerService.getCustomerById(productId);
 
         log.info(JSON.toJSONString(customerVo));
-
-
         return "hello "+ JSON.toJSONString(customerVo);
+
+
+
+
     }
 
 

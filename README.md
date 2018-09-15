@@ -10,7 +10,7 @@
 
 ```apple js
 
-vm  Options:   -Dserver.port=8761
+ vm  Options:   -Dserver.port=8761
  Program   arguments : --spring.profiles.active=dev
 
 ```
@@ -112,6 +112,11 @@ public class CustomerApplication {
 ```
 
 
+###  turbine  配置 
+
+熔断监控的url 地址 http://127.0.0.1:9038/turbine.stream
+
+
 
 
 
@@ -158,3 +163,11 @@ docker pull rabbitmq:management
 docker run -d --name rabbitmq --publish 5671:5671 --publish 15672:15672 \rabbitmq:management
 
 ```
+
+
+### java 启动jar 
+```
+ java -jar ROOT.jar --spring.profiles.active=dev
+
+```
+ 
