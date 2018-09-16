@@ -24,7 +24,8 @@ public class IndexController {
 
     @Autowired
     ICustomerLoginService customerLoginService ;
-    @HystrixCommand(commandProperties = {
+    @HystrixCommand(   commandProperties = {
+
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1000"),
 
 
@@ -36,18 +37,19 @@ public class IndexController {
     })
     @ApiOperation(value="根据用户编号获取用户详细信息", notes="test: 仅1和2有正确返回")
     @GetMapping("getCustomerById/{customerId}")
-    public CustomerLoginVo getCustomerById(@PathVariable("customerId") Long customerId) throws InterruptedException {
+    public CustomerLoginVo getCustomerById(@PathVariable("customerId") Long customerId) {
 
         if(customerId %2 ==0) {
-                Thread.sleep(1100);
+//                Thread.sleep(1100);
+           throw  new RuntimeException("测试异常");
 
         }
         CustomerLoginVo customerVO = new CustomerLoginVo();
-        CustomerLogin customerLogin = customerLoginService.findByCustomerId(1L);
+        CustomerLogin customerLogin = customerLoginService.createCustomer("13811112221");
         if(customerLogin == null ){
 
             customerVO.setCustomerId(111L);
-            customerVO.setLoginName("abcd");
+            customerVO.setLoginName("我是默认的用户，");
             customerVO.setMobilePhone(234234234L);
             customerVO.setPassword("md5");
             customerVO.setUserStats(1);

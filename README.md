@@ -114,7 +114,8 @@ public class CustomerApplication {
 
 ###  turbine  配置 
 
-熔断监控的url 地址 http://127.0.0.1:9038/turbine.stream
+熔断监控的url 地址
+ http://127.0.0.1:9411/turbine.stream
 
 
 
