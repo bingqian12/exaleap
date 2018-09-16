@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * ajax调用统一返回该结果
+ * ajax调用统一返回该结构
  *
  * 返回信息
  */
@@ -15,7 +15,7 @@ public class ResultVo<T extends Serializable> extends BaseResultVo implements Se
     private static final long serialVersionUID = 4712972757347990461L;
 
     private T data = null;
-
+    private long createTime ;
 
     public ResultVo() {
         super();
