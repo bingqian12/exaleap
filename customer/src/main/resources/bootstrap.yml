@@ -18,14 +18,8 @@ eureka:
     lease-expiration-duration-in-seconds: 180
   client:
       service-url:
-        defaultZone: http://127.0.0.1:8761/eureka/
+        defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
 
-mybatis:
-  typeAliasesPackage: com.jzg.svsp.customer.entity
-  mapperLocations: classpath:mapping/*.xml
-
-
-#  启动参数    --spring.profiles.active=local
 
 
 
