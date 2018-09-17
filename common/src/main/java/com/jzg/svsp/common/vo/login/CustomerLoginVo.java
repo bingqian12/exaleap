@@ -11,7 +11,8 @@ public class CustomerLoginVo implements BaseVo{
     String loginName;
     String password;
     int userStats;
-    long mobilePhone ;
+    long mobilePhone;
+    String token;
 
     @Override
     public String toString() {
@@ -21,6 +22,7 @@ public class CustomerLoginVo implements BaseVo{
                 ", password='" + password + '\'' +
                 ", userStats=" + userStats +
                 ", mobilePhone=" + mobilePhone +
+                ", token=" + token +
                 '}';
     }
 }
