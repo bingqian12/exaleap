@@ -31,7 +31,7 @@ public class IndexController {
 
             @HystrixProperty(name = "circuitBreaker.enabled" , value = "true"), //开启熔断
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold" , value = "10"), //最近10次服务
-            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage" , value = "60"),//最近10次服务，请求的成功率， 达到就熔断
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage" , value = "60"),//最近10次服务，请求的失败率， 达到就熔断
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds" , value = "10000"),// 休眠10秒后， 重新探测是否需要熔断。
 
     })
