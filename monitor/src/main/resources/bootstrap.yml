@@ -1,13 +1,12 @@
 spring:
   application:
-    name: gateway
+    name: monitor
   cloud:
     config:
       discovery:
         enabled: true
         service-id: config
-      profile: test
-
+      profile: dev
 eureka:
   instance:
     prefer-ip-address: true #使用IP注册
@@ -20,6 +19,15 @@ eureka:
       service-url:
         defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
 
+#spring:
+#  security:
+#      user:
+#        name: jzg
+#        password: jzg123
 
-
-
+ribbon:
+  ReadTimeout: 2000 # 请求处理超时时间
+  ConnectTimeout: 2000
+turbine: #要监听的微服务列表
+  app-config: product,customer
+  cluster-name-expression: "'default'"

@@ -6,7 +6,7 @@
 
 ###启动端口
 
-需要配置IDEA 的启动选项， 端口号不设置在代码里面， 由外部配置文件启动。 
+_需要配置IDEA 的启动选项， 端口号不设置在代码里面， 由外部配置文件启动。_ 
 
 ```
 
@@ -171,7 +171,19 @@ java -jar ROOT.jar --spring.profiles.active=prod
 
 #springboot 启动服务 
 --spring.profiles.active=test
-Program   arguments : 
+Program   arguments : -Dserver.port=8761
 
 ```
+
+
+### 服务启动顺序
+
+_主要要启动 config 服务， 如果不启动， 各个服务无法读取到配置文件_
+
+* 1. eureka
+* 2. config
+* 3. gateway
+* 4. monitor
+* 5. customer
+* 6. product
  

@@ -47,6 +47,16 @@
 		<!--  zipkin server end-->
 
 
+		<!-- rabbitMQ start -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-netflix-hystrix-stream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+		</dependency>
+		<!-- rabbitMQ end  -->
 
 
 		<!--<dependency>-->
