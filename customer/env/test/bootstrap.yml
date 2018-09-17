@@ -25,4 +25,4 @@ eureka:
 #  启动参数    --spring.profiles.active=local
 
 
-
+testname: test

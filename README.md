@@ -159,9 +159,11 @@ public interface CustomerService {
 ### rabbitmq 安装
 
 ```apple js
-docker pull rabbitmq:management
 
-docker run -d --name rabbitmq --publish 5671:5671 --publish 15672:15672 \rabbitmq:management
+
+
+docker run -d --hostname localhost --name rabbit-management --restart=always -p 15672:15672 -p 5672:5672 rabbitmq:3.6-management-alpine
+
 
 ```
 
