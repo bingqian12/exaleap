@@ -16,6 +16,7 @@
 *.iml
 *.ipr
 gateway.iml
+.DS_Store
 
 ### NetBeans ###
 /nbproject/private/
