@@ -39,11 +39,21 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<!--链路追踪 包含 zipkin sleuth -->
+
+		<!--链路追踪 包含 zipkin sleuth rabbit-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.amqp</groupId>-->
+			<!--<artifactId>spring-rabbit</artifactId>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-stream-binder-rabbit</artifactId>-->
+		<!--</dependency>-->
 		<!--链路追踪 end -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

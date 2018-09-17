@@ -35,7 +35,7 @@ public class IndexController {
      * @return
      */
     @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "6000"),
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1000"),
 
 
             @HystrixProperty(name = "circuitBreaker.enabled" , value = "true"), //开启熔断
