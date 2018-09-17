@@ -1,6 +1,13 @@
 spring:
   application:
     name: monitor
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
   cloud:
     config:
       discovery:
@@ -18,12 +25,6 @@ eureka:
   client:
       service-url:
         defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
-
-#spring:
-#  security:
-#      user:
-#        name: jzg
-#        password: jzg123
 
 ribbon:
   ReadTimeout: 2000 # 请求处理超时时间
