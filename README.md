@@ -8,9 +8,11 @@
 
 需要配置IDEA 的启动选项， 端口号不设置在代码里面， 由外部配置文件启动。 
 
-```apple js
+```
 
+#springboot 启动不同端口
  vm  Options:   -Dserver.port=8761
+#启动不同环境配置
  Program   arguments : --spring.profiles.active=dev
 
 ```
@@ -29,14 +31,6 @@ auth-props:
     - /product/api
 
 ```
-
-
-```
-
-
-
-```
-
 
 
 
@@ -158,9 +152,7 @@ public interface CustomerService {
 
 ### rabbitmq 安装
 
-```apple js
-
-
+```
 
 docker run -d --hostname localhost --name rabbit-management --restart=always -p 15672:15672 -p 5672:5672 rabbitmq:3.6-management-alpine
 
@@ -168,9 +160,18 @@ docker run -d --hostname localhost --name rabbit-management --restart=always -p 
 ```
 
 
-### java 启动jar 
+###编译版本
 ```
- java -jar ROOT.jar --spring.profiles.active=dev
+#编译war包
+mvn clean install -Pprod  #（dev; local; test; prod）
+
+#通过jar 文件启动服务 
+java -jar ROOT.jar --spring.profiles.active=prod
+
+
+#springboot 启动服务 
+--spring.profiles.active=test
+Program   arguments : 
 
 ```
  
