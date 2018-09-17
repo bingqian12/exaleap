@@ -18,7 +18,7 @@ eureka:
     lease-expiration-duration-in-seconds: 10
   client:
       service-url:
-        defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
+        defaultZone: http://jzg:jzg123@140.143.178.210:8761/eureka/
 
 
 
