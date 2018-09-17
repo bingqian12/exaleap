@@ -1,6 +1,7 @@
 package com.jzg.svsp.gateway.filter;
 
 import com.jzg.svsp.common.enums.HttpStatusEnum;
+import com.jzg.svsp.common.util.CookieUtil;
 import com.jzg.svsp.gateway.config.AuthPropConfig;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -8,13 +9,19 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import springfox.documentation.service.TokenEndpoint;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author JZG
+ * 对监控器  dashboard 页面的权限控制。
+ * 通过ip地址白名单进行过滤
+ */
 @Component
 @Slf4j
-public class TokenFilter extends ZuulFilter {
-
+public class MonitorFilter extends ZuulFilter {
 
     @Autowired
     AuthPropConfig authUrlListConfig;
@@ -26,7 +33,7 @@ public class TokenFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return 0;//int值来定义过滤器的执行顺序，数值越小优先级越高
+        return 3;
     }
 
     @Override
@@ -37,23 +44,21 @@ public class TokenFilter extends ZuulFilter {
     @Override
     public Object run() {
 
-        if(authUrlListConfig.getApiUrls() == null || authUrlListConfig.getApiUrls().size() ==0 ){
+        if(authUrlListConfig.getMonitorUrls() == null || authUrlListConfig.getMonitorUrls().size() ==0 ){
             return null;
         }
 
 
-
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-//        request.getMethod(),request.getRequestURL().toString()
-        log.info("send {} request to {}  ",  request.getServletPath());
-        String accessToken = String.valueOf(request.getParameter("token"));
 
+        /**
+         * 检测IP地址是否在白名单
+         */
 
-        for(String url : authUrlListConfig.getApiUrls()){
-
-            if(request.getServletPath().startsWith(url)  && (StringUtils.isEmpty(accessToken) || !"111".equals(accessToken))){
-                log.info("requestPath {} ------------ authUrl {}  ",  request.getServletPath() , url);
+        for(String url : authUrlListConfig.getMonitorUrls()){
+            if(request.getServletPath().startsWith(url)  && !authUrlListConfig.getAccessIp().equals(request.getRemoteAddr())){
+                log.warn("requestPath no permission '{}'  ----- AccessIP: {}  ",  request.getServletPath() , authUrlListConfig.getAccessIp());
                 ctx.setSendZuulResponse(false);
                 ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
                 return null;

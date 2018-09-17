@@ -1,9 +1,7 @@
 package com.jzg.svsp.customer.service.impl;
 
-import com.jzg.svsp.common.util.IpUtils;
-import com.jzg.svsp.common.util.Md5Encrypt;
-import com.jzg.svsp.common.util.RandomUtils;
-import com.jzg.svsp.common.util.WebUtils;
+import com.jzg.svsp.common.enums.HttpStatusEnum;
+import com.jzg.svsp.common.util.*;
 import com.jzg.svsp.common.vo.Constants;
 import com.jzg.svsp.common.vo.ResultVo;
 import com.jzg.svsp.common.vo.RetStatus;
@@ -27,7 +25,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Service(value = "customerLoginService")
-public class CustomerLoginService implements ICustomerLoginService {
+public class CustomerLoginServiceImpl implements ICustomerLoginService {
 
 
     @Autowired
@@ -72,21 +70,16 @@ public class CustomerLoginService implements ICustomerLoginService {
 
     @Override
     public ResultVo loginByValidateCode(String mobile, String validateCode) {
-        ResultVo resultVo = new ResultVo();
-        String _validateCode = redisClient.get(Constants.VALIDATE_CODE_PREFIX + mobile);
-        if (StringUtils.isBlank(_validateCode) || !validateCode.equals(_validateCode)) {
-            resultVo.setStatus(RetStatus.InValid.getValue());
-            resultVo.setMsg("验证码错误");
-            return resultVo;
+        String redisValidateCode = redisClient.get(Constants.VALIDATE_CODE_PREFIX + mobile);
+        if (StringUtils.isBlank(redisValidateCode) || !validateCode.equals(redisValidateCode)) {
+            return ResultUtils.fail(HttpStatusEnum.NO_CONTENT.code(), "验证码错误");
         }
 
         CustomerLogin customerLogin = createCustomer(mobile);
         if (customerLogin != null) {
             saveLoginLog(customerLogin.getCustomerId(), new Byte("1"));
         }else{
-            resultVo.setStatus(RetStatus.InValid.getValue());
-            resultVo.setMsg("登录失败");
-            return resultVo;
+            return ResultUtils.fail(HttpStatusEnum.NO_CONTENT.code(), "登录失败");
         }
 
         CustomerLoginVo loginVo = new CustomerLoginVo();
@@ -100,10 +93,7 @@ public class CustomerLoginService implements ICustomerLoginService {
         redisClient.set(token, mobile, Constants.TOKEN_EFFECTIVE_TIME);
         redisClient.set(Constants.TOKEN_PREFIX + mobile, token, Constants.TOKEN_EFFECTIVE_TIME);
 
-        resultVo.setData(loginVo);
-        resultVo.setStatus(RetStatus.Ok.getValue());
-        resultVo.setMsg("登录成功");
-        return resultVo;
+        return ResultUtils.success(loginVo, HttpStatusEnum.OK.code(), "登录成功");
     }
 
     /**

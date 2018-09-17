@@ -1,7 +1,13 @@
 package com.jzg.svsp.common.enums;
 
+/**
+ * HTTP 状态码说明
+ */
 public enum HttpStatusEnum {
 
+    /**
+     * "请继续发送请求的剩余部分"
+     */
     CONTINUE(100, "Continue", "请继续发送请求的剩余部分"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols", "协议切换"),
     PROCESSING(102, "Processing", "请求将继续执行"),

@@ -9,26 +9,16 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.ssl.SSLContextBuilder;
-import org.apache.http.ssl.TrustStrategy;
 import org.apache.http.util.EntityUtils;
+import org.springframework.util.StringUtils;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLException;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocket;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.security.GeneralSecurityException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -128,7 +118,7 @@ public final class HttpUtils {
             List<NameValuePair> pairList = new ArrayList<>(params.size());
             for (Map.Entry<String, Object> entry : params.entrySet()) {
                 //过滤空值
-                if (entry.getValue() == null || entry.getValue().equals("")) {
+                if (StringUtils.isEmpty(entry.getValue())) {
                     continue;
                 }
 
@@ -201,49 +191,49 @@ public final class HttpUtils {
      * @param params 参数map
      * @return string
      */
-    public static String doPostSSL(String url, Map<String, Object> params) {
-        String result = null;
-
-        CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory())
-                .setConnectionManager(poolingHttpClientConnectionManager).setDefaultRequestConfig(requestConfig).build();
-        HttpPost httpPost = new HttpPost(url);
-        CloseableHttpResponse response = null;
-
-
-        try {
-            httpPost.setConfig(requestConfig);
-            List<NameValuePair> pairList = new ArrayList<NameValuePair>(params.size());
-            for (Map.Entry<String, Object> entry : params.entrySet()) {
-                Object objVal = entry.getValue();
-                String val = getValue(objVal);
-
-                NameValuePair pair = new BasicNameValuePair(entry.getKey(), val);
-                pairList.add(pair);
-            }
-            httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(DEFAULT_ENCODING)));
-            response = httpClient.execute(httpPost);
-            int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                return null;
-            }
-            HttpEntity entity = response.getEntity();
-            if (entity == null) {
-                return null;
-            }
-            result = EntityUtils.toString(entity, DEFAULT_ENCODING);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        } finally {
-            if (response != null) {
-                try {
-                    EntityUtils.consume(response.getEntity());
-                } catch (IOException e) {
-                    log.error(e.getMessage(), e);
-                }
-            }
-        }
-        return result;
-    }
+//    public static String doPostSSL(String url, Map<String, Object> params) {
+//        String result = null;
+//
+//        CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory())
+//                .setConnectionManager(poolingHttpClientConnectionManager).setDefaultRequestConfig(requestConfig).build();
+//        HttpPost httpPost = new HttpPost(url);
+//        CloseableHttpResponse response = null;
+//
+//
+//        try {
+//            httpPost.setConfig(requestConfig);
+//            List<NameValuePair> pairList = new ArrayList<NameValuePair>(params.size());
+//            for (Map.Entry<String, Object> entry : params.entrySet()) {
+//                Object objVal = entry.getValue();
+//                String val = getValue(objVal);
+//
+//                NameValuePair pair = new BasicNameValuePair(entry.getKey(), val);
+//                pairList.add(pair);
+//            }
+//            httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(DEFAULT_ENCODING)));
+//            response = httpClient.execute(httpPost);
+//            int statusCode = response.getStatusLine().getStatusCode();
+//            if (statusCode != HttpStatus.SC_OK) {
+//                return null;
+//            }
+//            HttpEntity entity = response.getEntity();
+//            if (entity == null) {
+//                return null;
+//            }
+//            result = EntityUtils.toString(entity, DEFAULT_ENCODING);
+//        } catch (Exception e) {
+//            log.error(e.getMessage(), e);
+//        } finally {
+//            if (response != null) {
+//                try {
+//                    EntityUtils.consume(response.getEntity());
+//                } catch (IOException e) {
+//                    log.error(e.getMessage(), e);
+//                }
+//            }
+//        }
+//        return result;
+//    }
 
     /**
      * 发送 SSL POST 请求（HTTPS），JSON形式
@@ -252,44 +242,44 @@ public final class HttpUtils {
      * @param json JSON对象
      * @return string
      */
-    public static String doPostSSL(String url, Object json) {
-        String result = null;
-
-        CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory())
-                .setConnectionManager(poolingHttpClientConnectionManager).setDefaultRequestConfig(requestConfig).build();
-        HttpPost httpPost = new HttpPost(url);
-        CloseableHttpResponse response = null;
-
-
-        try {
-            httpPost.setConfig(requestConfig);
-            StringEntity stringEntity = new StringEntity(json.toString(), DEFAULT_ENCODING); //解决中文乱码问题
-            stringEntity.setContentEncoding(DEFAULT_ENCODING);
-            stringEntity.setContentType("application/json");
-            httpPost.setEntity(stringEntity);
-            response = httpClient.execute(httpPost);
-            int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                return null;
-            }
-            HttpEntity entity = response.getEntity();
-            if (entity == null) {
-                return null;
-            }
-            result = EntityUtils.toString(entity, DEFAULT_ENCODING);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        } finally {
-            if (response != null) {
-                try {
-                    EntityUtils.consume(response.getEntity());
-                } catch (IOException e) {
-                    log.error(e.getMessage(), e);
-                }
-            }
-        }
-        return result;
-    }
+//    public static String doPostSSL(String url, Object json) {
+//        String result = null;
+//
+//        CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory())
+//                .setConnectionManager(poolingHttpClientConnectionManager).setDefaultRequestConfig(requestConfig).build();
+//        HttpPost httpPost = new HttpPost(url);
+//        CloseableHttpResponse response = null;
+//
+//
+//        try {
+//            httpPost.setConfig(requestConfig);
+//            StringEntity stringEntity = new StringEntity(json.toString(), DEFAULT_ENCODING); //解决中文乱码问题
+//            stringEntity.setContentEncoding(DEFAULT_ENCODING);
+//            stringEntity.setContentType("application/json");
+//            httpPost.setEntity(stringEntity);
+//            response = httpClient.execute(httpPost);
+//            int statusCode = response.getStatusLine().getStatusCode();
+//            if (statusCode != HttpStatus.SC_OK) {
+//                return null;
+//            }
+//            HttpEntity entity = response.getEntity();
+//            if (entity == null) {
+//                return null;
+//            }
+//            result = EntityUtils.toString(entity, DEFAULT_ENCODING);
+//        } catch (Exception e) {
+//            log.error(e.getMessage(), e);
+//        } finally {
+//            if (response != null) {
+//                try {
+//                    EntityUtils.consume(response.getEntity());
+//                } catch (IOException e) {
+//                    log.error(e.getMessage(), e);
+//                }
+//            }
+//        }
+//        return result;
+//    }
 
 
     /**
@@ -297,39 +287,40 @@ public final class HttpUtils {
      *
      * @return SSL连接工厂
      */
-    private static SSLConnectionSocketFactory createSSLConnSocketFactory() {
-        SSLConnectionSocketFactory sslsf = null;
-        try {
-            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
-
-                public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                    return true;
-                }
-            }).build();
-            sslsf = new SSLConnectionSocketFactory(sslContext, new X509HostnameVerifier() {
-
-                @Override
-                public boolean verify(String arg0, SSLSession arg1) {
-                    return true;
-                }
-
-                @Override
-                public void verify(String host, SSLSocket ssl) throws IOException {
-                }
-
-                @Override
-                public void verify(String host, X509Certificate cert) throws SSLException {
-                }
-
-                @Override
-                public void verify(String host, String[] cns, String[] subjectAlts) throws SSLException {
-                }
-            });
-        } catch (GeneralSecurityException e) {
-            log.error(e.getMessage(), e);
-        }
-        return sslsf;
-    }
+//    private static SSLConnectionSocketFactory createSSLConnSocketFactory() {
+//        SSLConnectionSocketFactory sslsf = null;
+//        try {
+//            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
+//
+//                @Override
+//                public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+//                    return true;
+//                }
+//            }).build();
+//            sslsf = new SSLConnectionSocketFactory(sslContext, new X509HostnameVerifier() {
+//
+//                @Override
+//                public boolean verify(String arg0, SSLSession arg1) {
+//                    return true;
+//                }
+//
+//                @Override
+//                public void verify(String host, SSLSocket ssl) throws IOException {
+//                }
+//
+//                @Override
+//                public void verify(String host, X509Certificate cert) throws SSLException {
+//                }
+//
+//                @Override
+//                public void verify(String host, String[] cns, String[] subjectAlts) throws SSLException {
+//                }
+//            });
+//        } catch (GeneralSecurityException e) {
+//            log.error(e.getMessage(), e);
+//        }
+//        return sslsf;
+//    }
 
     /**
      * 值类型转化

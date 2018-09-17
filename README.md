@@ -4,6 +4,18 @@
 >  ./common/doc/*.sql
 
 
+###启动端口
+
+需要配置IDEA 的启动选项， 端口号不设置在代码里面， 由外部配置文件启动。 
+
+```apple js
+
+ vm  Options:   -Dserver.port=8761
+ Program   arguments : --spring.profiles.active=dev
+
+```
+
+
 ### 权限控制
 > 需要控制的权限  添加到 zuul application.yml 
 
@@ -100,6 +112,12 @@ public class CustomerApplication {
 ```
 
 
+###  turbine  配置 
+
+熔断监控的url 地址
+ http://127.0.0.1:9411/turbine.stream
+
+
 
 
 
@@ -138,3 +156,19 @@ public interface CustomerService {
 
 
 
+### rabbitmq 安装
+
+```apple js
+docker pull rabbitmq:management
+
+docker run -d --name rabbitmq --publish 5671:5671 --publish 15672:15672 \rabbitmq:management
+
+```
+
+
+### java 启动jar 
+```
+ java -jar ROOT.jar --spring.profiles.active=dev
+
+```
+ 

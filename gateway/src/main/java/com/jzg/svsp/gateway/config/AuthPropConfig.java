@@ -9,14 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 读取配置文件 application.yml
+ * 读取配置文件
  */
 @Component
 @ConfigurationProperties(prefix="auth-props")
 @Data
 public class AuthPropConfig {
 
-    private List<String> urls =new ArrayList<String>();
-    private String testurl ;
+    private List<String> apiUrls =new ArrayList<String>();
+    private List<String> monitorUrls = new ArrayList<>();
+    private String accessToken;
+    private String accessIp;
+
+
+
 
 }
