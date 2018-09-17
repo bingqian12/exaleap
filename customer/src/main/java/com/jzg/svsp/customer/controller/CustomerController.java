@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -28,13 +29,13 @@ public class CustomerController {
 
     @ApiOperation(value = "发送验证码", notes = "发送验证码")
     @PostMapping("sendValidateCode")
-    public ResultVo sendValidateCode(String mobile) {
+    public ResultVo sendValidateCode(@RequestParam(value = "mobile") String mobile) {
         return smsService.sendValidateCode(mobile);
     }
 
     @ApiOperation(value = "验证码登录", notes = "验证码登录")
     @PostMapping("loginByValidateCode")
-    public ResultVo loginByValidateCode(String mobile, String validateCode) {
+    public ResultVo loginByValidateCode(@RequestParam(value = "mobile") String mobile, @RequestParam(value = "validateCode") String validateCode) {
         return customerLoginService.loginByValidateCode(mobile, validateCode);
     }
 }

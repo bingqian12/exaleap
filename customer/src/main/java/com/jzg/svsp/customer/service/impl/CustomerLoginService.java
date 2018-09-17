@@ -95,6 +95,7 @@ public class CustomerLoginService implements ICustomerLoginService {
         loginVo.setMobilePhone(customerLogin.getMobilePhone());
         loginVo.setUserStats(customerLogin.getUserStats());
 
+        //生成token 存入redis
         String token = UUID.randomUUID().toString();
         redisClient.set(token, mobile, Constants.TOKEN_EFFECTIVE_TIME);
         redisClient.set(Constants.TOKEN_PREFIX + mobile, token, Constants.TOKEN_EFFECTIVE_TIME);
@@ -105,6 +106,10 @@ public class CustomerLoginService implements ICustomerLoginService {
         return resultVo;
     }
 
+    /**
+     * 获取登录ip
+     * @return
+     */
     private String getIpAddress() {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
