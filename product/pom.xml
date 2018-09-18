@@ -119,6 +119,38 @@
 	</dependencies>
 
 
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<spring.active>local</spring.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<spring.active>dev</spring.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<spring.active>test</spring.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<spring.active>prod</spring.active>
+			</properties>
+		</profile>
+	</profiles>
+
+
+
 	<build>
 		<finalName>ROOT</finalName>
 		<plugins>
@@ -127,7 +159,21 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources/</directory>
+				<filtering>true</filtering>
+			</resource>
+			<!-- 根据env部署环境值，把对应环境的配置文件拷贝到classes目录 -->
+			<resource>
+				<directory>env/${spring.active}</directory>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
+
 
 
 </project>
