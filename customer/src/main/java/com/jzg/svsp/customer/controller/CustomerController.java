@@ -46,14 +46,14 @@ public class CustomerController {
         return customerLoginService.loginByValidateCode(mobile, validateCode);
     }*/
 
-    @ApiOperation(value = "发送验证码", notes = "注意限制固定时间内发送验证码的个数")
+    @ApiOperation(value = "发送验证码", notes = "注意限制固定时间内发送验证码的个数\nmobile 手机号 必填")
     @PostMapping("sendValidateCode")
     public ResultVo sendValidateCode(@RequestBody SendValidateCodeParamVo body) {
         return smsService.sendValidateCode(body.getMobile());
     }
 
 
-    @ApiOperation(value = "验证码登录", notes = "验证码登录")
+    @ApiOperation(value = "验证码登录", notes = "验证码登录\nmobile 手机号 必填\nvalidateCode 验证码 必填")
     @PostMapping("loginByValidateCode")
     public ResultVo loginByValidateCode(@RequestBody LoginParamVo body) {
         return customerLoginService.loginByValidateCode(body.getMobile(), body.getValidateCode());
