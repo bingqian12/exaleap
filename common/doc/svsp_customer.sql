@@ -1,24 +1,22 @@
 /*
- Navicat Premium Data Transfer
+Navicat MySQL Data Transfer
 
- Source Server         : localhost
- Source Server Type    : MySQL
- Source Server Version : 50717
- Source Host           : localhost
- Source Database       : svsp_customer
+Source Server         : 192.168.0.136
+Source Server Version : 50635
+Source Host           : 192.168.0.136:3306
+Source Database       : svsp_customer
 
- Target Server Type    : MySQL
- Target Server Version : 50717
- File Encoding         : utf-8
+Target Server Type    : MYSQL
+Target Server Version : 50635
+File Encoding         : 65001
 
- Date: 09/13/2018 10:05:13 AM
+Date: 2018-09-18 14:11:30
 */
-
 SET NAMES utf8;
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
---  Table structure for `customer_balance_log`
+-- Table structure for customer_balance_log
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_balance_log`;
 CREATE TABLE `customer_balance_log` (
@@ -33,30 +31,30 @@ CREATE TABLE `customer_balance_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户余额变动表';
 
 -- ----------------------------
---  Table structure for `customer_inf`
+-- Table structure for customer_inf
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_inf`;
 CREATE TABLE `customer_inf` (
   `customer_inf_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增主键ID',
   `customer_id` bigint(20) unsigned NOT NULL COMMENT 'customer_login表的自增ID',
-  `customer_name` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '用户真实姓名',
+  `customer_name` varchar(20) COLLATE utf8_bin NOT NULL DEFAULT '' COMMENT '用户真实姓名',
   `identity_card_type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '证件类型：1 身份证,2军官证,3护照',
   `identity_card_no` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '证件号码',
   `mobile_phone` int(10) unsigned DEFAULT NULL COMMENT '手机号',
   `customer_email` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '邮箱',
   `gender` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '性别',
   `user_point` int(11) NOT NULL DEFAULT '0' COMMENT '用户积分',
-  `register_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '注册时间',
+  `register_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
   `birthday` datetime DEFAULT NULL COMMENT '会员生日',
   `customer_level` tinyint(4) NOT NULL DEFAULT '1' COMMENT '会员级别:1普通会员,2青铜会员,3白银会员,4黄金会员,5钻石会员',
   `user_money` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '用户余额',
-  `modified_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
+  `modified_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间',
   PRIMARY KEY (`customer_inf_id`),
   UNIQUE KEY `fk_customer_inf_customer_id` (`customer_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户信息表';
 
 -- ----------------------------
---  Table structure for `customer_level_inf`
+-- Table structure for customer_level_inf
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_level_inf`;
 CREATE TABLE `customer_level_inf` (
@@ -69,14 +67,7 @@ CREATE TABLE `customer_level_inf` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户级别信息表';
 
 -- ----------------------------
---  Records of `customer_level_inf`
--- ----------------------------
-BEGIN;
-INSERT INTO `customer_level_inf` VALUES ('1', '青铜级', '0', '10000', '2018-09-12 22:50:29'), ('2', '白银级', '10001', '100000', '2018-09-12 22:50:29'), ('3', '黄金级', '100001', '300000', '2018-09-12 22:50:29'), ('4', '神级', '300001', '999999999', '2018-09-12 22:50:29');
-COMMIT;
-
--- ----------------------------
---  Table structure for `customer_login`
+-- Table structure for customer_login
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_login`;
 CREATE TABLE `customer_login` (
@@ -89,10 +80,10 @@ CREATE TABLE `customer_login` (
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `fk_customer_login_name` (`login_name`) USING HASH,
   UNIQUE KEY `fk_customer_login_phone` (`mobile_phone`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户登录表';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户登录表';
 
 -- ----------------------------
---  Table structure for `customer_login_log`
+-- Table structure for customer_login_log
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_login_log`;
 CREATE TABLE `customer_login_log` (
@@ -103,10 +94,10 @@ CREATE TABLE `customer_login_log` (
   `login_type` tinyint(4) NOT NULL COMMENT '登录类型:0未成功 1成功',
   PRIMARY KEY (`login_id`),
   KEY `fk_customer_login_log_customer_id` (`customer_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户登录日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户登录日志表';
 
 -- ----------------------------
---  Table structure for `customer_point_log`
+-- Table structure for customer_point_log
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_point_log`;
 CREATE TABLE `customer_point_log` (
@@ -119,5 +110,3 @@ CREATE TABLE `customer_point_log` (
   PRIMARY KEY (`point_id`),
   KEY `fk_customer_point_log_customer_id` (`customer_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户积分日志表';
-
-SET FOREIGN_KEY_CHECKS = 1;
