@@ -1,12 +1,19 @@
 spring:
   application:
     name: monitor
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
   cloud:
     config:
       discovery:
         enabled: true
         service-id: config
-      profile: dev
+      profile: local
 eureka:
   instance:
     prefer-ip-address: true #使用IP注册

@@ -22,11 +22,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<!-- 聚合各个微服务的数据流-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-turbine</artifactId>
-		</dependency>
+
 		<!--  Dashboard 可以独立部署-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -47,6 +43,11 @@
 		<!--  zipkin server end-->
 
 
+		<!-- 聚合各个微服务的数据流-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-turbine</artifactId>
+		</dependency>
 		<!-- rabbitMQ start -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

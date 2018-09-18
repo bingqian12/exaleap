@@ -187,3 +187,48 @@ _主要要启动 config 服务， 如果不启动， 各个服务无法读取到
 * 5. customer
 * 6. product
  
+ 
+ 
+ ### docker install
+ 
+ 
+ ```
+ #直接yum安装，安装成功后查看版本
+ yum install docker-io -y
+ 
+ 
+ docker -v
+ 
+ #启动docker
+ service docker start
+ 
+ #设置开机启动
+ chkconfig docker on
+
+
+```
+
+
+### rabbitmq 安装
+```
+
+
+#直接阿里云下载的docker镜像  
+
+docker pull  registry.cn-hangzhou.aliyuncs.com/zp-k8s/rabbitmq:3-management  
+
+docker run -d --net host --name rabbitmq  registry.cn-hangzhou.aliyuncs.com/zp-k8s/rabbitmq:3-management
+
+docker ps # 查找指定容器
+
+docker exec -it '容器id' /bin/bash
+
+#通过find 命令查找rabbit安装目录
+
+#找到rabbitmqctl执行  修改密码
+
+./rabbitmqctl add_user admin 111111
+
+./rabbitmqctl set_user_tags admin administrator
+
+```
