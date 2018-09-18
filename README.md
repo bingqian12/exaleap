@@ -232,3 +232,8 @@ docker exec -it '容器id' /bin/bash
 ./rabbitmqctl set_user_tags admin administrator
 
 ```
+
+
+### yml格式检查 
+
+   (yml)[http://www.yamllint.com]
