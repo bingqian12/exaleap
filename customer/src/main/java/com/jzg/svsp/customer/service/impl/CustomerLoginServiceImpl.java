@@ -70,6 +70,9 @@ public class CustomerLoginServiceImpl implements ICustomerLoginService {
 
     @Override
     public ResultVo loginByValidateCode(String mobile, String validateCode) {
+        if (StringUtils.isBlank(mobile)) {
+            return ResultUtils.fail(HttpStatusEnum.NO_CONTENT.code(), "手机号错误");
+        }
         String redisValidateCode = redisClient.get(Constants.VALIDATE_CODE_PREFIX + mobile);
         if (StringUtils.isBlank(redisValidateCode) || !validateCode.equals(redisValidateCode)) {
             return ResultUtils.fail(HttpStatusEnum.NO_CONTENT.code(), "验证码错误");

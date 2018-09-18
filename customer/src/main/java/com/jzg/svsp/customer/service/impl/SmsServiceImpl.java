@@ -1,9 +1,11 @@
 package com.jzg.svsp.customer.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jzg.svsp.common.enums.HttpStatusEnum;
 import com.jzg.svsp.common.enums.SmsTemplateCode;
 import com.jzg.svsp.common.util.HttpUtils;
 import com.jzg.svsp.common.util.RandomUtils;
+import com.jzg.svsp.common.util.ResultUtils;
 import com.jzg.svsp.common.util.SignUtils;
 import com.jzg.svsp.common.vo.Constants;
 import com.jzg.svsp.common.vo.ResultVo;
@@ -42,6 +44,9 @@ public class SmsServiceImpl implements ISmsService {
 
     @Override
     public ResultVo sendValidateCode(String mobile) {
+        if(StringUtils.isBlank(mobile)){
+            return ResultUtils.fail(HttpStatusEnum.NO_CONTENT.code(), "手机号错误");
+        }
         String validateCode = RandomUtils.getValidateCode();
         redisClient.set(Constants.VALIDATE_CODE_PREFIX + mobile, validateCode, Constants.VALIDATE_CODE_EFFECTIVE_TIME);//向redis里存入数据和设置缓存时间
         Map<String, Object> paramMap = new HashMap<String, Object>();
