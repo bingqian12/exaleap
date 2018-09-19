@@ -236,4 +236,8 @@ docker exec -it '容器id' /bin/bash
 
 ### yml格式检查 
 
-   (yml)[http://www.yamllint.com]
+   [yml格式检查](http://www.yamllint.com)
+   
+   
+### docker 安装指导
+[安装指南](http://www.runoob.com/docker/centos-docker-install.html)

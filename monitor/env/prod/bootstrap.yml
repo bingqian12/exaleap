@@ -27,7 +27,9 @@ eureka:
       service-url:
         defaultZone: http://jzg:jzg123@172.21.200.6:8080/eureka/
 
-
+logging:
+  level:
+    root: DEBUG
 
 #spring:
 #  security:
