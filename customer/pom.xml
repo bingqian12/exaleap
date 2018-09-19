@@ -115,7 +115,6 @@
         </dependency>
         <!-- config 中心 end -->
 
-
 		<!--链路追踪 包含 zipkin sleuth rabbit-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
