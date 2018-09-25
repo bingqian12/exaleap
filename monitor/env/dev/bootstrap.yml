@@ -24,7 +24,7 @@ eureka:
     lease-expiration-duration-in-seconds: 10
   client:
       service-url:
-        defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
+        defaultZone: http://jzg:jzg123@192.168.0.70:8761/eureka/
 
 ribbon:
   ReadTimeout: 2000 # 请求处理超时时间
