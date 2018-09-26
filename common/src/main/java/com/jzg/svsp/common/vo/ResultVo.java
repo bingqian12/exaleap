@@ -11,11 +11,10 @@ import java.util.List;
  * 返回信息
  */
 @Data
-public class ResultVo<T extends Serializable> extends BaseResultVo implements Serializable {
+public class ResultVo<T> extends BaseResultVo implements Serializable {
     private static final long serialVersionUID = 4712972757347990461L;
 
     private T data = null;
-    private long createTime ;
 
     public ResultVo() {
         super();

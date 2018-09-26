@@ -19,7 +19,6 @@ public class ResultUtils {
         resultVo.setStatus(status);
         resultVo.setMsg(message);
         resultVo.setData(data);
-        resultVo.setCreateTime(System.currentTimeMillis());
         return resultVo;
 
     }
@@ -30,7 +29,6 @@ public class ResultUtils {
         ResultVo resultVo = new ResultVo();
         resultVo.setStatus(status);
         resultVo.setMsg(errorMsg);
-        resultVo.setCreateTime(System.currentTimeMillis());
         return resultVo;
 
     }
