@@ -18,7 +18,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for customer_balance_log
 -- ----------------------------
-DROP TABLE IF EXISTS `customer_balance_log`;
+/*DROP TABLE IF EXISTS `customer_balance_log`;
 CREATE TABLE `customer_balance_log` (
   `balance_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '余额日志id',
   `customer_id` bigint(20) unsigned NOT NULL COMMENT '用户ID',
@@ -28,12 +28,12 @@ CREATE TABLE `customer_balance_log` (
   `amount` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '变动金额',
   PRIMARY KEY (`balance_id`),
   KEY `fk_customer_balance_log_customer_id` (`customer_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户余额变动表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户余额变动表';*/
 
 -- ----------------------------
 -- Table structure for customer_inf
 -- ----------------------------
-DROP TABLE IF EXISTS `customer_inf`;
+/*DROP TABLE IF EXISTS `customer_inf`;
 CREATE TABLE `customer_inf` (
   `customer_inf_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增主键ID',
   `customer_id` bigint(20) unsigned NOT NULL COMMENT 'customer_login表的自增ID',
@@ -51,12 +51,12 @@ CREATE TABLE `customer_inf` (
   `modified_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间',
   PRIMARY KEY (`customer_inf_id`),
   UNIQUE KEY `fk_customer_inf_customer_id` (`customer_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户信息表';*/
 
 -- ----------------------------
 -- Table structure for customer_level_inf
 -- ----------------------------
-DROP TABLE IF EXISTS `customer_level_inf`;
+/*DROP TABLE IF EXISTS `customer_level_inf`;
 CREATE TABLE `customer_level_inf` (
   `customer_level` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT '会员级别ID',
   `level_name` varchar(10) COLLATE utf8_bin NOT NULL COMMENT '会员级别名称',
@@ -65,28 +65,28 @@ CREATE TABLE `customer_level_inf` (
   `modified_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
   PRIMARY KEY (`customer_level`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户级别信息表';
-
+*/
 -- ----------------------------
 -- Table structure for customer_login
 -- ----------------------------
-DROP TABLE IF EXISTS `customer_login`;
-CREATE TABLE `customer_login` (
+DROP TABLE IF EXISTS `dealer_login`;
+CREATE TABLE `dealer_login` (
   `uuid` varchar(50)COLLATE utf8_bin NOT NULL COMMENT '唯一标识',
-  `customer_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `login_name` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '用户登陆名',
+  `dealer_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '经销商ID',
+  `login_name` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '经销商登陆名（手机号）',
   `password` char(32) COLLATE utf8_bin NOT NULL COMMENT 'md5加密的密码',
   `user_stats` tinyint(4) NOT NULL DEFAULT '1' COMMENT '用户状态',
   `modified_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
   `mobile_phone` bigint(20) NOT NULL,
-  PRIMARY KEY (`customer_id`),
+  PRIMARY KEY (`dealer_id`),
   UNIQUE KEY `fk_customer_login_name` (`login_name`) USING HASH,
   UNIQUE KEY `fk_customer_login_phone` (`mobile_phone`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户登录表';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='经销商登录表';
 
 -- ----------------------------
 -- Table structure for customer_login_log
 -- ----------------------------
-DROP TABLE IF EXISTS `customer_login_log`;
+/*DROP TABLE IF EXISTS `customer_login_log`;
 CREATE TABLE `customer_login_log` (
   `login_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '登录日志ID',
   `customer_id` bigint(20) unsigned NOT NULL COMMENT '登录用户ID',
@@ -95,12 +95,12 @@ CREATE TABLE `customer_login_log` (
   `login_type` tinyint(4) NOT NULL COMMENT '登录类型:0未成功 1成功',
   PRIMARY KEY (`login_id`),
   KEY `fk_customer_login_log_customer_id` (`customer_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户登录日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户登录日志表';*/
 
 -- ----------------------------
 -- Table structure for customer_point_log
 -- ----------------------------
-DROP TABLE IF EXISTS `customer_point_log`;
+/*DROP TABLE IF EXISTS `customer_point_log`;
 CREATE TABLE `customer_point_log` (
   `point_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '积分日志ID',
   `customer_id` bigint(20) unsigned NOT NULL COMMENT '用户ID',
@@ -110,4 +110,4 @@ CREATE TABLE `customer_point_log` (
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '积分日志生成时间',
   PRIMARY KEY (`point_id`),
   KEY `fk_customer_point_log_customer_id` (`customer_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户积分日志表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户积分日志表';*/
