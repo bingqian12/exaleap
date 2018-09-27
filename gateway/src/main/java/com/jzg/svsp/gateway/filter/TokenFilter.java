@@ -44,11 +44,12 @@ public class TokenFilter extends ZuulFilter {
 
         //不同环境， 权限控制的范围不同
         log.info(" authPropConfig.getAuthLevel()    {}   ", authPropConfig.getAuthLevel() );
-        if(authPropConfig.getAuthLevel().equals(DevelopLevelEnum.PROD.getValue())){
-            return authProd();
-        }else {
-            return authDev();
-        }
+//        if(authPropConfig.getAuthLevel().equals(DevelopLevelEnum.PROD.getValue())){
+//            return authProd();
+//        }else {
+//            return authDev();
+//        }
+        return null;
 
     }
 
