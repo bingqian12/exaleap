@@ -18,8 +18,10 @@ public class AuthPropConfig {
 
     private List<String> apiUrls =new ArrayList<String>();
     private List<String> monitorUrls = new ArrayList<>();
+    private List<String> excludeUrls =new ArrayList<String>();
     private String accessToken;
     private String accessIp;
+    private String authLevel;
 
 
 
