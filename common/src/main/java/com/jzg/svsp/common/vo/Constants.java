@@ -22,6 +22,17 @@ public class Constants {
      */
     public static final String TOKEN_PREFIX = "TOKEN_PREFIX_";
 
+
+    /**
+     * C端客户TOKEN前缀
+     */
+    public static final String TOKEN_CUSTOMER_PREFIX = "TOKEN_CUSTOMER_PREFIX_";
+
+    /**
+     * B端客户TOKEN前缀
+     */
+    public static final String TOKEN_DEALER_PREFIX = "TOKEN_DEALER_PREFIX_";
+
     /**
      * TOKEN有效期
      */
