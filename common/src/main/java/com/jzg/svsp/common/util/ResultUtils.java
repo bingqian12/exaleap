@@ -2,18 +2,19 @@ package com.jzg.svsp.common.util;
 
 
 import com.jzg.svsp.common.enums.HttpStatusEnum;
+import com.jzg.svsp.common.vo.ResultPageVo;
 import com.jzg.svsp.common.vo.ResultVo;
 
 import java.io.Serializable;
 
 public class ResultUtils {
 
-    public static ResultVo success(Serializable data){
+    public static ResultVo success(Serializable data) {
         return success(data, HttpStatusEnum.OK.code(), HttpStatusEnum.OK.reasonPhraseCN());
     }
 
 
-    public static ResultVo success(Serializable data , int status, String message){
+    public static ResultVo success(Serializable data, int status, String message) {
 
         ResultVo resultVo = new ResultVo();
         resultVo.setStatus(status);
@@ -24,8 +25,7 @@ public class ResultUtils {
     }
 
 
-
-    public static ResultVo fail( int status,  String errorMsg){
+    public static ResultVo fail(int status, String errorMsg) {
         ResultVo resultVo = new ResultVo();
         resultVo.setStatus(status);
         resultVo.setMsg(errorMsg);
@@ -33,8 +33,11 @@ public class ResultUtils {
 
     }
 
+    public static ResultPageVo resultPageVofail(int status, String errorMsg) {
+        ResultPageVo resultVo = new ResultPageVo();
+        resultVo.setStatus(status);
+        resultVo.setMsg(errorMsg);
+        return resultVo;
 
-
-
-
+    }
 }
