@@ -5,7 +5,7 @@ package com.jzg.svsp.common.enums;
  * @Description:
  * @Date: Created by 14:11 on 2018/9/28.
  */
-public enum VehicleStatus {
+public enum VehicleStatusEnum {
 
     //车辆状态 0:下架  1:上架  2:已锁定 3:车辆解锁 4:待过户 5:已过户
 
@@ -19,7 +19,7 @@ public enum VehicleStatus {
     private int value;
     private String text;
 
-    VehicleStatus(int value,String text){
+    VehicleStatusEnum(int value, String text){
         this.value = value;
         this.text = text;
     }

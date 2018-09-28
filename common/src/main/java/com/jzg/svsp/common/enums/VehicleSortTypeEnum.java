@@ -5,7 +5,7 @@ import com.jzg.svsp.common.constant.VehicleConstant;
 /**
  * Created by JZG on 2017/6/8.
  */
-public enum VehicleSortType {
+public enum VehicleSortTypeEnum {
 
     //1 在库天数最短 2 在库天数最长 3 标价最低 4 标价最高 5 车龄最短 6 里程最少
 
@@ -26,20 +26,20 @@ public enum VehicleSortType {
     private String sortName;
     private String text;
 
-    VehicleSortType(int value, int sortType, String sortName, String text) {
+    VehicleSortTypeEnum(int value, int sortType, String sortName, String text) {
         this.value = value;
         this.sortType = sortType;
         this.sortName = sortName;
         this.text = text;
     }
 
-    public static VehicleSortType getVehicleSortType(int value) {
-        for (VehicleSortType cs : VehicleSortType.values()) {
+    public static VehicleSortTypeEnum getVehicleSortType(int value) {
+        for (VehicleSortTypeEnum cs : VehicleSortTypeEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
         }
-        return VehicleSortType.RELEASE_DESC;
+        return VehicleSortTypeEnum.RELEASE_DESC;
     }
 
     public int getValue() {
