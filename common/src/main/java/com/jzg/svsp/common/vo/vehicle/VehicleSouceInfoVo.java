@@ -16,11 +16,11 @@ public class VehicleSouceInfoVo implements BaseVo {
     private String regDate;//上牌时间
     private String cityName;//城市
     private String checkDate;//检测时间
-    private Integer saleStatus;//状态
+    private Integer vehicleStatus;//状态
 
     public VehicleSouceInfoVo(){}
 
-    public VehicleSouceInfoVo(Long id,String orderId,String img,String styleFullName,String mileage,String regDate,String cityName,String checkDate,Integer saleStatus){
+    public VehicleSouceInfoVo(Long id,String orderId,String img,String styleFullName,String mileage,String regDate,String cityName,String checkDate,Integer vehicleStatus){
         this.id = id;
         this.orderId = orderId;
         this.styleFullName = styleFullName;
@@ -28,7 +28,7 @@ public class VehicleSouceInfoVo implements BaseVo {
         this.regDate = regDate;
         this.cityName = cityName;
         this.checkDate = checkDate;
-        this.saleStatus = saleStatus;
+        this.vehicleStatus = vehicleStatus;
     }
 
     public String getOrderId() {
@@ -119,21 +119,22 @@ public class VehicleSouceInfoVo implements BaseVo {
         this.regDate = regDate;
     }
 
+
     /**
      * 获取
      *
-     * @return saleStatus
+     * @return vehicleStatus
      */
-    public Integer getSaleStatus() {
-        return this.saleStatus;
+    public Integer getVehicleStatus() {
+        return this.vehicleStatus;
     }
 
     /**
      * 设置
      *
-     * @param saleStatus
+     * @param vehicleStatus
      */
-    public void setSaleStatus(Integer saleStatus) {
-        this.saleStatus = saleStatus;
+    public void setVehicleStatus(Integer vehicleStatus) {
+        this.vehicleStatus = vehicleStatus;
     }
 }
