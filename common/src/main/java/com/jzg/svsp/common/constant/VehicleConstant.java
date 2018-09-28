@@ -17,7 +17,7 @@ public class VehicleConstant {
     public static final String modelId = "modelId"; //车系ID
     public static final String styleId = "styleId"; //车型ID
     public static final String vinCode = "vinCode"; //vinCode
-    public static final String vehcleStatus = "vehcleStatus"; //车源状态
+    public static final String vehicleStatus = "vehicleStatus"; //车源状态
     public static final String saleStatus = "saleStatus"; //上架状态
     public static final String regDate = "regDate"; //注册日期
     public static final String toBPrice = "toBPrice"; //toBPrice

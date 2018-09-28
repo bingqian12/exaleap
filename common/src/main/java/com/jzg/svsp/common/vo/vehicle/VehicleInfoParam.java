@@ -41,11 +41,8 @@ public class VehicleInfoParam implements BaseVo {
     /**
      * 车辆状态
      */
-    private Integer vehcleStatus;
-    /**
-     * 销售状态 0 不可售  1 可售
-     */
-    private Integer saleStatus;
+    private Integer vehicleStatus;
+
     /**
      * 排序类型  1 在库天数最短 2 在库天数最长 3 标价最低 4 标价最高 5 车龄最短 6 里程最少
      */
@@ -213,41 +210,7 @@ public class VehicleInfoParam implements BaseVo {
         this.vinCode = vinCode;
     }
 
-    /**
-     * 获取 车辆状态
-     *
-     * @return vehcleStatus 车辆状态
-     */
-    public Integer getVehcleStatus() {
-        return this.vehcleStatus;
-    }
 
-    /**
-     * 设置 车辆状态
-     *
-     * @param vehcleStatus 车辆状态
-     */
-    public void setVehcleStatus(Integer vehcleStatus) {
-        this.vehcleStatus = vehcleStatus;
-    }
-
-    /**
-     * 获取 销售状态
-     *
-     * @return saleStatus 销售状态
-     */
-    public Integer getSaleStatus() {
-        return this.saleStatus;
-    }
-
-    /**
-     * 设置 销售状态
-     *
-     * @param saleStatus 销售状态
-     */
-    public void setSaleStatus(Integer saleStatus) {
-        this.saleStatus = saleStatus;
-    }
 
     /**
      * 获取 排序类型  1 在库天数最短 2 在库天数最长 3 标价最低 4 标价最高 5 车龄最短 6 里程最少
@@ -520,5 +483,23 @@ public class VehicleInfoParam implements BaseVo {
      */
     public void setCarAgeEnd(Integer carAgeEnd) {
         this.carAgeEnd = carAgeEnd;
+    }
+
+    /**
+     * 获取 车辆状态
+     *
+     * @return vehicleStatus 车辆状态
+     */
+    public Integer getVehicleStatus() {
+        return this.vehicleStatus;
+    }
+
+    /**
+     * 设置 车辆状态
+     *
+     * @param vehicleStatus 车辆状态
+     */
+    public void setVehicleStatus(Integer vehicleStatus) {
+        this.vehicleStatus = vehicleStatus;
     }
 }
