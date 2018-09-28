@@ -13,7 +13,7 @@ public class VehicleInfoParam implements BaseVo {
     /**
      * 客户ID
      */
-    private String custId;
+    private String customerId;
     /**
      * 品牌  模糊搜索例如 宝马
      */
@@ -321,23 +321,7 @@ public class VehicleInfoParam implements BaseVo {
         this.color = color;
     }
 
-    /**
-     * 获取 客户ID
-     *
-     * @return custId 客户ID
-     */
-    public String getCustId() {
-        return this.custId;
-    }
 
-    /**
-     * 设置 客户ID
-     *
-     * @param custId 客户ID
-     */
-    public void setCustId(String custId) {
-        this.custId = custId;
-    }
 
 
     /**
@@ -501,5 +485,23 @@ public class VehicleInfoParam implements BaseVo {
      */
     public void setVehicleStatus(Integer vehicleStatus) {
         this.vehicleStatus = vehicleStatus;
+    }
+
+    /**
+     * 获取 客户ID
+     *
+     * @return customerId 客户ID
+     */
+    public String getCustomerId() {
+        return this.customerId;
+    }
+
+    /**
+     * 设置 客户ID
+     *
+     * @param customerId 客户ID
+     */
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 }

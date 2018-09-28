@@ -14,7 +14,7 @@ public class VehicleSourceParam implements BaseVo{
     /**
      * 客户ID
      */
-    private Long custId;
+    private Long customerId;
     /**
      * 车源ID
      */
@@ -142,23 +142,7 @@ public class VehicleSourceParam implements BaseVo{
         this.toCDeposit = toCDeposit;
     }
 
-    /**
-     * 获取 客户ID
-     *
-     * @return custId 客户ID
-     */
-    public Long getCustId() {
-        return this.custId;
-    }
 
-    /**
-     * 设置 客户ID
-     *
-     * @param custId 客户ID
-     */
-    public void setCustId(Long custId) {
-        this.custId = custId;
-    }
 
     /**
      * 获取 当前页码
@@ -212,5 +196,23 @@ public class VehicleSourceParam implements BaseVo{
      */
     public void setVehicleStatus(Integer vehicleStatus) {
         this.vehicleStatus = vehicleStatus;
+    }
+
+    /**
+     * 获取 客户ID
+     *
+     * @return customerId 客户ID
+     */
+    public Long getCustomerId() {
+        return this.customerId;
+    }
+
+    /**
+     * 设置 客户ID
+     *
+     * @param customerId 客户ID
+     */
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 }

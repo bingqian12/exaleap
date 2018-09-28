@@ -9,7 +9,7 @@ import com.jzg.svsp.common.vo.BaseVo;
 public class VehicleSouceInfoVo implements BaseVo {
 
     private Long id;
-    private String orderId;
+    private Long custId;
     private String img;
     private String styleFullName;//车型全称
     private String mileage;//公里数
@@ -21,24 +21,8 @@ public class VehicleSouceInfoVo implements BaseVo {
     public VehicleSouceInfoVo() {
     }
 
-    public VehicleSouceInfoVo(Long id, String orderId, String img, String styleFullName, String mileage, String regDate, String cityName, String releaseTime, Integer vehicleStatus) {
-        this.id = id;
-        this.orderId = orderId;
-        this.styleFullName = styleFullName;
-        this.mileage = mileage;
-        this.regDate = regDate;
-        this.cityName = cityName;
-        this.releaseTime = releaseTime;
-        this.vehicleStatus = vehicleStatus;
-    }
 
-    public String getOrderId() {
-        return orderId;
-    }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
 
     public Long getId() {
         return id;
@@ -145,5 +129,23 @@ public class VehicleSouceInfoVo implements BaseVo {
      */
     public void setReleaseTime(String releaseTime) {
         this.releaseTime = releaseTime;
+    }
+
+    /**
+     * 获取
+     *
+     * @return custId
+     */
+    public Long getCustId() {
+        return this.custId;
+    }
+
+    /**
+     * 设置
+     *
+     * @param custId
+     */
+    public void setCustId(Long custId) {
+        this.custId = custId;
     }
 }
