@@ -38,7 +38,7 @@ public class VehicleSourceParam implements BaseVo{
     /**
      * 车源状态 0 下架 1 上架
      */
-    private Integer saleStatus;
+    private Integer vehicleStatus;
     /**
      * 当前页码
      */
@@ -104,23 +104,6 @@ public class VehicleSourceParam implements BaseVo{
         this.toCPrice = toCPrice;
     }
 
-    /**
-     * 获取 车源状态 0 下架 1 上架
-     *
-     * @return saleStatus 车源状态 0 下架 1 上架
-     */
-    public Integer getSaleStatus() {
-        return this.saleStatus;
-    }
-
-    /**
-     * 设置 车源状态 0 下架 1 上架
-     *
-     * @param saleStatus 车源状态 0 下架 1 上架
-     */
-    public void setSaleStatus(Integer saleStatus) {
-        this.saleStatus = saleStatus;
-    }
 
 
     /**
@@ -211,5 +194,23 @@ public class VehicleSourceParam implements BaseVo{
      */
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    /**
+     * 获取 车源状态 0 下架 1 上架
+     *
+     * @return vehicleStatus 车源状态 0 下架 1 上架
+     */
+    public Integer getVehicleStatus() {
+        return this.vehicleStatus;
+    }
+
+    /**
+     * 设置 车源状态 0 下架 1 上架
+     *
+     * @param vehicleStatus 车源状态 0 下架 1 上架
+     */
+    public void setVehicleStatus(Integer vehicleStatus) {
+        this.vehicleStatus = vehicleStatus;
     }
 }

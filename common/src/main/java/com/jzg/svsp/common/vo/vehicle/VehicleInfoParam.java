@@ -71,6 +71,14 @@ public class VehicleInfoParam implements BaseVo {
      */
     private Integer mileageEnd;
     /**
+     * 车龄开始
+     */
+    private Integer carAgeStart;
+    /**
+     * 车龄结束
+     */
+    private Integer carAgeEnd;
+    /**
      * 变速箱
      */
     private Integer variableBox;
@@ -476,5 +484,41 @@ public class VehicleInfoParam implements BaseVo {
      */
     public void setMileageEnd(Integer mileageEnd) {
         this.mileageEnd = mileageEnd;
+    }
+
+    /**
+     * 获取 车龄开始
+     *
+     * @return carAgeStart 车龄开始
+     */
+    public Integer getCarAgeStart() {
+        return this.carAgeStart;
+    }
+
+    /**
+     * 设置 车龄开始
+     *
+     * @param carAgeStart 车龄开始
+     */
+    public void setCarAgeStart(Integer carAgeStart) {
+        this.carAgeStart = carAgeStart;
+    }
+
+    /**
+     * 获取 车龄结束
+     *
+     * @return carAgeEnd 车龄结束
+     */
+    public Integer getCarAgeEnd() {
+        return this.carAgeEnd;
+    }
+
+    /**
+     * 设置 车龄结束
+     *
+     * @param carAgeEnd 车龄结束
+     */
+    public void setCarAgeEnd(Integer carAgeEnd) {
+        this.carAgeEnd = carAgeEnd;
     }
 }
