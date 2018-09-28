@@ -15,19 +15,20 @@ public class VehicleSouceInfoVo implements BaseVo {
     private String mileage;//公里数
     private String regDate;//上牌时间
     private String cityName;//城市
-    private String checkDate;//检测时间
+    private String releaseTime;//发布时间
     private Integer vehicleStatus;//状态
 
-    public VehicleSouceInfoVo(){}
+    public VehicleSouceInfoVo() {
+    }
 
-    public VehicleSouceInfoVo(Long id,String orderId,String img,String styleFullName,String mileage,String regDate,String cityName,String checkDate,Integer vehicleStatus){
+    public VehicleSouceInfoVo(Long id, String orderId, String img, String styleFullName, String mileage, String regDate, String cityName, String releaseTime, Integer vehicleStatus) {
         this.id = id;
         this.orderId = orderId;
         this.styleFullName = styleFullName;
         this.mileage = mileage;
         this.regDate = regDate;
         this.cityName = cityName;
-        this.checkDate = checkDate;
+        this.releaseTime = releaseTime;
         this.vehicleStatus = vehicleStatus;
     }
 
@@ -46,7 +47,6 @@ public class VehicleSouceInfoVo implements BaseVo {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
     public String getStyleFullName() {
@@ -72,15 +72,6 @@ public class VehicleSouceInfoVo implements BaseVo {
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
-
-    public String getCheckDate() {
-        return checkDate;
-    }
-
-    public void setCheckDate(String checkDate) {
-        this.checkDate = checkDate;
-    }
-
 
 
     /**
@@ -136,5 +127,23 @@ public class VehicleSouceInfoVo implements BaseVo {
      */
     public void setVehicleStatus(Integer vehicleStatus) {
         this.vehicleStatus = vehicleStatus;
+    }
+
+    /**
+     * 获取
+     *
+     * @return releaseTime
+     */
+    public String getReleaseTime() {
+        return this.releaseTime;
+    }
+
+    /**
+     * 设置
+     *
+     * @param releaseTime
+     */
+    public void setReleaseTime(String releaseTime) {
+        this.releaseTime = releaseTime;
     }
 }

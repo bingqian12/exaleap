@@ -1106,6 +1106,21 @@ public class DateUtils {
     }
 
     /**
+     * 取得指定日期格式的字符串
+     *
+     * @param date
+     * @return String
+     */
+    public static String formatDate(String date, String format) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        try {
+            return dateFormat.format(LONG_DATE_FORMAT.parse(date));
+        } catch (ParseException e) {
+        }
+        return "";
+    }
+
+    /**
      * 获取昨日的日期格式串
      *
      * @return Date
