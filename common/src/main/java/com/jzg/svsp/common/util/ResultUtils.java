@@ -1,6 +1,7 @@
 package com.jzg.svsp.common.util;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.jzg.svsp.common.enums.HttpStatusEnum;
 import com.jzg.svsp.common.vo.ResultPageVo;
 import com.jzg.svsp.common.vo.ResultVo;
@@ -39,5 +40,20 @@ public class ResultUtils {
         resultVo.setMsg(errorMsg);
         return resultVo;
 
+    }
+
+
+    public static ResultVo changeResultPageVo(ResultPageVo resultPageVo) {
+        ResultVo resultVo = new ResultVo();
+        JSONObject data = new JSONObject();
+        data.put("pageNo", resultPageVo.getPageNo());
+        data.put("pageSize", resultPageVo.getPageSize());
+        data.put("pageCount", resultPageVo.getPageCount());
+        data.put("total", resultPageVo.getTotal());
+        data.put("list", resultPageVo.getList());
+        resultVo.setStatus(resultPageVo.getStatus());
+        resultVo.setMsg(resultPageVo.getMsg());
+        resultVo.setData(data);
+        return resultVo;
     }
 }
