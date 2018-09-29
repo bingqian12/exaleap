@@ -42,6 +42,11 @@
 		<!--</dependency>-->
 		<!--  zipkin server end-->
 
+		<!--设置用户名密码认证 -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-security</artifactId>-->
+		<!--</dependency>-->
 
 		<!-- 聚合各个微服务的数据流-->
 		<dependency>
