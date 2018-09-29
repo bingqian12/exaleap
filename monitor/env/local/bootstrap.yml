@@ -38,5 +38,5 @@ ribbon:
   ReadTimeout: 2000 # 请求处理超时时间
   ConnectTimeout: 2000
 turbine: #要监听的微服务列表
-  app-config: product,customer
+  app-config: product,user,order,service,trade
   cluster-name-expression: "'default'"
