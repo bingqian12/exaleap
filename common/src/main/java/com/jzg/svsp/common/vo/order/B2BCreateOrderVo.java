@@ -12,6 +12,7 @@ public class B2BCreateOrderVo implements Serializable {
 
     private static final long serialVersionUID = 1140575108677444277L;
 
+    private String buyId;
     private String saleId;
     private String saleName;
     private String productId;
@@ -21,6 +22,14 @@ public class B2BCreateOrderVo implements Serializable {
     private String payMethod;
     private String modifier_id;
     private String modifier_name;
+
+    public String getBuyId() {
+        return buyId;
+    }
+
+    public void setBuyId(String buyId) {
+        this.buyId = buyId;
+    }
 
     public String getSaleId() {
         return saleId;
