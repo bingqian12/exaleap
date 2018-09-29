@@ -3,10 +3,10 @@ spring:
     name: monitor
 
   rabbitmq:
-    host: 127.0.0.1
+    host: 192.168.33.12
     port: 5672
-    username: guest
-    password: guest
+    username: jzgadmin
+    password: Ual0L1Q#^19
 
 
   cloud:

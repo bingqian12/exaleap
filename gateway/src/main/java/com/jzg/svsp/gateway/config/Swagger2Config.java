@@ -38,7 +38,7 @@ public class Swagger2Config {
                 .title("网关说明文档")
                 .description("接口说明文档")
                 .termsOfServiceUrl("")
-                .contact(new Contact("dikers","xxx@foxmail.com","xxx@foxmail.com"))
+                .contact(new Contact("JZG","xxx@foxmail.com","xxx@foxmail.com"))
                 .version("1.0")
                 .build();
     }

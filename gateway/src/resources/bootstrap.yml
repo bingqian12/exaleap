@@ -20,6 +20,7 @@ eureka:
       service-url:
         defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
 
+config-name: gatewayDefault
 
 
 
