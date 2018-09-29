@@ -2,10 +2,10 @@ spring:
   application:
     name: eureka
   security:
-      user:
-        name: jzg
-        password: jzg123
-        role: SUPERUSER
+    user:
+      name: jzg
+      password: jzg123
+      role: SUPERUSER
 eureka:
   instance:
     hostname: eureka
