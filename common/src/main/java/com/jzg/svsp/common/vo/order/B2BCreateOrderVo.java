@@ -13,8 +13,8 @@ public class B2BCreateOrderVo implements Serializable {
     private static final long serialVersionUID = 1140575108677444277L;
 
     private String customerId;
-    private String dealerId;
-    private String dealerName;
+    private String saleId;
+    private String saleName;
     private String productId;
     private String productName;
     private String orderMoney;
@@ -31,20 +31,20 @@ public class B2BCreateOrderVo implements Serializable {
         this.customerId = customerId;
     }
 
-    public String getDealerId() {
-        return dealerId;
+    public String getSaleId() {
+        return saleId;
     }
 
-    public void setDealerId(String dealerId) {
-        this.dealerId = dealerId;
+    public void setSaleId(String saleId) {
+        this.saleId = saleId;
     }
 
-    public String getDealerName() {
-        return dealerName;
+    public String getSaleName() {
+        return saleName;
     }
 
-    public void setDealerName(String dealerName) {
-        this.dealerName = dealerName;
+    public void setSaleName(String saleName) {
+        this.saleName = saleName;
     }
 
     public String getProductId() {

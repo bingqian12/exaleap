@@ -19,7 +19,15 @@ public class B2BOrderInfoByListVo implements Serializable {
     private Integer payMethod;
     private Integer moneyStatus;
     private Integer carStatus;
-    private Integer startNum;
+    /**
+     * 当前页码
+     */
+    private Integer pageNo;
+    /**
+     * 每页条数
+     */
+    private Integer pageSize;
+
 
     public Integer getBusinessType() {
         return businessType;
@@ -77,11 +85,19 @@ public class B2BOrderInfoByListVo implements Serializable {
         this.carStatus = carStatus;
     }
 
-    public Integer getStartNum() {
-        return startNum;
+    public Integer getPageNo() {
+        return pageNo;
     }
 
-    public void setStartNum(Integer startNum) {
-        this.startNum = startNum;
+    public void setPageNo(Integer pageNo) {
+        this.pageNo = pageNo;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 }
