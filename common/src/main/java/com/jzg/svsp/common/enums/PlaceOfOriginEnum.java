@@ -3,16 +3,12 @@ package com.jzg.svsp.common.enums;
 /**
  * @Author: jzg
  * @Description:
- * @Date: Created by 16:25 on 2018/9/19.
+ * @Date: Created by 10:24 on 2018/9/30.
  */
-public enum EffluentStdEnum {
+public enum PlaceOfOriginEnum {
 
-    //1国二及以下，2国三，3国四，4国五，5无法判断
-    ONE(1, "国二及以下"),
-    TWO(2, "国三"),
-    THREE(3, "国四"),
-    FOUR(4, "国五"),
-    FIVE(5, "无法判断");
+    DOMESTIC(1, "国内"),
+    IMPORTED(2, "进口");
 
     /**
      * value
@@ -30,18 +26,18 @@ public enum EffluentStdEnum {
      * @param value 状态码
      * @param text  文字说明
      */
-    private EffluentStdEnum(int value, String text) {
+    PlaceOfOriginEnum(int value, String text) {
         this.value = value;
         this.text = text;
     }
 
-    public static EffluentStdEnum getEffluentStdEnum(int value) {
-        for (EffluentStdEnum cs : EffluentStdEnum.values()) {
+    public static PlaceOfOriginEnum getPlaceOfOriginEnum(int value) {
+        for (PlaceOfOriginEnum cs : PlaceOfOriginEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
         }
-        return EffluentStdEnum.FIVE;
+        return PlaceOfOriginEnum.DOMESTIC;
     }
 
     /**

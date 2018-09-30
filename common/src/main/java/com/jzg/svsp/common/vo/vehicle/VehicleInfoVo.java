@@ -1,5 +1,6 @@
 package com.jzg.svsp.common.vo.vehicle;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jzg.svsp.common.vo.BaseVo;
 
 import java.math.BigDecimal;
@@ -113,7 +114,7 @@ public class VehicleInfoVo implements BaseVo {
     /**
      * 检测报告
      */
-    private String report;
+    private JSONObject report;
 
     /**
      * 获取 @Id
@@ -629,7 +630,7 @@ public class VehicleInfoVo implements BaseVo {
      *
      * @return report 检测报告
      */
-    public String getReport() {
+    public JSONObject getReport() {
         return this.report;
     }
 
@@ -638,7 +639,7 @@ public class VehicleInfoVo implements BaseVo {
      *
      * @param report 检测报告
      */
-    public void setReport(String report) {
+    public void setReport(JSONObject report) {
         this.report = report;
     }
 }

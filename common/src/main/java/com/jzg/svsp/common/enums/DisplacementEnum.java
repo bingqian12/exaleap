@@ -1,18 +1,18 @@
 package com.jzg.svsp.common.enums;
 
 /**
+ * 排量枚举
  * @Author: jzg
  * @Description:
- * @Date: Created by 16:25 on 2018/9/19.
+ * @Date: Created by 10:08 on 2018/9/30.
  */
-public enum EffluentStdEnum {
+public enum DisplacementEnum {
 
-    //1国二及以下，2国三，3国四，4国五，5无法判断
-    ONE(1, "国二及以下"),
-    TWO(2, "国三"),
-    THREE(3, "国四"),
-    FOUR(4, "国五"),
-    FIVE(5, "无法判断");
+    //1.0-1.6 1.6-2.0 2.0-3.0 3.0以上
+    ONE_ONE_POINT_SIX(1, "1.0-1.6"),
+    ONE_POINT_SIX_TWO(2, "1.6-2.0"),
+    TWO_THREE(3, "2.0-3.0"),
+    THREE_OVER(4, "3.0以上");
 
     /**
      * value
@@ -30,18 +30,18 @@ public enum EffluentStdEnum {
      * @param value 状态码
      * @param text  文字说明
      */
-    private EffluentStdEnum(int value, String text) {
+     DisplacementEnum(int value, String text) {
         this.value = value;
         this.text = text;
     }
 
-    public static EffluentStdEnum getEffluentStdEnum(int value) {
-        for (EffluentStdEnum cs : EffluentStdEnum.values()) {
+    public static DisplacementEnum getDisplacementEnum(int value) {
+        for (DisplacementEnum cs : DisplacementEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
         }
-        return EffluentStdEnum.FIVE;
+        return DisplacementEnum.THREE_OVER;
     }
 
     /**
@@ -61,4 +61,6 @@ public enum EffluentStdEnum {
     public String getText() {
         return this.text;
     }
+
+
 }
