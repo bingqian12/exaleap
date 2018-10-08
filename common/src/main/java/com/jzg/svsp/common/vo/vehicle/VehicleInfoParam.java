@@ -11,6 +11,10 @@ import java.math.BigDecimal;
  */
 public class VehicleInfoParam implements BaseVo {
     /**
+     * 搜索参数
+     */
+    private String searchParam;
+    /**
      * 客户ID
      */
     private String customerId;
@@ -22,6 +26,10 @@ public class VehicleInfoParam implements BaseVo {
      * 车系  模糊搜索例如 3系
      */
     private String modelName;
+    /**
+     * 车型  模糊搜索例如
+     */
+    private String styleName;
     /**
      * 品牌Id
      */
@@ -503,5 +511,41 @@ public class VehicleInfoParam implements BaseVo {
      */
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
+    }
+
+    /**
+     * 获取 搜索参数
+     *
+     * @return searchParam 搜索参数
+     */
+    public String getSearchParam() {
+        return this.searchParam;
+    }
+
+    /**
+     * 设置 搜索参数
+     *
+     * @param searchParam 搜索参数
+     */
+    public void setSearchParam(String searchParam) {
+        this.searchParam = searchParam;
+    }
+
+    /**
+     * 获取 车型  模糊搜索例如
+     *
+     * @return styleName 车型  模糊搜索例如
+     */
+    public String getStyleName() {
+        return this.styleName;
+    }
+
+    /**
+     * 设置 车型  模糊搜索例如
+     *
+     * @param styleName 车型  模糊搜索例如
+     */
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
     }
 }

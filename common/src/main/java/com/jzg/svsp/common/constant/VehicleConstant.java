@@ -7,6 +7,8 @@ package com.jzg.svsp.common.constant;
  */
 public class VehicleConstant {
 
+    public static final String ES_INDEX  = "product"; //索引，类似数据库
+    public static final String ES_TYPE = "vehicle"; //类型，类似表
 
     public static final String vehicleId = "id"; //车源ID
     public static final String custId = "custId"; //客户ID
