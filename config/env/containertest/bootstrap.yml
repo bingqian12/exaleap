@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://reg.jingzhengu.com/svsp/svsp-config.git
+          #对应git 分支名称
+          default-label: dev
+          password: oZVxay1prtm2
+          username: zhangliang02
+          #对应搜索的文件夹路径
+          searchPaths: customer,gateway,product
+#          basedir: ~/out   #配置本地仓库的位置
+eureka:
+  instance:
+    prefer-ip-address: true #使用IP注册
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    ##续约更新时间间隔设置5秒，m默认30s
+    lease-renewal-interval-in-seconds: 5
+    ##续约到期时间10秒，默认是90秒
+    lease-expiration-duration-in-seconds: 10
+  client:
+      service-url:
+        defaultZone: http://jzg:jzg123@172.19.11.249:80/eureka/
+
+
+testname: test
