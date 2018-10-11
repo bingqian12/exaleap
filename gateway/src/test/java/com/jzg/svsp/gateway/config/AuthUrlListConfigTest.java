@@ -26,10 +26,10 @@ public class AuthUrlListConfigTest {
 
         Assert.assertTrue(urls.size()>0);
 
-        List<String> urls2 =  authUrlListConfig.getMonitorUrls();
-        log.info("\n============================== urls2 {}" ,  urls2.size());
-
-        Assert.assertTrue(urls2.size()>0);
+//        List<String> urls2 =  authUrlListConfig.getMonitorUrls();
+//        log.info("\n============================== urls2 {}" ,  urls2.size());
+//
+//        Assert.assertTrue(urls2.size()>0);
 
     }
 }
