@@ -142,6 +142,6 @@ public class VehicleInfoParam implements BaseVo {
      */
     private String seatCount;
 
-
+    private String placeOfOrigin;
 
 }
