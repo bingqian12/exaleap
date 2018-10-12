@@ -19,6 +19,8 @@ public class VehicleConstant {
     public static final String modelId = "modelId"; //车系ID
     public static final String styleId = "styleId"; //车型ID
     public static final String vinCode = "vinCode"; //vinCode
+    public static final String mortgageStatus = "mortgageStatus"; //车源状态
+    public static final String shelfStatus = "shelfStatus"; //车源状态
     public static final String vehicleStatus = "vehicleStatus"; //车源状态
     public static final String regDate = "regDate"; //注册日期
     public static final String toBPrice = "toBPrice"; //toBPrice
@@ -27,9 +29,12 @@ public class VehicleConstant {
     public static final String toCDeposit = "toCDeposit"; //toCDeposit
     public static final String mileage = "mileage"; //mileage
     public static final String variableBox = "variableBox"; //variableBox
+    public static final String vehicleType = "vehicleType"; //vehicleType
     public static final String modelLevel = "modelLevel"; //modelLevel
     public static final String emissionStandard = "emissionStandard"; //emissionStandard
     public static final String color = "color"; //color
+    public static final String locationProvinceId = "locationProvinceId"; //locationProvinceId
+    public static final String locationCityId = "locationCityId"; //locationCityId
     public static final String cityId = "cityId"; //cityId
     public static final String cityName = "cityName"; //cityName
     public static final String orderId = "orderId"; //orderId
@@ -38,7 +43,8 @@ public class VehicleConstant {
     public static final String checkDate = "checkDate"; //checkDate
     public static final String carAge = "carAge"; //carAge
     public static final String releaseTime = "releaseTime"; //releaseTime
-
+    public static final String storeId = "storeId"; //storeId
+    public static final String seatCount = "seatCount"; //seatCount
 
 
 

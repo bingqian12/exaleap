@@ -3,23 +3,28 @@ package com.jzg.svsp.common.enums;
 /**
  * @Author: jzg
  * @Description:
- * @Date: Created by 10:22 on 2018/9/30.
+ * @Date: Created by 9:51 on 2018/10/10.
  */
-public enum VariableBoxEnum {
+public enum OilFuelTypeEnum {
 
-/*
-69	手动
-208	半自动
-3	自动
-64	手自一体
-242	CVT无级变速
-60	双离合
-180	电动车单速变速箱
-193	待查
-237	E-CVT无级变速
-*/
-    MANUAL(0, "手动"),
-    AUTOMATIC(1, "自动");
+    /**
+     193	待查
+     88	    汽油
+     203	柴油
+     26	    油气混合动力
+     27	    油电混合动力
+     178	电力
+     228	LPG
+     243	CNG
+     325	插电混合
+     */
+
+
+    GASOLINE(1, "汽油"),
+    DIESEL_OIL(2, "柴油"),
+    ELECTRIC(3, "电动"),
+    OIL_ELECTRIC(4, "油电混动"),
+    OTHER(5, "其他");
 
     /**
      * value
@@ -37,18 +42,18 @@ public enum VariableBoxEnum {
      * @param value 状态码
      * @param text  文字说明
      */
-    VariableBoxEnum(int value, String text) {
+    OilFuelTypeEnum(int value, String text) {
         this.value = value;
         this.text = text;
     }
 
-    public static VariableBoxEnum getVariableBoxEnum(int value) {
-        for (VariableBoxEnum cs : VariableBoxEnum.values()) {
+    public static OilFuelTypeEnum getOilFuelTypeEnum(int value) {
+        for (OilFuelTypeEnum cs : OilFuelTypeEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
         }
-        return VariableBoxEnum.AUTOMATIC;
+        return OilFuelTypeEnum.OTHER;
     }
 
     /**
@@ -68,6 +73,4 @@ public enum VariableBoxEnum {
     public String getText() {
         return this.text;
     }
-
-
 }

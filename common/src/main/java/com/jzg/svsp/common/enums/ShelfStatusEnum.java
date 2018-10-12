@@ -5,25 +5,23 @@ package com.jzg.svsp.common.enums;
  * @Description:
  * @Date: Created by 14:11 on 2018/9/28.
  */
-public enum VehicleStatusEnum {
+public enum ShelfStatusEnum {
 
-    //车辆状态  0:未锁定 1:已锁定 2:待过户 3:已过户
+    //上架状态 0:下架  1:上架
 
-    LOCK(0,"未锁定"),
-    UNLOCK(1,"已锁定"),
-    WAIT_TRANSFER(2,"待过户"),
-    COMPLETE_TRANSFER(3,"已过户");
+    DOWN_SHELF(0,"下架"),
+    UP_SHELF(1,"上架");
 
     private int value;
     private String text;
 
-    VehicleStatusEnum(int value, String text){
+    ShelfStatusEnum(int value, String text){
         this.value = value;
         this.text = text;
     }
 
-    public static VehicleStatusEnum getVehicleStatus(int value) {
-        for (VehicleStatusEnum cs : VehicleStatusEnum.values()) {
+    public static ShelfStatusEnum getShelfStatus(int value) {
+        for (ShelfStatusEnum cs : ShelfStatusEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }

@@ -2,10 +2,14 @@ package com.jzg.svsp.common.vo.vehicle;
 
 
 import com.jzg.svsp.common.vo.BaseVo;
+import lombok.Data;
+
+import java.math.BigDecimal;
 
 /**
  * Created by JZG on 2018/8/15.
  */
+@Data
 public class VehicleSouceInfoVo implements BaseVo {
 
     private Long id;
@@ -16,136 +20,29 @@ public class VehicleSouceInfoVo implements BaseVo {
     private String regDate;//上牌时间
     private String cityName;//城市
     private String releaseTime;//发布时间
-    private Integer vehicleStatus;//状态
-
-    public VehicleSouceInfoVo() {
-    }
-
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public String getStyleFullName() {
-        return styleFullName;
-    }
-
-    public void setStyleFullName(String styleFullName) {
-        this.styleFullName = styleFullName;
-    }
-
-    public String getMileage() {
-        return mileage;
-    }
-
-    public void setMileage(String mileage) {
-        this.mileage = mileage;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-
+    private Integer shelfStatus;//上架状态
+    private String shelfStatusDesc; //上架状态
+    private Integer vehicleStatus;//车辆状态
+    private String vehicleStatusDesc;//车辆状态
+    private Integer mortgageStatus;//抵押状态
+    private String mortgageStatusDesc;//抵押状态
+    private String vinCode;//VIN
     /**
-     * 获取
-     *
-     * @return img
+     * 卖给车商价格
      */
-    public String getImg() {
-        return this.img;
-    }
-
+    private BigDecimal toBPrice;
     /**
-     * 设置
-     *
-     * @param img
+     * 卖给个人价格
      */
-    public void setImg(String img) {
-        this.img = img;
-    }
-
+    private BigDecimal toCPrice;
     /**
-     * 获取
-     *
-     * @return regDate
+     * 浏览数
      */
-    public String getRegDate() {
-        return this.regDate;
-    }
-
+    private Integer viewNum;
     /**
-     * 设置
-     *
-     * @param regDate
+     * 店铺名称
      */
-    public void setRegDate(String regDate) {
-        this.regDate = regDate;
-    }
+    private String shopName;
 
 
-    /**
-     * 获取
-     *
-     * @return vehicleStatus
-     */
-    public Integer getVehicleStatus() {
-        return this.vehicleStatus;
-    }
-
-    /**
-     * 设置
-     *
-     * @param vehicleStatus
-     */
-    public void setVehicleStatus(Integer vehicleStatus) {
-        this.vehicleStatus = vehicleStatus;
-    }
-
-    /**
-     * 获取
-     *
-     * @return releaseTime
-     */
-    public String getReleaseTime() {
-        return this.releaseTime;
-    }
-
-    /**
-     * 设置
-     *
-     * @param releaseTime
-     */
-    public void setReleaseTime(String releaseTime) {
-        this.releaseTime = releaseTime;
-    }
-
-    /**
-     * 获取
-     *
-     * @return custId
-     */
-    public Long getCustId() {
-        return this.custId;
-    }
-
-    /**
-     * 设置
-     *
-     * @param custId
-     */
-    public void setCustId(Long custId) {
-        this.custId = custId;
-    }
 }

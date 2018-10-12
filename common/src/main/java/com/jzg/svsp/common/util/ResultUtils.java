@@ -3,6 +3,7 @@ package com.jzg.svsp.common.util;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jzg.svsp.common.enums.HttpStatusEnum;
+import com.jzg.svsp.common.vo.ResultListVo;
 import com.jzg.svsp.common.vo.ResultPageVo;
 import com.jzg.svsp.common.vo.ResultVo;
 
@@ -34,7 +35,15 @@ public class ResultUtils {
 
     }
 
-    public static ResultPageVo resultPageVofail(int status, String errorMsg) {
+    public static ResultListVo resultListFail(int status, String errorMsg) {
+        ResultListVo resultVo = new ResultListVo();
+        resultVo.setStatus(status);
+        resultVo.setMsg(errorMsg);
+        return resultVo;
+
+    }
+
+    public static ResultPageVo resultPageVoFail(int status, String errorMsg) {
         ResultPageVo resultVo = new ResultPageVo();
         resultVo.setStatus(status);
         resultVo.setMsg(errorMsg);

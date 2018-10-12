@@ -7,8 +7,16 @@ package com.jzg.svsp.common.enums;
  */
 public enum PlaceOfOriginEnum {
 
-    DOMESTIC(1, "国内"),
-    IMPORTED(2, "进口");
+    //国别(1:中国 2:美国 3:日本 4:韩国 5:德国 6:英国 7:法国 999:其他)
+
+    CHINA(1, "中国"),
+    AMERICA(2, "美国"),
+    JAPAN(3, "日本"),
+    KOREA(4, "韩国"),
+    GERMANY(5, "德国"),
+    BRITAIN(6, "英国"),
+    FRANCE(7, "法国"),
+    OTHER(8, "其他");
 
     /**
      * value
@@ -37,7 +45,7 @@ public enum PlaceOfOriginEnum {
                 return cs;
             }
         }
-        return PlaceOfOriginEnum.DOMESTIC;
+        return PlaceOfOriginEnum.OTHER;
     }
 
     /**
