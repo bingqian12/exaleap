@@ -22,6 +22,11 @@ public class ProductInfo implements Serializable {
     private String carLicence;
     private String runMileage;
     private String orderMoney;
+    /**
+     * 商铺ID
+     */
+    private String saleId;
+
 
     public String getProductName() {
         return productName;
@@ -69,5 +74,13 @@ public class ProductInfo implements Serializable {
 
     public void setOrderMoney(String orderMoney) {
         this.orderMoney = orderMoney;
+    }
+
+    public String getSaleId() {
+        return saleId;
+    }
+
+    public void setSaleId(String saleId) {
+        this.saleId = saleId;
     }
 }
