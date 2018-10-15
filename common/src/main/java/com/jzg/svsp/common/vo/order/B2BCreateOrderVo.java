@@ -4,39 +4,74 @@ import java.io.Serializable;
 
 /**
  * @author: YuGenHai
- * @name: B2BCreateOrderVo
+ * @name: B2bCreateOrderVo
  * @creation: 2018/9/26 15:56
- * @notes: 创建订单
+ * @notes: B2B创建订单
  */
-public class B2BCreateOrderVo implements Serializable {
+public class B2bCreateOrderVo implements Serializable {
 
     private static final long serialVersionUID = 1140575108677444277L;
 
-    private String buyId;
-    private String saleId;
-    private String saleName;
     private String productId;
-    private String productName;
-    private String orderMoney;
-    private String payMoney;
+    /**
+     * 订单类型
+     */
+    private String orderType;
+    /**
+     * 销售人员
+     */
+    private String saleName;
+    /**
+     * 当前用户角色
+     */
+    private String dealerId;
+    /**
+     * 支付方式
+     */
     private String payMethod;
-    private String modifier_id;
-    private String modifier_name;
+    /**
+     * 定金
+     */
+    private String payment;
+    /**
+     * 成交价
+     */
+    private String payMoney;
+    /**
+     * 定价（车市场定价）
+     */
+    private String orderMoney;
+    /**
+     * 保险公司
+     */
+    private String insuranceCompany;
+    /**
+     * 买方ID
+     */
+    private String buyId;
+    /**
+     * 买家姓名
+     */
+    private String buyName;
+    /**
+     * 买家电话
+     */
+    private String phone;
 
-    public String getBuyId() {
-        return buyId;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setBuyId(String buyId) {
-        this.buyId = buyId;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getSaleId() {
-        return saleId;
+    public String getOrderType() {
+        return orderType;
     }
 
-    public void setSaleId(String saleId) {
-        this.saleId = saleId;
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
     }
 
     public String getSaleName() {
@@ -47,36 +82,12 @@ public class B2BCreateOrderVo implements Serializable {
         this.saleName = saleName;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getDealerId() {
+        return dealerId;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getOrderMoney() {
-        return orderMoney;
-    }
-
-    public void setOrderMoney(String orderMoney) {
-        this.orderMoney = orderMoney;
-    }
-
-    public String getPayMoney() {
-        return payMoney;
-    }
-
-    public void setPayMoney(String payMoney) {
-        this.payMoney = payMoney;
+    public void setDealerId(String dealerId) {
+        this.dealerId = dealerId;
     }
 
     public String getPayMethod() {
@@ -87,19 +98,59 @@ public class B2BCreateOrderVo implements Serializable {
         this.payMethod = payMethod;
     }
 
-    public String getModifier_id() {
-        return modifier_id;
+    public String getPayment() {
+        return payment;
     }
 
-    public void setModifier_id(String modifier_id) {
-        this.modifier_id = modifier_id;
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 
-    public String getModifier_name() {
-        return modifier_name;
+    public String getPayMoney() {
+        return payMoney;
     }
 
-    public void setModifier_name(String modifier_name) {
-        this.modifier_name = modifier_name;
+    public void setPayMoney(String payMoney) {
+        this.payMoney = payMoney;
+    }
+
+    public String getOrderMoney() {
+        return orderMoney;
+    }
+
+    public void setOrderMoney(String orderMoney) {
+        this.orderMoney = orderMoney;
+    }
+
+    public String getInsuranceCompany() {
+        return insuranceCompany;
+    }
+
+    public void setInsuranceCompany(String insuranceCompany) {
+        this.insuranceCompany = insuranceCompany;
+    }
+
+    public String getBuyId() {
+        return buyId;
+    }
+
+    public void setBuyId(String buyId) {
+        this.buyId = buyId;
+    }
+
+    public String getBuyName() {
+        return buyName;
+    }
+
+    public void setBuyName(String buyName) {
+        this.buyName = buyName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
