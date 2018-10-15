@@ -19,7 +19,16 @@ eureka:
   client:
       service-url:
         defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
-
+auths-props:
+  api-urls: {
+    /customer/api: value,
+    /product/api: value,
+    /user/api: value,
+    /service/api: value,
+    /trade/api: value,
+    /order/api: value,
+    /dealer/api: value
+  }
 
 
 
