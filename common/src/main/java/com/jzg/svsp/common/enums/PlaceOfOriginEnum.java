@@ -7,8 +7,9 @@ package com.jzg.svsp.common.enums;
  */
 public enum PlaceOfOriginEnum {
 
-    DOMESTIC(1, "国内"),
-    IMPORTED(2, "进口");
+    //产地
+    DOMESTIC(0, "国产"),
+    IMPORTED(1, "进口");
 
     /**
      * value
@@ -31,9 +32,18 @@ public enum PlaceOfOriginEnum {
         this.text = text;
     }
 
-    public static PlaceOfOriginEnum getPlaceOfOriginEnum(int value) {
+    public static PlaceOfOriginEnum getPlaceOfOrigin(int value) {
         for (PlaceOfOriginEnum cs : PlaceOfOriginEnum.values()) {
             if (cs.getValue() == value) {
+                return cs;
+            }
+        }
+        return PlaceOfOriginEnum.DOMESTIC;
+    }
+
+    public static PlaceOfOriginEnum getPlaceOfOrigin(String text) {
+        for (PlaceOfOriginEnum cs : PlaceOfOriginEnum.values()) {
+            if (cs.getText().equals(text)) {
                 return cs;
             }
         }

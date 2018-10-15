@@ -7,9 +7,20 @@ package com.jzg.svsp.common.enums;
  */
 public enum VariableBoxEnum {
 
-    //1国二及以下，2国三，3国四，4国五，5无法判断
-    AUTOMATIC(1, "自动"),
-    MANUAL(2, "手动");
+/*
+69	手动
+208	半自动
+3	自动
+64	手自一体
+242	CVT无级变速
+60	双离合
+180	电动车单速变速箱
+193	待查
+237	E-CVT无级变速
+*/
+
+    MANUAL(0, "手动"),
+    AUTOMATIC(1, "自动");
 
     /**
      * value
