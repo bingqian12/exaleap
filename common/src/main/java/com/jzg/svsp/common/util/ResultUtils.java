@@ -53,6 +53,14 @@ public class ResultUtils {
 
     }
 
+    public static ResultVo changeResultListVo(ResultListVo resultListVo) {
+        ResultVo resultVo = new ResultVo();
+        resultVo.setStatus(resultListVo.getStatus());
+        resultVo.setMsg(resultListVo.getMsg());
+        resultVo.setData(resultListVo.getList());
+        log.info("ResultUtils>changeResultPageVo> resultVo{}", JSONObject.toJSONString(resultVo));
+        return resultVo;
+    }
 
     public static ResultVo changeResultPageVo(ResultPageVo resultPageVo) {
         ResultVo resultVo = new ResultVo();
