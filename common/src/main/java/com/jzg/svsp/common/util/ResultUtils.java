@@ -6,9 +6,11 @@ import com.jzg.svsp.common.enums.HttpStatusEnum;
 import com.jzg.svsp.common.vo.ResultListVo;
 import com.jzg.svsp.common.vo.ResultPageVo;
 import com.jzg.svsp.common.vo.ResultVo;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 
+@Slf4j
 public class ResultUtils {
 
     public static ResultVo success(Serializable data) {
@@ -63,6 +65,7 @@ public class ResultUtils {
         resultVo.setStatus(resultPageVo.getStatus());
         resultVo.setMsg(resultPageVo.getMsg());
         resultVo.setData(data);
+        log.info("ResultUtils>changeResultPageVo> resultVo{}", JSONObject.toJSONString(resultVo));
         return resultVo;
     }
 }
