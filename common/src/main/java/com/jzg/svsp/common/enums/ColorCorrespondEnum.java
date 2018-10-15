@@ -5,36 +5,32 @@ package com.jzg.svsp.common.enums;
  */
 public enum ColorCorrespondEnum {
 
-    black("黑色", "1", "1"),
-    blue("蓝色", "2", "8"),
-    brown("棕色", "3", "6"),
-    golden("金色", "4", "10"),
-    green("绿色", "5", "16"),
-    grey("灰色", "6", "4"),
-    orange("橙色", "7", "11"),
-    pink("粉色", "8", "22"),
-    purple("紫色", "9", "14"),
-    red("红色", "10", "5"),
-    silver("银色", "11", "3"),
-    white("白色", "12", "2"),
-    yellow("黄色", "13", "13"),
-    cyan("青色", "14", "15"),
-    twocolor("双色", "15", "21"),
-    other("其他", "0", "23");
+    black("黑色", 1),
+    blue("白色", 2),
+    brown("银灰色", 3),
+    golden("深灰色", 4),
+    green("红色", 5),
+    grey("橙色", 6),
+    orange("绿色", 7),
+    pink("蓝色", 8),
+    purple("咖啡色", 9),
+    red("紫色", 10),
+    silver("香槟色", 11),
+    white("多彩色", 12),
+    yellow("黄色", 13),
+    other("其他", 14);
 
-    private String baseColorId;
+    private int baseColorId;
     private String baseColorName;
-    private String oldColorId;
 
-    ColorCorrespondEnum(String baseColorName, String baseColorId, String oldColorId) {
+    ColorCorrespondEnum(String baseColorName, int baseColorId) {
         this.baseColorId = baseColorId;
         this.baseColorName = baseColorName;
-        this.oldColorId = oldColorId;
     }
 
-    public static ColorCorrespondEnum getCarColorById(String colorId) {
+    public static ColorCorrespondEnum getCarColorById(int colorId) {
         for (ColorCorrespondEnum carColor : ColorCorrespondEnum.values()) {
-            if (carColor.baseColorId.equals(colorId)) {
+            if (carColor.baseColorId == colorId) {
                 return carColor;
             }
         }
@@ -51,7 +47,7 @@ public enum ColorCorrespondEnum {
     }
 
 
-    public String getBaseColorId() {
+    public int getBaseColorId() {
         return baseColorId;
     }
 
@@ -59,7 +55,5 @@ public enum ColorCorrespondEnum {
         return baseColorName;
     }
 
-    public String getOldColorId() {
-        return oldColorId;
-    }
+
 }

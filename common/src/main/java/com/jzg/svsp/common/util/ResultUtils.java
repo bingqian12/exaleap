@@ -18,7 +18,7 @@ public class ResultUtils {
     }
 
 
-    public static ResultVo success(Serializable data, int status, String message) {
+    public static ResultVo success(Object data, int status, String message) {
 
         ResultVo resultVo = new ResultVo();
         resultVo.setStatus(status);
