@@ -19,7 +19,7 @@ public class VehicleInfoParam implements BaseVo {
     /**
      * 客户ID
      */
-    private String customerId;
+    private String dealerId;
     /**
      * 品牌  模糊搜索例如 宝马
      */
