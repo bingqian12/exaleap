@@ -12,6 +12,7 @@ public class B2bCreateOrderVo implements Serializable {
 
     private static final long serialVersionUID = 1140575108677444277L;
 
+    int aaa;
     private String productId;
     /**
      * 订单类型
