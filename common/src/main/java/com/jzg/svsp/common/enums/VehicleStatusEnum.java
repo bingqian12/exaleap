@@ -9,8 +9,8 @@ public enum VehicleStatusEnum {
 
     //车辆状态  0:未锁定 1:已锁定 2:待过户 3:已过户
 
-    LOCK(0,"未锁定"),
-    UNLOCK(1,"已锁定"),
+    UNLOCK(0,"未锁定"),
+    LOCK(1,"已锁定"),
     WAIT_TRANSFER(2,"待过户"),
     COMPLETE_TRANSFER(3,"已过户");
 

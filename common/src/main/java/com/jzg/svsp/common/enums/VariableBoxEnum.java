@@ -18,6 +18,7 @@ public enum VariableBoxEnum {
 193	待查
 237	E-CVT无级变速
 */
+
     MANUAL(0, "手动"),
     AUTOMATIC(1, "自动");
 

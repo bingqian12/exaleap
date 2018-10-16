@@ -2,6 +2,7 @@ package com.jzg.svsp.gateway.filter;
 
 import com.jzg.svsp.common.enums.HttpStatusEnum;
 import com.jzg.svsp.gateway.config.AuthPropConfig;
+import com.jzg.svsp.gateway.config.AuthsPropConfig;
 import com.jzg.svsp.gateway.config.RedisClient;
 import com.jzg.svsp.gateway.enums.DevelopLevelEnum;
 import com.netflix.zuul.ZuulFilter;
@@ -20,6 +21,9 @@ public class TokenFilter extends ZuulFilter {
 
     @Autowired
     AuthPropConfig authPropConfig;
+
+    @Autowired
+    AuthsPropConfig authsPropConfig;
 
     @Autowired
     RedisClient redisClient;
@@ -41,9 +45,11 @@ public class TokenFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-
+        for(String string:authsPropConfig.getApiUrlMap().keySet()){
+            log.info("authsPropConfig.getApiUrlMap()",string);
+        };
         //不同环境， 权限控制的范围不同
-        log.info(" authPropConfig.getAuthLevel()    {}   ", authPropConfig.getAuthLevel() );
+        log.info(" authsPropConfig.getAuthLevel()    {}   ", authsPropConfig.getAuthLevel() );
 //        if(authPropConfig.getAuthLevel().equals(DevelopLevelEnum.PROD.getValue())){
 //            return authProd();
 //        }else {
@@ -55,18 +61,28 @@ public class TokenFilter extends ZuulFilter {
 
 
     private Object authProd(){
-        log.info("authUrlListConfig.getExcludeUrls()  size  {}  ",  authPropConfig.getExcludeUrls().size());
-        if(authPropConfig.getExcludeUrls() == null || authPropConfig.getExcludeUrls().size() ==0 ){
+        //log.info("authUrlListConfig.getExcludeUrls()  size  {}  ",  authPropConfig.getExcludeUrls().size());
+        log.info("authsUrlListConfig.getExcludeUrls()  size  {}  ",  authsPropConfig.getExcludeUrlMap().size());
+
+        /*if(authPropConfig.getExcludeUrls() == null || authPropConfig.getExcludeUrls().size() ==0 ){
+            return null;
+        }*/
+        if(authsPropConfig.getExcludeUrlMap() == null || authsPropConfig.getExcludeUrlMap().size() ==0 ){
             return null;
         }
+
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 
-        for(String url : authPropConfig.getExcludeUrls()){
+        /*for(String url : authPropConfig.getExcludeUrls()){
             if(request.getServletPath().startsWith(url)){
                 return null;
             }
+        }*/
+        if(authsPropConfig.getExcludeUrlMap().containsKey(request.getServletPath())){
+            return null;
         }
+
 
         String accessToken =  request.getHeader("token");
 
@@ -93,8 +109,10 @@ public class TokenFilter extends ZuulFilter {
 
 
     private Object authDev(){
-        log.info("authUrlListConfig.getApiUrls()  size  {}  ",  authPropConfig.getApiUrls().size());
-        if(authPropConfig.getApiUrls() == null || authPropConfig.getApiUrls().size() ==0 ){
+        //log.info("authUrlListConfig.getApiUrls()  size  {}  ",  authPropConfig.getApiUrls().size());
+        log.info("authsUrlMapConfig.getApiUrls()  size  {}  ",  authsPropConfig.getApiUrlMap().size());
+
+        if(authsPropConfig.getApiUrlMap() == null || authsPropConfig.getApiUrlMap().size() ==0 ){
             return null;
         }
 
@@ -119,10 +137,17 @@ public class TokenFilter extends ZuulFilter {
             storeTokenValue =  redisClient.get(accessToken);
         }
         log.info("accessToken ：{}   store value： {}  ",  accessToken , storeTokenValue );
-        for(String url : authPropConfig.getApiUrls()){
-
+        /*for(String url : authPropConfig.getApiUrls()){
             if(request.getServletPath().startsWith(url)  && (StringUtils.isEmpty(accessToken) || StringUtils.isEmpty(storeTokenValue)) ){
                 log.info("requestPath {} ------------ authUrl {}  ",  request.getServletPath() , url);
+                ctx.setSendZuulResponse(false);
+                ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
+                return null;
+            }
+        }*/
+        for(String url : authPropConfig.getApiUrls()){
+            if(authsPropConfig.getApiUrlMap().containsKey(request.getServletPath())  && (StringUtils.isEmpty(accessToken) || StringUtils.isEmpty(storeTokenValue)) ){
+                log.info("requestPath {} ------------ authUrl {}  ",  request.getServletPath());
                 ctx.setSendZuulResponse(false);
                 ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
                 return null;
