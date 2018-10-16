@@ -1,23 +1,29 @@
-package com.jzg.svsp.common.vo.order;
+package com.jzg.svsp.common.vo.order.dealer;
 
 import java.io.Serializable;
 
 /**
  * @author: YuGenHai
- * @name: B2bCreateOrderVo
- * @creation: 2018/9/26 15:56
- * @notes: B2B创建订单
+ * @name: CreateOrderVoByC
+ * @creation: 2018/10/15 11:43
+ * @notes: C端创建订单request
  */
-public class B2bCreateOrderVo implements Serializable {
+public class CreateOrderVoByB implements Serializable {
 
-    private static final long serialVersionUID = 1140575108677444277L;
 
-    int aaa;
+    private static final long serialVersionUID = 2504646064342221371L;
+
     private String productId;
     /**
      * 订单类型
      */
     private String orderType;
+
+    /**
+     * 店铺ID
+     */
+    private String saleId;
+
     /**
      * 销售人员
      */
@@ -59,6 +65,18 @@ public class B2bCreateOrderVo implements Serializable {
      */
     private String phone;
 
+
+    /**
+     * 入参productId
+     */
+
+    private String productName;
+    private String vin;
+    private String url;
+    private String carLicence;
+    private String runMileage;
+
+
     public String getProductId() {
         return productId;
     }
@@ -73,6 +91,14 @@ public class B2bCreateOrderVo implements Serializable {
 
     public void setOrderType(String orderType) {
         this.orderType = orderType;
+    }
+
+    public String getSaleId() {
+        return saleId;
+    }
+
+    public void setSaleId(String saleId) {
+        this.saleId = saleId;
     }
 
     public String getSaleName() {
@@ -153,5 +179,45 @@ public class B2bCreateOrderVo implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getCarLicence() {
+        return carLicence;
+    }
+
+    public void setCarLicence(String carLicence) {
+        this.carLicence = carLicence;
+    }
+
+    public String getRunMileage() {
+        return runMileage;
+    }
+
+    public void setRunMileage(String runMileage) {
+        this.runMileage = runMileage;
     }
 }
