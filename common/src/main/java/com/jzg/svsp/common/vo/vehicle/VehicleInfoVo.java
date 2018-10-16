@@ -84,7 +84,7 @@ public class VehicleInfoVo implements BaseVo {
      * 车系级别
      */
     private Integer modelLevel;
-    private Integer modelLevelName;
+    private String modelLevelName;
     /**
      * 排放标准
      */
@@ -111,8 +111,6 @@ public class VehicleInfoVo implements BaseVo {
     private String img;
 
     private String styleFullName;//车型全称
-
-    private String checkDate;//检测时间
 
     private Integer carAge;
     /**

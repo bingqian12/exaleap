@@ -23,6 +23,20 @@ public class CommonUtil {
     }
 
     /**
+     * 转化为不为空的类型String
+     *
+     * @param value
+     * @return
+     */
+    public static String getNonNullStringZero(Object value) {
+
+        if (value != null) {
+            return String.valueOf(value);
+        }
+        return "0";
+    }
+
+    /**
      * list 转化为string
      *
      * @param value

@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class VehicleSouceInfoVo implements BaseVo {
 
     private Long id;
-    private Long custId;
+    private Long storeId;
     private String img;
     private String styleFullName;//车型全称
     private String mileage;//公里数
