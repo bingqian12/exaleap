@@ -3,6 +3,7 @@ package com.jzg.svsp.gateway.filter;
 import com.jzg.svsp.common.enums.HttpStatusEnum;
 import com.jzg.svsp.common.util.CookieUtil;
 import com.jzg.svsp.gateway.config.AuthPropConfig;
+import com.jzg.svsp.gateway.config.AuthsPropConfig;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,9 @@ public class MonitorFilter extends ZuulFilter {
     @Autowired
     AuthPropConfig authUrlListConfig;
 
+    @Autowired
+    AuthsPropConfig authUrlMapConfig;
+
     @Override
     public String filterType() {
         return "pre";
@@ -44,7 +48,7 @@ public class MonitorFilter extends ZuulFilter {
     @Override
     public Object run() {
 
-        if(authUrlListConfig.getMonitorUrls() == null || authUrlListConfig.getMonitorUrls().size() ==0 ){
+        if(authUrlMapConfig.getMonitorUrlMap() == null || authUrlMapConfig.getMonitorUrlMap().size() ==0 ){
             return null;
         }
 
@@ -56,13 +60,11 @@ public class MonitorFilter extends ZuulFilter {
          * 检测IP地址是否在白名单
          */
 
-        for(String url : authUrlListConfig.getMonitorUrls()){
-            if(request.getServletPath().startsWith(url)  && !authUrlListConfig.getAccessIp().equals(request.getRemoteAddr())){
-                log.warn("requestPath no permission '{}'  ----- AccessIP: {}  ",  request.getServletPath() , authUrlListConfig.getAccessIp());
-                ctx.setSendZuulResponse(false);
-                ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
-                return null;
-            }
+        if(authUrlMapConfig.getMonitorUrlMap().containsKey(request.getServletPath())  && !authUrlMapConfig.getAccessIp().equals(request.getRemoteAddr())){
+            log.warn("requestPath no permission '{}'  ----- AccessIP: {}  ",  request.getServletPath() , authUrlMapConfig.getAccessIp());
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
+            return null;
         }
 
         return null;
