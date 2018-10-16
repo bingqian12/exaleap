@@ -7,6 +7,7 @@ import com.jzg.svsp.common.vo.ResultListVo;
 import com.jzg.svsp.common.vo.ResultPageVo;
 import com.jzg.svsp.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
+import java.util.List;
 
 import java.io.Serializable;
 
@@ -33,6 +34,15 @@ public class ResultUtils {
         ResultVo resultVo = new ResultVo();
         resultVo.setStatus(status);
         resultVo.setMsg(errorMsg);
+        return resultVo;
+
+    }
+
+    public static ResultListVo listSuccess(List list, int status, String errorMsg) {
+        ResultListVo resultVo = new ResultListVo();
+        resultVo.setStatus(status);
+        resultVo.setMsg(errorMsg);
+        resultVo.setList(list);
         return resultVo;
 
     }

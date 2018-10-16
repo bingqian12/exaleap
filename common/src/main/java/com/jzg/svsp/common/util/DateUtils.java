@@ -1,16 +1,15 @@
 package com.jzg.svsp.common.util;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.http.util.TextUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.applet.Main;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -606,20 +605,20 @@ public class DateUtils {
      * @param interModel 区间的模式
      *                   <p>
      *                   <pre>
-     *                                     		取值：
-     *                                     			LEFT_OPEN_RIGHT_OPEN
-     *                                     			LEFT_CLOSE_RIGHT_OPEN
-     *                                     			LEFT_OPEN_RIGHT_CLOSE
-     *                                     			LEFT_CLOSE_RIGHT_CLOSE
-     *                                     </pre>
+     *                                                       		取值：
+     *                                                       			LEFT_OPEN_RIGHT_OPEN
+     *                                                       			LEFT_CLOSE_RIGHT_OPEN
+     *                                                       			LEFT_OPEN_RIGHT_CLOSE
+     *                                                       			LEFT_CLOSE_RIGHT_CLOSE
+     *                                                       </pre>
      * @param compModel  比较的模式
      *                   <p>
      *                   <pre>
-     *                                     		取值：
-     *                                     			COMP_MODEL_DATE		只比较日期，不比较时间
-     *                                     			COMP_MODEL_TIME		只比较时间，不比较日期
-     *                                     			COMP_MODEL_DATETIME 比较日期，也比较时间
-     *                                     </pre>
+     *                                                       		取值：
+     *                                                       			COMP_MODEL_DATE		只比较日期，不比较时间
+     *                                                       			COMP_MODEL_TIME		只比较时间，不比较日期
+     *                                                       			COMP_MODEL_DATETIME 比较日期，也比较时间
+     *                                                       </pre>
      * @return
      */
     public static boolean isBetween(Date date, Date start, Date end, int interModel, int compModel) {
@@ -1180,6 +1179,33 @@ public class DateUtils {
     }
 
     /**
+     * 获得当天零时零分零秒
+     *
+     * @return
+     */
+    public static Date getDateByDay() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        return calendar.getTime();
+    }
+
+    //获取当天（按当前传入的时区）00:00:00所对应时刻的long型值
+    public static Date getStartTimeOfDay(long now, String timeZone) {
+        String tz = TextUtils.isEmpty(timeZone) ? "GMT+8" : timeZone;
+        TimeZone curTimeZone = TimeZone.getTimeZone(tz);
+        Calendar calendar = Calendar.getInstance(curTimeZone);
+        calendar.setTimeInMillis(now);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
+    }
+
+    /**
      * 根据传入的数字，输出相比现在days天的数据
      *
      * @param days
@@ -1296,6 +1322,50 @@ public class DateUtils {
         }
         return diff;
     }
+
+    /**
+     * 两个日期相关天数
+     *
+     * @param startDate
+     * @return
+     */
+    public static int getDateDiff(String startDate) {
+        long diff = 0;
+        try {
+            Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
+            Date date2 = new Date();
+
+            diff = (date1.getTime() - date2.getTime()) / (24 * 60 * 60 * 1000) > 0 ? (date1.getTime() - date2.getTime())
+                    / (24 * 60 * 60 * 1000)
+                    : (date2.getTime() - date1.getTime()) / (24 * 60 * 60 * 1000);
+        } catch (ParseException e) {
+        }
+        return (int) diff;
+    }
+
+    /**
+     * 两个日期相关天数
+     *
+     * @param startDate
+     * @return
+     */
+    public static int getDateDiff(Date startDate) {
+        long diff = 0;
+        try {
+            Date date1 = startDate;
+            Date date2 = new Date();
+
+            diff = (date1.getTime() - date2.getTime()) / (24 * 60 * 60 * 1000) > 0 ? (date1.getTime() - date2.getTime())
+                    / (24 * 60 * 60 * 1000)
+                    : (date2.getTime() - date1.getTime()) / (24 * 60 * 60 * 1000);
+        } catch (Exception e) {
+        }
+        return (int) diff;
+    }
+
+/*    public static void main(String[] args) {
+        System.out.println(formatDate(getDateByDay()));
+    }*/
 
     /*public static long getDateDiff(Date date1, Date date2) {
         if (ValidateUtils.isEmpty(date1) || ValidateUtils.isEmpty(date1)) {

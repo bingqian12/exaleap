@@ -9,7 +9,7 @@ import lombok.Data;
  * @Date: Created by 11:18 on 2018/10/12.
  */
 @Data
-public class StoreSotckVo implements BaseVo {
+public class StoreStockVo implements BaseVo {
 
     /**
      * 店铺ID

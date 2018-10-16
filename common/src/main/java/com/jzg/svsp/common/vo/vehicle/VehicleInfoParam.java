@@ -144,4 +144,6 @@ public class VehicleInfoParam implements BaseVo {
 
     private String placeOfOrigin;
 
+    private String styleBodyType;
+
 }
