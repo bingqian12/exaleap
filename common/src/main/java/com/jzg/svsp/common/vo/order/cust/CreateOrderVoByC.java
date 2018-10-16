@@ -65,6 +65,18 @@ public class CreateOrderVoByC implements Serializable {
      */
     private String phone;
 
+
+    /**
+     * 入参productId
+     */
+
+    private String productName;
+    private String vin;
+    private String url;
+    private String carLicence;
+    private String runMileage;
+
+
     public String getProductId() {
         return productId;
     }
@@ -167,5 +179,45 @@ public class CreateOrderVoByC implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getCarLicence() {
+        return carLicence;
+    }
+
+    public void setCarLicence(String carLicence) {
+        this.carLicence = carLicence;
+    }
+
+    public String getRunMileage() {
+        return runMileage;
+    }
+
+    public void setRunMileage(String runMileage) {
+        this.runMileage = runMileage;
     }
 }
