@@ -16,10 +16,6 @@ public class VehicleInfoVo implements BaseVo {
 
     private String id;
     /**
-     * 客户ID
-     */
-    private Long custId;
-    /**
      * 品牌  模糊搜索例如 宝马
      */
     private String makeName;
@@ -74,22 +70,30 @@ public class VehicleInfoVo implements BaseVo {
     /**
      * 里程
      */
-    private Integer mileage;
+    private String mileage;
     /**
      * 变速箱
      */
     private Integer variableBox;
+    /**
+     * 变速箱
+     */
     private String variableBoxName;
     /**
      * 车系级别
      */
     private Integer modelLevel;
+    /**
+     * 车系级别
+     */
     private String modelLevelName;
     /**
      * 排放标准
      */
     private Integer emissionStandard;
-
+    /**
+     * 排放标准
+     */
     private String emissionStandardName;
     /**
      * 颜色
@@ -107,11 +111,17 @@ public class VehicleInfoVo implements BaseVo {
      * 上牌城市
      */
     private String cityName;
-
+    /**
+     * 主图
+     */
     private String img;
-
-    private String styleFullName;//车型全称
-
+    /**
+     * 车型全称
+     */
+    private String styleFullName;
+    /**
+     * 车龄
+     */
     private Integer carAge;
     /**
      * 发布时间
@@ -125,7 +135,24 @@ public class VehicleInfoVo implements BaseVo {
      * 牌照
      */
     private String carLicense;
-
-
-
+    /**
+     * 库存天数
+     */
+    private Integer stockAge;
+    /**
+     * 车体类型
+     */
+    private Integer styleBodyType;
+    /**
+     * 车体类型
+     */
+    private String styleBodyTypeName;
+    /**
+     * 新车价
+     */
+    private BigDecimal newCarPrice;
+    /**
+     * 购置税
+     */
+    private BigDecimal purchaseTax;
 }
