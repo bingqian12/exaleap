@@ -12,6 +12,31 @@ import lombok.Data;
 public class StoreStockWarmVo implements BaseVo{
 
     /**
+     * 店铺ID
+     */
+    private Integer storeId;
+    /**
+     * 店铺名称
+     */
+    private String storeName;
+    /**
+     * 库存总量
+     */
+    private Integer total;
+    /**
+     * 已上架
+     */
+    private Integer upShelf;
+    /**
+     * 未上架
+     */
+    private Integer downShelf;
+    /**
+     * 已预售
+     */
+    private Integer preSale;
+
+    /**
      * 库存超期
      */
     private Integer stockAgeCount;

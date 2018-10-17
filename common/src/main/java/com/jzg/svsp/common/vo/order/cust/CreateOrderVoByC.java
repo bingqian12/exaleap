@@ -45,9 +45,14 @@ public class CreateOrderVoByC implements Serializable {
      */
     private String payMoney;
     /**
-     * 定价（车市场定价）
+     * 车辆C端价格
      */
-    private String orderMoney;
+    private String toBPrice;
+
+    /**
+     * 车辆B端价格
+     */
+    private String toCPrice;
     /**
      * 保险公司
      */
@@ -65,7 +70,6 @@ public class CreateOrderVoByC implements Serializable {
      */
     private String phone;
 
-
     /**
      * 入参productId
      */
@@ -75,6 +79,16 @@ public class CreateOrderVoByC implements Serializable {
     private String url;
     private String carLicence;
     private String runMileage;
+
+    /**
+     * 尾款
+     */
+    private String tailMoney;
+
+    /**
+     * 店铺名称
+     */
+    private String storesName;
 
 
     public String getProductId() {
@@ -141,12 +155,20 @@ public class CreateOrderVoByC implements Serializable {
         this.payMoney = payMoney;
     }
 
-    public String getOrderMoney() {
-        return orderMoney;
+    public String getToBPrice() {
+        return toBPrice;
     }
 
-    public void setOrderMoney(String orderMoney) {
-        this.orderMoney = orderMoney;
+    public void setToBPrice(String toBPrice) {
+        this.toBPrice = toBPrice;
+    }
+
+    public String getToCPrice() {
+        return toCPrice;
+    }
+
+    public void setToCPrice(String toCPrice) {
+        this.toCPrice = toCPrice;
     }
 
     public String getInsuranceCompany() {
@@ -219,5 +241,21 @@ public class CreateOrderVoByC implements Serializable {
 
     public void setRunMileage(String runMileage) {
         this.runMileage = runMileage;
+    }
+
+    public String getTailMoney() {
+        return tailMoney;
+    }
+
+    public void setTailMoney(String tailMoney) {
+        this.tailMoney = tailMoney;
+    }
+
+    public String getStoresName() {
+        return storesName;
+    }
+
+    public void setStoresName(String storesName) {
+        this.storesName = storesName;
     }
 }

@@ -141,9 +141,20 @@ public class VehicleInfoParam implements BaseVo {
      * 座位数
      */
     private String seatCount;
-
+    /**
+     * 产地
+     */
     private String placeOfOrigin;
-
+    /**
+     * 车体类型
+     */
     private String styleBodyType;
-
+    /**
+     * 国别
+     */
+    private String countryId;
+    /**
+     * 车牌所在地
+     */
+    private String licensePlateLocation;
 }

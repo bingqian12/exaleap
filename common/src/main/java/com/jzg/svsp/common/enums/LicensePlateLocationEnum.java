@@ -3,28 +3,14 @@ package com.jzg.svsp.common.enums;
 /**
  * @Author: jzg
  * @Description:
- * @Date: Created by 9:51 on 2018/10/10.
+ * @Date: Created by 16:38 on 2018/10/17.
  */
-public enum OilFuelTypeEnum {
+public enum LicensePlateLocationEnum {
 
-    /**
-     193	待查
-     88	    汽油
-     203	柴油
-     26	    油气混合动力
-     27	    油电混合动力
-     178	电力
-     228	LPG
-     243	CNG
-     325	插电混合
-     */
+    //0 本地、1 外地
 
-
-    GASOLINE(0, "汽油"),
-    DIESEL_OIL(1, "柴油"),
-    ELECTRIC(2, "电动"),
-    OIL_ELECTRIC(3, "油电混动"),
-    OTHER(4, "其他");
+    LOCAL(0, "本地"),
+    NOLOCAL(1, "外地");
 
     /**
      * value
@@ -42,18 +28,18 @@ public enum OilFuelTypeEnum {
      * @param value 状态码
      * @param text  文字说明
      */
-    OilFuelTypeEnum(int value, String text) {
+    LicensePlateLocationEnum(int value, String text) {
         this.value = value;
         this.text = text;
     }
 
-    public static OilFuelTypeEnum getOilFuelTypeEnum(int value) {
-        for (OilFuelTypeEnum cs : OilFuelTypeEnum.values()) {
+    public static LicensePlateLocationEnum getLicensePlateLocation(int value) {
+        for (LicensePlateLocationEnum cs : LicensePlateLocationEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
         }
-        return OilFuelTypeEnum.OTHER;
+        return LicensePlateLocationEnum.NOLOCAL;
     }
 
     /**

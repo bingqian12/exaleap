@@ -5,26 +5,17 @@ package com.jzg.svsp.common.enums;
  * @Description:
  * @Date: Created by 9:51 on 2018/10/10.
  */
-public enum OilFuelTypeEnum {
+public enum CountryEnum {
 
-    /**
-     193	待查
-     88	    汽油
-     203	柴油
-     26	    油气混合动力
-     27	    油电混合动力
-     178	电力
-     228	LPG
-     243	CNG
-     325	插电混合
-     */
+    //0 德系、1 日系、2 美系、3 法系、4 韩系、5 国产、6其他
 
-
-    GASOLINE(0, "汽油"),
-    DIESEL_OIL(1, "柴油"),
-    ELECTRIC(2, "电动"),
-    OIL_ELECTRIC(3, "油电混动"),
-    OTHER(4, "其他");
+    GERMANY(0, "德国"),
+    JAPAN(1, "日本"),
+    AMERICA(2, "美国"),
+    FRANCE(3, "法国"),
+    KOREA(4, "韩国"),
+    CHINA(5, "中国"),
+    OTHER(6, "其他");
 
     /**
      * value
@@ -42,18 +33,18 @@ public enum OilFuelTypeEnum {
      * @param value 状态码
      * @param text  文字说明
      */
-    OilFuelTypeEnum(int value, String text) {
+    CountryEnum(int value, String text) {
         this.value = value;
         this.text = text;
     }
 
-    public static OilFuelTypeEnum getOilFuelTypeEnum(int value) {
-        for (OilFuelTypeEnum cs : OilFuelTypeEnum.values()) {
+    public static CountryEnum getCountryEnum(int value) {
+        for (CountryEnum cs : CountryEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
         }
-        return OilFuelTypeEnum.OTHER;
+        return CountryEnum.OTHER;
     }
 
     /**
