@@ -159,4 +159,8 @@ public class VehicleInfoVo implements BaseVo {
      * 店铺Id
      */
     private Long storeId;
+    /**
+     * 店铺名称
+     */
+    private String storeName;
 }
