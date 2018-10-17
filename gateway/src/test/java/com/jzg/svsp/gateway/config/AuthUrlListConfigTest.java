@@ -21,10 +21,10 @@ public class AuthUrlListConfigTest {
 
     @Test
     public void getAuthUrlList() {
-       List<String> urls =  authUrlListConfig.getApiUrls();
-       log.info("\n============================== urls {}" ,  urls.size());
-
-        Assert.assertTrue(urls.size()>0);
+//       List<String> urls =  authUrlListConfig.getApiUrls();
+//       log.info("\n============================== urls {}" ,  urls.size());
+//
+//        Assert.assertTrue(urls.size()>0);
 
 //        List<String> urls2 =  authUrlListConfig.getMonitorUrls();
 //        log.info("\n============================== urls2 {}" ,  urls2.size());

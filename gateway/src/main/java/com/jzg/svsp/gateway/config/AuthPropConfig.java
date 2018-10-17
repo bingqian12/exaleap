@@ -1,12 +1,13 @@
 package com.jzg.svsp.gateway.config;
 
-
+import io.swagger.models.auth.In;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 读取配置文件
@@ -16,14 +17,10 @@ import java.util.List;
 @Data
 public class AuthPropConfig {
 
-    private List<String> apiUrls =new ArrayList<String>();
-    private List<String> monitorUrls = new ArrayList<>();
-    private List<String> excludeUrls =new ArrayList<String>();
+    private Map<String,Integer> apiUrlMap ;
+    private List<String> excludeUrls ;
     private String accessToken;
     private String accessIp;
     private String authLevel;
-
-
-
 
 }

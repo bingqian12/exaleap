@@ -25,3 +25,14 @@ logging:
   level:
     root: DEBUG
 
+auth-props:
+  access-token: admin
+  auth-level: prod
+  access-ip: 127.0.0.1   #系统后可以指定ip 地址访问
+  api-urlMap: {
+    ##1. manager 系统后台; 2. customer; 3. dealer 服务平台后台;
+    service: 3,
+    dealer: 1
+  }
+  exclude-urls:
+    - /service/login

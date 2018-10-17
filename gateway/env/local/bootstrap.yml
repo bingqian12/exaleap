@@ -19,16 +19,25 @@ eureka:
   client:
       service-url:
         defaultZone: http://jzg:jzg123@127.0.0.1:8761/eureka/
-auths-props:
-  api-urls: {
-    /customer/api: value,
-    /product/api: value,
-    /user/api: value,
-    /service/api: value,
-    /trade/api: value,
-    /order/api: value,
-    /dealer/api: value
+auth-props:
+  access-token: admin
+  auth-level: local
+  access-ip: 127.0.0.1
+  api-urlMap: {
+    ##1. manager 系统后台; 2. customer; 3. dealer 服务平台后台;
+    customer: 3,
+    product: 3,
+    user: 3,
+    service: 3,
+    trade: 3,
+    order: 3,
+    dealer: 1
   }
+  exclude-urls:
+    - /service/login
+    - /user/login
+
+
 
 
 

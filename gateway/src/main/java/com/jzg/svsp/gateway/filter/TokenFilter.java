@@ -1,8 +1,9 @@
 package com.jzg.svsp.gateway.filter;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.jzg.svsp.common.enums.HttpStatusEnum;
 import com.jzg.svsp.gateway.config.AuthPropConfig;
-import com.jzg.svsp.gateway.config.AuthsPropConfig;
 import com.jzg.svsp.gateway.config.RedisClient;
 import com.jzg.svsp.gateway.enums.DevelopLevelEnum;
 import com.netflix.zuul.ZuulFilter;
@@ -19,11 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 public class TokenFilter extends ZuulFilter {
 
 
-    @Autowired
-    AuthPropConfig authPropConfig;
 
     @Autowired
-    AuthsPropConfig authsPropConfig;
+    AuthPropConfig authsPropConfig;
 
     @Autowired
     RedisClient redisClient;
@@ -40,50 +39,75 @@ public class TokenFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return true;
-    }
-
-    @Override
-    public Object run() {
-        for(String string:authsPropConfig.getApiUrlMap().keySet()){
-            log.info("authsPropConfig.getApiUrlMap()",string);
-        };
-        //不同环境， 权限控制的范围不同
-        log.info(" authsPropConfig.getAuthLevel()    {}   ", authsPropConfig.getAuthLevel() );
-//        if(authPropConfig.getAuthLevel().equals(DevelopLevelEnum.PROD.getValue())){
-//            return authProd();
-//        }else {
-//            return authDev();
-//        }
-        return null;
-
-    }
-
-
-    private Object authProd(){
-        //log.info("authUrlListConfig.getExcludeUrls()  size  {}  ",  authPropConfig.getExcludeUrls().size());
-        log.info("authsUrlListConfig.getExcludeUrls()  size  {}  ",  authsPropConfig.getExcludeUrlMap().size());
-
-        /*if(authPropConfig.getExcludeUrls() == null || authPropConfig.getExcludeUrls().size() ==0 ){
-            return null;
-        }*/
-        if(authsPropConfig.getExcludeUrlMap() == null || authsPropConfig.getExcludeUrlMap().size() ==0 ){
-            return null;
-        }
 
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 
-        /*for(String url : authPropConfig.getExcludeUrls()){
-            if(request.getServletPath().startsWith(url)){
-                return null;
+        //step1. 先判断当前环境是否需要进行token 检测。
+
+        //FIXME: 正式环境过滤 ， 测试先用local
+        if(authsPropConfig.getAuthLevel().equals(DevelopLevelEnum.LOCAL.getValue())){
+            log.info("\n  TokenFilter 请求地址： {}       当前环境： {} " , request.getServletPath() , DevelopLevelEnum.LOCAL.getValue() );
+            return true;
+        }else if(authsPropConfig.getAuthLevel().equals(DevelopLevelEnum.TEST.getValue())) {
+            return false;
+        }
+        return false;
+    }
+
+    @Override
+    public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+
+
+        // //step2. 排除不进行token 检测的url 列表
+        if(authsPropConfig.getExcludeUrls() != null ){
+            for(String url : authsPropConfig.getExcludeUrls()){
+                if( request.getServletPath().startsWith(url)){
+                    log.info("\nTokenFilter {} 地址不过滤      {} " ,url,  request.getServletPath()  );
+                    return null;
+                }
             }
-        }*/
-        if(authsPropConfig.getExcludeUrlMap().containsKey(request.getServletPath())){
-            return null;
         }
 
 
+        if(request.getServletPath().length()<=2 || authsPropConfig.getApiUrlMap().size()==0){
+            return null;
+        }
+
+        //step3. 找到微服务的名称
+        String serverName = request.getServletPath().substring(1 , request.getServletPath().indexOf('/' , 1));
+
+        log.info("\n  TokenFilter {}       {} " , request.getServletPath() , serverName);
+
+        for(String key:  authsPropConfig.getApiUrlMap().keySet()){
+            log.debug("======== ApiUrlMap() 调试用    {} ",key );
+        }
+
+
+        if(authsPropConfig.getApiUrlMap().containsKey(serverName)){
+            //step4. 检查访问对应微服务的用户权限。
+            authToken(ctx, authsPropConfig.getApiUrlMap().get(serverName));
+            return null;
+        }else {
+            //如果不在白名单中， 拒绝访问
+            log.info("requestPath {}  请求被拒绝， 不允许直接访问底层方法   ",  request.getServletPath() );
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(HttpStatusEnum.FORBIDDEN.code());
+            return null;
+        }
+
+    }
+
+
+
+
+
+    private Object authToken( RequestContext ctx , int authUserType ){
+        HttpServletRequest request = ctx.getRequest();
+
+        //FIXME:   token  需要放到common 包中， 做成常量
         String accessToken =  request.getHeader("token");
 
         if(StringUtils.isEmpty(accessToken)) {
@@ -95,67 +119,40 @@ public class TokenFilter extends ZuulFilter {
         if(!StringUtils.isEmpty(accessToken)){
             storeTokenValue =  redisClient.get(accessToken);
         }
-        if( StringUtils.isEmpty(accessToken) || StringUtils.isEmpty(storeTokenValue) ){
-            log.info("requestPath {} ------------  ",  request.getServletPath() );
+        if( StringUtils.isEmpty(accessToken) ){
+            log.info("requestPath {} ------------ 请求不带有token ",  request.getServletPath() );
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
+            return null;
+        }
+
+        if( StringUtils.isEmpty(storeTokenValue)){
+            log.info("requestPath {} ------------  token 不合法 ",  request.getServletPath() );
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
             return null;
         }
 
 
+        JSONObject tokenObject = JSON.parseObject(storeTokenValue);
+        //FIXME:   userType  需要放到common 包中， 用枚举对象
+        if(tokenObject == null || tokenObject.get("userType") == null) {
+            log.info("requestPath {} ------------  token 值不正确 ",  request.getServletPath() );
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
+        }
+
+        int userType = (int)tokenObject.get("userType");
+
+        //如果当前的用户type  与他访问的服务要求的用户类型不一致， 不可以访问。
+        if(userType!= authUserType){
+            log.info("requestPath {} ------------  token  用户类型不正确",  request.getServletPath() );
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
+        }
+
+
         return  null;
-
-    }
-
-
-    private Object authDev(){
-        //log.info("authUrlListConfig.getApiUrls()  size  {}  ",  authPropConfig.getApiUrls().size());
-        log.info("authsUrlMapConfig.getApiUrls()  size  {}  ",  authsPropConfig.getApiUrlMap().size());
-
-        if(authsPropConfig.getApiUrlMap() == null || authsPropConfig.getApiUrlMap().size() ==0 ){
-            return null;
-        }
-
-
-
-        RequestContext ctx = RequestContext.getCurrentContext();
-        HttpServletRequest request = ctx.getRequest();
-//        request.getMethod(),request.getRequestURL().toString()
-        log.info("send {} request to {}  ",  request.getServletPath());
-
-
-
-        String accessToken =  request.getHeader("token");
-
-        if(StringUtils.isEmpty(accessToken)) {
-            //如果header 中没有取到token  , 从token中尝试取一下。
-            accessToken =  request.getParameter("token");
-        }
-
-        String storeTokenValue = null;
-        if(!StringUtils.isEmpty(accessToken)){
-            storeTokenValue =  redisClient.get(accessToken);
-        }
-        log.info("accessToken ：{}   store value： {}  ",  accessToken , storeTokenValue );
-        /*for(String url : authPropConfig.getApiUrls()){
-            if(request.getServletPath().startsWith(url)  && (StringUtils.isEmpty(accessToken) || StringUtils.isEmpty(storeTokenValue)) ){
-                log.info("requestPath {} ------------ authUrl {}  ",  request.getServletPath() , url);
-                ctx.setSendZuulResponse(false);
-                ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
-                return null;
-            }
-        }*/
-        for(String url : authPropConfig.getApiUrls()){
-            if(authsPropConfig.getApiUrlMap().containsKey(request.getServletPath())  && (StringUtils.isEmpty(accessToken) || StringUtils.isEmpty(storeTokenValue)) ){
-                log.info("requestPath {} ------------ authUrl {}  ",  request.getServletPath());
-                ctx.setSendZuulResponse(false);
-                ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
-                return null;
-            }
-        }
-
-        return null;
-
     }
 
 }
