@@ -42,7 +42,14 @@ public class VehicleSouceInfoVo implements BaseVo {
     /**
      * 店铺名称
      */
-    private String shopName;
-
+    private String storeName;
+    /**
+     *  可售状态 0 不可售 1 可售
+     */
+    private Integer saleStatus;
+    /**
+     * 在库状态 0 不在库 1 在库
+     */
+    private Integer libraryStatus;
 
 }
