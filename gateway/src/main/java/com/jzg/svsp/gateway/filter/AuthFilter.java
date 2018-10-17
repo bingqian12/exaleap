@@ -1,7 +1,6 @@
 package com.jzg.svsp.gateway.filter;
 
 import com.jzg.svsp.gateway.config.AuthPropConfig;
-import com.jzg.svsp.gateway.config.AuthsPropConfig;
 import com.netflix.zuul.ZuulFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -19,7 +18,7 @@ public class AuthFilter extends ZuulFilter {
     AuthPropConfig authUrlListConfig;
 
     @Autowired
-    AuthsPropConfig authUrlMapConfig;
+    AuthPropConfig authUrlMapConfig;
 
     @Override
     public String filterType() {

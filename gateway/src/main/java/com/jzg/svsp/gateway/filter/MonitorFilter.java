@@ -1,19 +1,10 @@
 package com.jzg.svsp.gateway.filter;
 
-import com.jzg.svsp.common.enums.HttpStatusEnum;
-import com.jzg.svsp.common.util.CookieUtil;
 import com.jzg.svsp.gateway.config.AuthPropConfig;
-import com.jzg.svsp.gateway.config.AuthsPropConfig;
 import com.netflix.zuul.ZuulFilter;
-import com.netflix.zuul.context.RequestContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-import springfox.documentation.service.TokenEndpoint;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author JZG
@@ -28,7 +19,7 @@ public class MonitorFilter extends ZuulFilter {
     AuthPropConfig authUrlListConfig;
 
     @Autowired
-    AuthsPropConfig authUrlMapConfig;
+    AuthPropConfig authUrlMapConfig;
 
     @Override
     public String filterType() {
@@ -48,24 +39,7 @@ public class MonitorFilter extends ZuulFilter {
     @Override
     public Object run() {
 
-        if(authUrlMapConfig.getMonitorUrlMap() == null || authUrlMapConfig.getMonitorUrlMap().size() ==0 ){
-            return null;
-        }
 
-
-        RequestContext ctx = RequestContext.getCurrentContext();
-        HttpServletRequest request = ctx.getRequest();
-
-        /**
-         * 检测IP地址是否在白名单
-         */
-
-        if(authUrlMapConfig.getMonitorUrlMap().containsKey(request.getServletPath())  && !authUrlMapConfig.getAccessIp().equals(request.getRemoteAddr())){
-            log.warn("requestPath no permission '{}'  ----- AccessIP: {}  ",  request.getServletPath() , authUrlMapConfig.getAccessIp());
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
-            return null;
-        }
 
         return null;
     }
