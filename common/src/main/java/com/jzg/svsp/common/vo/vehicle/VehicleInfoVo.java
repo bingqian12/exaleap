@@ -155,4 +155,8 @@ public class VehicleInfoVo implements BaseVo {
      * 购置税
      */
     private BigDecimal purchaseTax;
+    /**
+     * 店铺Id
+     */
+    private Long storeId;
 }

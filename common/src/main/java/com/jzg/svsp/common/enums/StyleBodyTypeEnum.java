@@ -35,14 +35,14 @@ public enum StyleBodyTypeEnum {
 */
 
 
-    TWO_BOX(1, "两厢车"),
-    THREE_BOX(2, "三厢车"),
-    SPORT(3, "跑车"),
-    SUV(4, "SUV"),
-    MPV(5, "MPV"),
-    TARVEL(6, "面包车"),
-    PICKUP(7, "皮卡"),
-    OTHER(8, "其他");
+    TWO_BOX(0, "两厢车"),
+    THREE_BOX(1, "三厢车"),
+    SPORT(2, "跑车"),
+    SUV(3, "SUV"),
+    MPV(4, "MPV"),
+    TARVEL(5, "面包车"),
+    PICKUP(6, "皮卡"),
+    OTHER(7, "其他");
 
     /**
      * value
