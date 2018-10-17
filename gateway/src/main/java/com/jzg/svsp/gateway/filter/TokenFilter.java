@@ -136,18 +136,22 @@ public class TokenFilter extends ZuulFilter {
 
         JSONObject tokenObject = JSON.parseObject(storeTokenValue);
         //FIXME:   userType  需要放到common 包中， 用枚举对象
-        if(tokenObject == null || tokenObject.get("userType") == null){
-
-            int userType = (int)tokenObject.get("userType");
-
-            //如果当前的用户type  与他访问的服务要求的用户类型不一致， 不可以访问。
-            if(userType!= authUserType){
-                log.info("requestPath {} ------------  token 值不正确 ",  request.getServletPath() );
-                ctx.setSendZuulResponse(false);
-                ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
-            }
-
+        if(tokenObject == null || tokenObject.get("userType") == null) {
+            log.info("requestPath {} ------------  token 值不正确 ",  request.getServletPath() );
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
         }
+
+        int userType = (int)tokenObject.get("userType");
+
+        //如果当前的用户type  与他访问的服务要求的用户类型不一致， 不可以访问。
+        if(userType!= authUserType){
+            log.info("requestPath {} ------------  token  用户类型不正确",  request.getServletPath() );
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(HttpStatusEnum.UNAUTHORIZED.code());
+        }
+
+
         return  null;
     }
 
