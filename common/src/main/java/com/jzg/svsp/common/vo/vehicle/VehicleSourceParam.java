@@ -54,9 +54,17 @@ public class VehicleSourceParam implements BaseVo{
      */
     private Integer shelfStatus;
     /**
-     * 车辆状态  0:未锁定 1:已锁定 2:待过户 3:已过户
+     * 车辆状态  0:未锁定 1:已锁定
      */
     private Integer vehicleStatus;
+    /**
+     * 可售状态 可售状态 0 不可售 1 可售
+     */
+    private Integer saleStatus;
+    /**
+     * 在库状态 0 不在库 1 在库
+     */
+    private Integer libraryStatus;
     /**
      * 当前页码
      */

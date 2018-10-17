@@ -157,4 +157,5 @@ public class VehicleInfoParam implements BaseVo {
      * 车牌所在地
      */
     private String licensePlateLocation;
+
 }

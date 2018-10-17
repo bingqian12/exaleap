@@ -5,23 +5,23 @@ package com.jzg.svsp.common.enums;
  * @Description:
  * @Date: Created by 14:11 on 2018/9/28.
  */
-public enum VehicleStatusEnum {
+public enum SaleStatusEnum {
 
-    //车辆状态  0:未锁定 1:已锁定
+    //可售状态 0 不可售 1 可售
 
-    UNLOCK(0,"未锁定"),
-    LOCK(1,"已锁定");
+    UOT_SALE(0,"不可售"),
+    SALE(1,"可售");
 
     private int value;
     private String text;
 
-    VehicleStatusEnum(int value, String text){
+    SaleStatusEnum(int value, String text){
         this.value = value;
         this.text = text;
     }
 
-    public static VehicleStatusEnum getVehicleStatus(int value) {
-        for (VehicleStatusEnum cs : VehicleStatusEnum.values()) {
+    public static SaleStatusEnum getSaleStatus(int value) {
+        for (SaleStatusEnum cs : SaleStatusEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
