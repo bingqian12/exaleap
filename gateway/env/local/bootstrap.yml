@@ -35,6 +35,7 @@ auth-props:
   }
   exclude-urls:
     - /service/login
+    - /user/login
 
 
 
