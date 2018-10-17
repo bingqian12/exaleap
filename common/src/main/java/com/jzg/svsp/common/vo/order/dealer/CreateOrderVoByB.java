@@ -22,14 +22,14 @@ public class CreateOrderVoByB implements Serializable {
     /**
      * 店铺ID
      */
-    private String saleId;
+    private String storesId;
 
     /**
      * 销售人员
      */
     private String saleName;
     /**
-     * 当前用户角色
+     * 商家ID
      */
     private String dealerId;
     /**
@@ -90,7 +90,6 @@ public class CreateOrderVoByB implements Serializable {
      */
     private String storesName;
 
-
     public String getProductId() {
         return productId;
     }
@@ -107,12 +106,12 @@ public class CreateOrderVoByB implements Serializable {
         this.orderType = orderType;
     }
 
-    public String getSaleId() {
-        return saleId;
+    public String getStoresId() {
+        return storesId;
     }
 
-    public void setSaleId(String saleId) {
-        this.saleId = saleId;
+    public void setStoresId(String storesId) {
+        this.storesId = storesId;
     }
 
     public String getSaleName() {
