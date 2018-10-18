@@ -162,4 +162,6 @@ public class VehicleInfoParam implements BaseVo {
 
     private String exhaustEnd;
 
+    private Integer auditStatus;
+
 }
