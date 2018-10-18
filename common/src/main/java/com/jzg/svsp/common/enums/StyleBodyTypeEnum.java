@@ -65,9 +65,49 @@ public enum StyleBodyTypeEnum {
         this.text = text;
     }
 
+    public static StyleBodyTypeEnum getStyleBodyTypeById(int value) {
+
+        switch (value) {
+            case 1:
+                return StyleBodyTypeEnum.TWO_BOX;
+            case 2:
+                return StyleBodyTypeEnum.THREE_BOX;
+            case 7:
+            case 8:
+            case 9:
+                return StyleBodyTypeEnum.SUV;
+            case 10:
+            case 11:
+                return StyleBodyTypeEnum.PICKUP;
+            case 4:
+            case 12:
+            case 13:
+                return StyleBodyTypeEnum.SPORT;
+            case 14:
+            case 15:
+                return StyleBodyTypeEnum.MPV;
+            case 16:
+            case 17:
+            case 18:
+                return StyleBodyTypeEnum.TARVEL;
+            default:
+                return StyleBodyTypeEnum.OTHER;
+        }
+
+    }
+
     public static StyleBodyTypeEnum getStyleBodyType(int value) {
         for (StyleBodyTypeEnum cs : StyleBodyTypeEnum.values()) {
             if (cs.getValue() == value) {
+                return cs;
+            }
+        }
+        return StyleBodyTypeEnum.OTHER;
+    }
+
+    public static StyleBodyTypeEnum getStyleBodyType(String value) {
+        for (StyleBodyTypeEnum cs : StyleBodyTypeEnum.values()) {
+            if (cs.getText().equals(value)) {
                 return cs;
             }
         }

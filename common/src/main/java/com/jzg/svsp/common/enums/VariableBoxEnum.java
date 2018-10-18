@@ -43,7 +43,18 @@ public enum VariableBoxEnum {
         this.text = text;
     }
 
-    public static VariableBoxEnum getVariableBoxEnum(int value) {
+    public static VariableBoxEnum getVariableBoxById(int value) {
+
+        switch (value) {
+            case 69:
+                return VariableBoxEnum.MANUAL;
+            default:
+                return VariableBoxEnum.AUTOMATIC;
+        }
+
+    }
+
+    public static VariableBoxEnum getVariableBox(int value) {
         for (VariableBoxEnum cs : VariableBoxEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
