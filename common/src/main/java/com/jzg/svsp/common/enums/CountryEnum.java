@@ -47,6 +47,15 @@ public enum CountryEnum {
         return CountryEnum.OTHER;
     }
 
+    public static CountryEnum getCountryEnum(String value) {
+        for (CountryEnum cs : CountryEnum.values()) {
+            if (cs.getText().equals(value)) {
+                return cs;
+            }
+        }
+        return CountryEnum.OTHER;
+    }
+
     /**
      * 获取value
      *

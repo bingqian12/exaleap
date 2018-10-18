@@ -66,9 +66,17 @@ public enum ModelLevelEnum {
         this.text = text;
     }
 
-    public static ModelLevelEnum getModelLevelEnum(int value) {
+    public static ModelLevelEnum getModelLevel(int value) {
         for (ModelLevelEnum cs : ModelLevelEnum.values()) {
             if (cs.getValue() == value) {
+                return cs;
+            }
+        }
+        return ModelLevelEnum.OTHER;
+    }
+    public static ModelLevelEnum getModelLevel(String value) {
+        for (ModelLevelEnum cs : ModelLevelEnum.values()) {
+            if (cs.getText().equals(value)) {
                 return cs;
             }
         }

@@ -8,15 +8,15 @@ package com.jzg.svsp.common.enums;
 public enum OilFuelTypeEnum {
 
     /**
-     193	待查
-     88	    汽油
-     203	柴油
-     26	    油气混合动力
-     27	    油电混合动力
-     178	电力
-     228	LPG
-     243	CNG
-     325	插电混合
+     * 193	待查
+     * 88	汽油
+     * 203	柴油
+     * 26	油气混合动力
+     * 27	油电混合动力
+     * 178	电力
+     * 228	LPG
+     * 243	CNG
+     * 325	插电混合
      */
 
 
@@ -47,9 +47,36 @@ public enum OilFuelTypeEnum {
         this.text = text;
     }
 
-    public static OilFuelTypeEnum getOilFuelTypeEnum(int value) {
+    public static OilFuelTypeEnum getOilFuelTypeById(int value) {
+
+        switch (value) {
+            case 88:
+                return OilFuelTypeEnum.GASOLINE;
+            case 203:
+                return OilFuelTypeEnum.DIESEL_OIL;
+            case 178:
+                return OilFuelTypeEnum.ELECTRIC;
+            case 27:
+                return OilFuelTypeEnum.OIL_ELECTRIC;
+            default:
+                return OilFuelTypeEnum.GASOLINE;
+        }
+
+    }
+
+    public static OilFuelTypeEnum getOilFuelType(int value) {
         for (OilFuelTypeEnum cs : OilFuelTypeEnum.values()) {
             if (cs.getValue() == value) {
+                return cs;
+            }
+        }
+        return OilFuelTypeEnum.OTHER;
+    }
+
+
+    public static OilFuelTypeEnum getOilFuelType(String value) {
+        for (OilFuelTypeEnum cs : OilFuelTypeEnum.values()) {
+            if (cs.getText().equals(value)) {
                 return cs;
             }
         }

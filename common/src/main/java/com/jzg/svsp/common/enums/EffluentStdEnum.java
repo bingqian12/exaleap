@@ -44,6 +44,15 @@ public enum EffluentStdEnum {
         return EffluentStdEnum.FIVE;
     }
 
+    public static EffluentStdEnum getEffluentStdEnum(String value) {
+        for (EffluentStdEnum cs : EffluentStdEnum.values()) {
+            if (cs.getText().equals(value)) {
+                return cs;
+            }
+        }
+        return EffluentStdEnum.FIVE;
+    }
+
     /**
      * 获取value
      *
