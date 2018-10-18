@@ -158,4 +158,8 @@ public class VehicleInfoParam implements BaseVo {
      */
     private String licensePlateLocation;
 
+    private String exhaustStart;
+
+    private String exhaustEnd;
+
 }
