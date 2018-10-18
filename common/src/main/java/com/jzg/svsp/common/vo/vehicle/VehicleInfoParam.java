@@ -164,4 +164,6 @@ public class VehicleInfoParam implements BaseVo {
 
     private Integer auditStatus;
 
+    private Integer checkStatus;
+
 }

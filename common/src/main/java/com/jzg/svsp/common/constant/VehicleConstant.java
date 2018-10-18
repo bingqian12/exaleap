@@ -48,7 +48,7 @@ public class VehicleConstant {
     public static final String seatCount = "seatCount"; //seatCount
     public static final String seatCountStr = "seatCountStr"; //seatCountStr
     public static final String placeOfOrigin = "placeOfOrigin"; //placeOfOrigin
-
+    public static final String checkStatus = "checkStatus"; //checkStatus
 
 
 
