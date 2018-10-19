@@ -25,6 +25,8 @@ public class VehicleConstant {
     public static final String regDate = "regDate"; //注册日期
     public static final String toBPrice = "toBPrice"; //toBPrice
     public static final String toCPrice = "toCPrice"; //toCPrice
+    public static final String toBPriceSort = "toBPriceSort"; //toBPriceSort
+    public static final String toCPriceSort = "toCPriceSort"; //toCPriceSort
     public static final String toBDeposit = "toBDeposit"; //toBDeposit
     public static final String toCDeposit = "toCDeposit"; //toCDeposit
     public static final String mileage = "mileage"; //mileage
