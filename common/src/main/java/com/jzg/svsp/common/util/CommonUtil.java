@@ -1,6 +1,8 @@
 package com.jzg.svsp.common.util;
 
 import org.apache.commons.lang.StringUtils;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -47,10 +49,10 @@ public class CommonUtil {
         if (value == null || value.size() == 0) {
             return res;
         }
-        for(String str:value){
-            res += str +",";
+        for (String str : value) {
+            res += str + ",";
         }
-        return res.substring(0,res.length() -1);
+        return res.substring(0, res.length() - 1);
     }
 
 
@@ -72,9 +74,6 @@ public class CommonUtil {
     }
 
 
-
-
-
     /**
      * 转化为不为空的类型int
      *
@@ -92,5 +91,20 @@ public class CommonUtil {
         return 0;
     }
 
+    private static final BigDecimal THOUSAND = new BigDecimal(10000);
+
+    public static String formatMileage(String mileage) {
+        if (StringUtils.isBlank(mileage)) {
+            return "";
+        }
+        return formatMileage(Integer.valueOf(mileage));
+    }
+
+    public static String formatMileage(Integer mileage) {
+        if (mileage == null) {
+            return "";
+        }
+        return new BigDecimal(mileage).divide(THOUSAND).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
+    }
 
 }

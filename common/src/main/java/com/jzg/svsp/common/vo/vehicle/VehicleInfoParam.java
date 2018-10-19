@@ -116,7 +116,7 @@ public class VehicleInfoParam implements BaseVo {
     /**
      * 颜色
      */
-    private Integer color;
+    private String color;
     /**
      * 省份Id
      */

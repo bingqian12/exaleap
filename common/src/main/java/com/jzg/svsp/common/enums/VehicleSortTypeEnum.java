@@ -17,7 +17,7 @@ public enum VehicleSortTypeEnum {
 
     SELLPRICE_DESC(4, 0, VehicleConstant.toBPrice, "标价最高"),  //toBPrice降序 标价最高
 
-    CAR_AGE_ASC(5, 1, VehicleConstant.carAge, "车龄最短"),  //车龄升序 车龄最短
+    CAR_AGE_ASC(5, 0, VehicleConstant.carAge, "车龄最短"),  //车龄升序 车龄最短
 
     MILEAGE_ASC(6, 1, VehicleConstant.mileage, "里程最少");     //行驶里程升序 里程最少
 
