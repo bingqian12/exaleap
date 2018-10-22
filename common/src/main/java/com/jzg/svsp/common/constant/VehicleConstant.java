@@ -34,7 +34,7 @@ public class VehicleConstant {
     public static final String vehicleType = "vehicleType"; //vehicleType
     public static final String modelLevel = "modelLevel"; //modelLevel
     public static final String emissionStandard = "emissionStandard"; //emissionStandard
-    public static final String color = "color"; //color
+    public static final String colorId = "colorId"; //color
     public static final String locationProvinceId = "locationProvinceId"; //locationProvinceId
     public static final String locationCityId = "locationCityId"; //locationCityId
     public static final String cityId = "cityId"; //cityId

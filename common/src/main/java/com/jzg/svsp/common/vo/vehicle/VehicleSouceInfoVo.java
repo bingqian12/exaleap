@@ -13,8 +13,8 @@ import java.math.BigDecimal;
 public class VehicleSouceInfoVo implements BaseVo {
 
     private Long id;
-    private Long storeId;
-    private String img;
+    private Long storeId;//店铺ID
+    private String img;//车辆主图
     private String styleFullName;//车型全称
     private String mileage;//公里数
     private String regDate;//上牌时间
@@ -30,29 +30,11 @@ public class VehicleSouceInfoVo implements BaseVo {
     private Integer mortgageStatus;//抵押状态
     private String mortgageStatusDesc;//抵押状态
     private String vinCode;//VIN
-    /**
-     * 卖给车商价格
-     */
-    private BigDecimal toBPrice;
-    /**
-     * 卖给个人价格
-     */
-    private BigDecimal toCPrice;
-    /**
-     * 浏览数
-     */
-    private Integer viewNum;
-    /**
-     * 店铺名称
-     */
-    private String storeName;
-    /**
-     *  可售状态 0 不可售 1 可售
-     */
-    private Integer saleStatus;
-    /**
-     * 在库状态 0 不在库 1 在库
-     */
-    private Integer libraryStatus;
+    private BigDecimal toBPrice;//直销价
+    private BigDecimal toCPrice;//分销价
+    private Integer viewNum;//浏览数
+    private String storeName;//店铺名称
+    private Integer saleStatus;//可售状态 0 不可售 1 可售
+    private Integer libraryStatus;//在库状态 0 不在库 1 在库
 
 }
