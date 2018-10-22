@@ -3,26 +3,25 @@ package com.jzg.svsp.common.enums;
 /**
  * @Author: jzg
  * @Description:
- * @Date: Created by 14:11 on 2018/9/28.
+ * @Date: Created by 16:11 on 2018/10/22.
  */
-public enum ShelfStatusEnum {
+public enum MortgageStatusEnum {
 
-    //上架状态 0:下架  1:上架
+    //抵押状态 0 未抵押 1 已抵押
 
-    DOWN_SHELF(0,"已下架"),
-    UP_SHELF(1,"已上架"),
-    FORCE_UP_SHELF(2,"强制下架");
+    INIT_STATUS(0,"未抵押"),
+    AUDITING(1,"已抵押");
 
     private int value;
     private String text;
 
-    ShelfStatusEnum(int value, String text){
+    MortgageStatusEnum(int value, String text){
         this.value = value;
         this.text = text;
     }
 
-    public static ShelfStatusEnum getShelfStatus(int value) {
-        for (ShelfStatusEnum cs : ShelfStatusEnum.values()) {
+    public static MortgageStatusEnum getMortgageStatus(int value) {
+        for (MortgageStatusEnum cs : MortgageStatusEnum.values()) {
             if (cs.getValue() == value) {
                 return cs;
             }
@@ -37,4 +36,5 @@ public enum ShelfStatusEnum {
     public String getText() {
         return text;
     }
+
 }

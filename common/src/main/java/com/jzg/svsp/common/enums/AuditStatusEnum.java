@@ -12,7 +12,8 @@ public enum AuditStatusEnum {
     INIT_STATUS(0,"初始值"),
     AUDITING(1,"待审核"),
     AUDIT_PASS(2,"审核通过"),
-    AUDIT_REJECT(3,"审核不通过");
+    AUDIT_REJECT(3,"审核不通过"),
+    CANCEL(4,"取消");
 
     private int value;
     private String text;
