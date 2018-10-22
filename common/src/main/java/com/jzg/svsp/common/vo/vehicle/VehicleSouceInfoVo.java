@@ -20,8 +20,8 @@ public class VehicleSouceInfoVo implements BaseVo {
     private String regDate;//上牌时间
     private Integer cityId;//上牌城市
     private String cityName;//上牌城市
-    private Integer localtionCityId;//所在地城市
-    private String localtionCityName;//所在地城市
+    private Integer locationCityId;//所在地城市
+    private String locationCityName;//所在地城市
     private String releaseTime;//发布时间
     private Integer shelfStatus;//上架状态
     private String shelfStatusDesc; //上架状态
