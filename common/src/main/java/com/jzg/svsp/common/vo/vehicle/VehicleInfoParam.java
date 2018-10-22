@@ -166,4 +166,6 @@ public class VehicleInfoParam implements BaseVo {
 
     private Integer checkStatus;
 
+    private String oilFuelType;
+
 }

@@ -52,8 +52,6 @@ public class VehicleConstant {
     public static final String placeOfOrigin = "placeOfOrigin"; //placeOfOrigin
     public static final String checkStatus = "checkStatus"; //checkStatus
     public static final String styleBodyType = "styleBodyType"; //styleBodyType
-
-
-
-
+    public static final String oilFuelType = "oilFuelType"; //oilFuelType
+    public static final String countryId = "countryId"; //countryId
 }
