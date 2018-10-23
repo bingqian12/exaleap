@@ -17,7 +17,7 @@ public class ConsumerCreateOrderReq implements Serializable {
 
     private String createTime;
 
-    private String valiTime;
+    private String validTime;
 
 
     public String getOrderSn() {
@@ -36,11 +36,11 @@ public class ConsumerCreateOrderReq implements Serializable {
         this.createTime = createTime;
     }
 
-    public String getValiTime() {
-        return valiTime;
+    public String getValidTime() {
+        return validTime;
     }
 
-    public void setValiTime(String valiTime) {
-        this.valiTime = valiTime;
+    public void setValidTime(String validTime) {
+        this.validTime = validTime;
     }
 }
