@@ -4,21 +4,18 @@ import java.io.Serializable;
 
 /**
  * @author: YuGenHai
- * @name: OrderPaymentVo
- * @creation: 2018/10/15 18:14
- * @notes:  二次定金
+ * @name: OrderFullMonryVo
+ * @creation: 2018/10/22 18:03
+ * @notes: 付全款
  */
-public class OrderPaymentVo implements Serializable {
+public class OrderFullMonryVo implements Serializable {
 
 
-    private static final long serialVersionUID = 6102903468208586073L;
+    private static final long serialVersionUID = -8864002102818531373L;
 
     private String orderSn;
-    private String payment;
-    /**
-     * 支付方式
-     */
     private String payMethod;
+    private String tailMoney;
 
     public String getOrderSn() {
         return orderSn;
@@ -28,19 +25,19 @@ public class OrderPaymentVo implements Serializable {
         this.orderSn = orderSn;
     }
 
-    public String getPayment() {
-        return payment;
-    }
-
-    public void setPayment(String payment) {
-        this.payment = payment;
-    }
-
     public String getPayMethod() {
         return payMethod;
     }
 
     public void setPayMethod(String payMethod) {
         this.payMethod = payMethod;
+    }
+
+    public String getTailMoney() {
+        return tailMoney;
+    }
+
+    public void setTailMoney(String tailMoney) {
+        this.tailMoney = tailMoney;
     }
 }

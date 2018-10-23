@@ -4,58 +4,22 @@ import java.io.Serializable;
 
 /**
  * @author: YuGenHai
- * @name: CreateOrderVoByC
+ * @name: ConsumerCreateOrderVo
  * @creation: 2018/10/15 11:43
  * @notes: C端创建订单request
  */
-public class CreateOrderVoByC implements Serializable {
+public class ConsumerCreateOrderVo implements Serializable {
 
 
     private static final long serialVersionUID = 2504646064342221371L;
+    /**
+     * 车辆ID
+     */
     private String productId;
     /**
      * 订单类型
      */
     private String orderType;
-
-    /**
-     * 店铺ID
-     */
-    private String storesId;
-
-    /**
-     * 销售人员
-     */
-    private String saleName;
-    /**
-     * 商家ID
-     */
-    private String dealerId;
-    /**
-     * 支付方式
-     */
-    private String payMethod;
-    /**
-     * 定金
-     */
-    private String payment;
-    /**
-     * 成交价
-     */
-    private String payMoney;
-    /**
-     * 车辆C端价格
-     */
-    private String toBPrice;
-
-    /**
-     * 车辆B端价格
-     */
-    private String toCPrice;
-    /**
-     * 保险公司
-     */
-    private String insuranceCompany;
     /**
      * 买方ID
      */
@@ -68,26 +32,45 @@ public class CreateOrderVoByC implements Serializable {
      * 买家电话
      */
     private String phone;
+    /**
+     * 店铺ID
+     */
+    private String storesId;
+    /**
+     * 商家ID
+     */
+    private String dealerId;
+    /**
+     * 定金
+     */
+    private String payment;
+    /**
+     * 成交价
+     */
+    private String payMoney;
+    /**
+     * 车辆C端价格
+     */
+    private String toCPrice;
 
     /**
-     * 入参productId
+     * 车辆信息
      */
-
     private String productName;
     private String vin;
     private String url;
     private String carLicence;
     private String runMileage;
-
-    /**
-     * 尾款
-     */
-    private String tailMoney;
-
+    private String regDate;
     /**
      * 店铺名称
      */
     private String storesName;
+    /**
+     * 预约单号
+     */
+    private String bookNumber;
+
 
     public String getProductId() {
         return productId;
@@ -103,78 +86,6 @@ public class CreateOrderVoByC implements Serializable {
 
     public void setOrderType(String orderType) {
         this.orderType = orderType;
-    }
-
-    public String getStoresId() {
-        return storesId;
-    }
-
-    public void setStoresId(String storesId) {
-        this.storesId = storesId;
-    }
-
-    public String getSaleName() {
-        return saleName;
-    }
-
-    public void setSaleName(String saleName) {
-        this.saleName = saleName;
-    }
-
-    public String getDealerId() {
-        return dealerId;
-    }
-
-    public void setDealerId(String dealerId) {
-        this.dealerId = dealerId;
-    }
-
-    public String getPayMethod() {
-        return payMethod;
-    }
-
-    public void setPayMethod(String payMethod) {
-        this.payMethod = payMethod;
-    }
-
-    public String getPayment() {
-        return payment;
-    }
-
-    public void setPayment(String payment) {
-        this.payment = payment;
-    }
-
-    public String getPayMoney() {
-        return payMoney;
-    }
-
-    public void setPayMoney(String payMoney) {
-        this.payMoney = payMoney;
-    }
-
-    public String getToBPrice() {
-        return toBPrice;
-    }
-
-    public void setToBPrice(String toBPrice) {
-        this.toBPrice = toBPrice;
-    }
-
-    public String getToCPrice() {
-        return toCPrice;
-    }
-
-    public void setToCPrice(String toCPrice) {
-        this.toCPrice = toCPrice;
-    }
-
-    public String getInsuranceCompany() {
-        return insuranceCompany;
-    }
-
-    public void setInsuranceCompany(String insuranceCompany) {
-        this.insuranceCompany = insuranceCompany;
     }
 
     public String getBuyId() {
@@ -199,6 +110,46 @@ public class CreateOrderVoByC implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getStoresId() {
+        return storesId;
+    }
+
+    public void setStoresId(String storesId) {
+        this.storesId = storesId;
+    }
+
+    public String getDealerId() {
+        return dealerId;
+    }
+
+    public void setDealerId(String dealerId) {
+        this.dealerId = dealerId;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
+
+    public String getPayMoney() {
+        return payMoney;
+    }
+
+    public void setPayMoney(String payMoney) {
+        this.payMoney = payMoney;
+    }
+
+    public String getToCPrice() {
+        return toCPrice;
+    }
+
+    public void setToCPrice(String toCPrice) {
+        this.toCPrice = toCPrice;
     }
 
     public String getProductName() {
@@ -241,12 +192,12 @@ public class CreateOrderVoByC implements Serializable {
         this.runMileage = runMileage;
     }
 
-    public String getTailMoney() {
-        return tailMoney;
+    public String getRegDate() {
+        return regDate;
     }
 
-    public void setTailMoney(String tailMoney) {
-        this.tailMoney = tailMoney;
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
     }
 
     public String getStoresName() {
@@ -255,5 +206,13 @@ public class CreateOrderVoByC implements Serializable {
 
     public void setStoresName(String storesName) {
         this.storesName = storesName;
+    }
+
+    public String getBookNumber() {
+        return bookNumber;
+    }
+
+    public void setBookNumber(String bookNumber) {
+        this.bookNumber = bookNumber;
     }
 }
