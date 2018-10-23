@@ -2,6 +2,7 @@ package com.jzg.svsp.common.vo.vehicle;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -32,4 +33,12 @@ public class VehicleSearchParamVo {
     private Integer mileageStart;
     private Integer mileageEnd;
     private String shopName;
+    private BigDecimal startPrice;
+    private BigDecimal endPrice;
+    private Integer proviceId;
+    private Integer modelId;
+    private Integer limitStart;
+    private Integer limitEnd;
+    private Long vehicleId;
+    private List<Long> excludeId;
 }
