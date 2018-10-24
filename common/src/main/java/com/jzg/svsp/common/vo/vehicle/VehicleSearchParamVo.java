@@ -41,4 +41,6 @@ public class VehicleSearchParamVo {
     private Integer limitEnd;
     private Long vehicleId;
     private List<Long> excludeId;
+    private String vehicleBusinessId;
+    private String shelfApplyId;
 }
