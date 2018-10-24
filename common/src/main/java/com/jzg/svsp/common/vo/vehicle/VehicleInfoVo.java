@@ -177,6 +177,9 @@ public class VehicleInfoVo implements BaseVo {
      */
     private String dealerPhone;
 
+    private String marketName;
+    private String marketAddress;
+
     /**
      * 同车系
      */
