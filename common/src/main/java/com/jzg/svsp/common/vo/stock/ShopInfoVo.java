@@ -14,4 +14,6 @@ public class ShopInfoVo implements BaseVo{
     private String shopName;
     private Integer provId;
     private String address;
+    private String marketName;
+    private String marketAddress;
 }
