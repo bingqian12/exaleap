@@ -169,6 +169,11 @@ public class VehicleInfoVo implements BaseVo {
      */
     private String storeAddress;
     /**
+     * 车商电话
+     */
+    private String dealerPhone;
+
+    /**
      * 同车系
      */
     private List<VehicleRecommendVo> sameModelList;
