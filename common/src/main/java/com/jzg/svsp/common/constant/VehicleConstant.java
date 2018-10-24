@@ -54,4 +54,8 @@ public class VehicleConstant {
     public static final String styleBodyType = "styleBodyType"; //styleBodyType
     public static final String oilFuelType = "oilFuelType"; //oilFuelType
     public static final String countryId = "countryId"; //countryId
+    public static final String auditStatus = "auditStatus"; //auditStatus
+    public static final String libraryStatus = "libraryStatus"; //libraryStatus
+    public static final String saleStatus = "saleStatus"; //saleStatus
+
 }
