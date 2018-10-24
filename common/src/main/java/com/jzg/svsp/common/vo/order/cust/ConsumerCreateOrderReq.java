@@ -19,6 +19,7 @@ public class ConsumerCreateOrderReq implements Serializable {
 
     private String validTime;
 
+    private String status;
 
     public String getOrderSn() {
         return orderSn;
@@ -42,5 +43,13 @@ public class ConsumerCreateOrderReq implements Serializable {
 
     public void setValidTime(String validTime) {
         this.validTime = validTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
