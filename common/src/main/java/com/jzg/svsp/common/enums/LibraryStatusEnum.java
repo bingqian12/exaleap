@@ -7,9 +7,9 @@ package com.jzg.svsp.common.enums;
  */
 public enum LibraryStatusEnum {
 
-    //在库状态 0 不在库 1 在库
+    //在库状态 0 出库 1 在库
 
-    DOWN_SHELF(0,"不在库"),
+    DOWN_SHELF(0,"出库"),
     UP_SHELF(1,"在库");
 
     private int value;

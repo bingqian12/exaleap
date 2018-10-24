@@ -5,6 +5,7 @@ import com.jzg.svsp.common.vo.BaseVo;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @Author: jzg
@@ -167,5 +168,14 @@ public class VehicleInfoVo implements BaseVo {
      * 店铺地址
      */
     private String storeAddress;
+    /**
+     * 同车系
+     */
+    private List<VehicleRecommendVo> sameModelList;
+
+    /**
+     * 同价位
+     */
+    private List<VehicleRecommendVo> samePriceList;
 
 }
