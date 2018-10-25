@@ -38,6 +38,15 @@ public class ResultUtils {
 
     }
 
+    public static ResultVo fail(int status, String errorMsg,Object data) {
+        ResultVo resultVo = new ResultVo();
+        resultVo.setStatus(status);
+        resultVo.setMsg(errorMsg);
+        resultVo.setData(data);
+        return resultVo;
+
+    }
+
     public static ResultListVo listSuccess(List list, int status, String errorMsg) {
         ResultListVo resultVo = new ResultListVo();
         resultVo.setStatus(status);
