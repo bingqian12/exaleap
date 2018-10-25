@@ -9,7 +9,7 @@ public enum SaleStatusEnum {
 
     //可售状态 0 不可售 1 可售
 
-    UOT_SALE(0,"不可售"),
+    NOT_SALE(0,"不可售"),
     SALE(1,"可售");
 
     private int value;

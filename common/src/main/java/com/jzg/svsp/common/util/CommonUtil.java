@@ -3,7 +3,10 @@ package com.jzg.svsp.common.util;
 import org.apache.commons.lang.StringUtils;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 /**
@@ -120,4 +123,40 @@ public class CommonUtil {
         return new BigDecimal(mileage).divide(THOUSAND).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
     }
 
+    /**
+     * 时间戳
+     */
+    private static final String FORMAT = "yyyyMMddHHmmss";
+    /**
+     * 数字随机
+     */
+    public static final String NUMBER_CHAR = "0123456789";
+
+    /**
+     * 随机数字
+     */
+    public static final int NUMBER_RANDOM = 5;
+
+    /**
+     * 时间+随机数
+     *
+     * @return
+     */
+    public static synchronized String createOrderIdByTime(String prefix) {
+        SimpleDateFormat sdf = new SimpleDateFormat(FORMAT);
+        StringBuffer sb = new StringBuffer();
+        Random random = new Random();
+        for (int i = 0; i < NUMBER_RANDOM; i++) {
+            sb.append(NUMBER_CHAR.charAt(random.nextInt(NUMBER_CHAR.length())));
+        }
+        return prefix + sdf.format(new Date()) + sb.toString();
+    }
+
+    public static String createVehicleBusinessId(){
+        return createOrderIdByTime("CT");
+    }
+
+    public static String createShelfApplyId(){
+        return createOrderIdByTime("AS");
+    }
 }

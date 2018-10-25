@@ -7,7 +7,7 @@ package com.jzg.svsp.common.enums;
  */
 public enum VehicleStatusEnum {
 
-    //车辆状态  0:正常 1:锁定
+    //车辆状态  0:正常 1:锁定 2: 已售
 
     UNLOCK(0,"正常"),
     LOCK(1,"锁定"),

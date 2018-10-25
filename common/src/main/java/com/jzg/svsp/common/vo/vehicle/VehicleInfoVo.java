@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 public class VehicleInfoVo implements BaseVo {
 
-    private String id;
+    private Long id;
     /**
      * 品牌  模糊搜索例如 宝马
      */
@@ -45,7 +45,11 @@ public class VehicleInfoVo implements BaseVo {
      */
     private String vinCode;
     /**
-     * 车辆状态 0:下架  1:上架  2:未锁定 3:已锁定 4:车辆解锁 5:待过户 6:已过户
+     * 0:已下架  1:已上架 2 :强制下架
+     */
+    private Integer shelfStatus;
+    /**
+     * 车辆状态 0:正常 1:锁定 2: 已售
      */
     private Integer vehicleStatus;
     /**
@@ -168,6 +172,14 @@ public class VehicleInfoVo implements BaseVo {
      * 店铺地址
      */
     private String storeAddress;
+    /**
+     * 车商电话
+     */
+    private String dealerPhone;
+
+    private String marketName;
+    private String marketAddress;
+
     /**
      * 同车系
      */

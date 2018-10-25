@@ -9,8 +9,8 @@ public enum MortgageStatusEnum {
 
     //抵押状态 0 未抵押 1 已抵押
 
-    INIT_STATUS(0,"未抵押"),
-    AUDITING(1,"已抵押");
+    NOT_MORTGAGE(0,"未抵押"),
+    MORTGAGE(1,"已抵押");
 
     private int value;
     private String text;

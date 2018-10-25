@@ -32,7 +32,7 @@ public class VehicleSearchParamVo {
     private String styleFullName;
     private Integer mileageStart;
     private Integer mileageEnd;
-    private String shopName;
+    private String dealerName;
     private BigDecimal startPrice;
     private BigDecimal endPrice;
     private Integer proviceId;
@@ -41,4 +41,6 @@ public class VehicleSearchParamVo {
     private Integer limitEnd;
     private Long vehicleId;
     private List<Long> excludeId;
+    private String vehicleBusinessId;
+    private String shelfApplyId;
 }
