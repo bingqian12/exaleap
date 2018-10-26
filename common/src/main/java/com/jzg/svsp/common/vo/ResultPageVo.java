@@ -137,11 +137,7 @@ public class ResultPageVo<T> extends BaseResultVo {
         this.list = page.getList();
     }
 
-    public boolean isOk() {
+    public boolean succeed() {
         return getStatus() == HttpStatus.SC_OK;
-    }
-
-    public boolean isNotOk() {
-        return getStatus() != HttpStatus.SC_OK;
     }
 }

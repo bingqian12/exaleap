@@ -44,11 +44,7 @@ public class ResultListVo<T> extends BaseResultVo implements Serializable {
         this.list = list;
     }
 
-    public boolean isOk() {
+    public boolean succeed() {
         return getStatus() == HttpStatus.SC_OK;
-    }
-
-    public boolean isNotOk() {
-        return getStatus() != HttpStatus.SC_OK;
     }
 }

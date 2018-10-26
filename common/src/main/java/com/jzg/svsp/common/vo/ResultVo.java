@@ -28,11 +28,7 @@ public class ResultVo<T> extends BaseResultVo implements Serializable {
         super(status, msg);
     }
 
-    public boolean isOk() {
+    public boolean succeed() {
         return getStatus() == HttpStatus.SC_OK;
-    }
-
-    public boolean isNotOk() {
-        return getStatus() != HttpStatus.SC_OK;
     }
 }
