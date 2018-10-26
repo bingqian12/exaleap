@@ -9,7 +9,7 @@ import java.util.Date;
  * @creation: 2018/9/26 16:23
  * @notes: B2B列表页条件
  */
-public class B2bOrderInfoByListVo implements Serializable {
+public class DealerSearchByListVo implements Serializable {
 
     private static final long serialVersionUID = 7419400702270027112L;
 

@@ -1,13 +1,13 @@
 package com.jzg.svsp.common.vo;
 
 import lombok.Data;
+import org.apache.http.HttpStatus;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * ajax调用统一返回该结构
- *
+ * <p>
  * 返回信息
  */
 @Data
@@ -26,5 +26,13 @@ public class ResultVo<T> extends BaseResultVo implements Serializable {
 
     public ResultVo(int status, String msg) {
         super(status, msg);
+    }
+
+    public boolean isOk() {
+        return getStatus() == HttpStatus.SC_OK;
+    }
+
+    public boolean isNotOk() {
+        return getStatus() != HttpStatus.SC_OK;
     }
 }
