@@ -14,6 +14,8 @@ import java.util.List;
  */
 @Data
 public class VehicleDetail implements BaseVo {
+    private BigDecimal toBPrice;  //直销价
+    private BigDecimal toCPrice;  //分销价
     private Integer checkStatus; //0 初检 1 复检
     private String vehicleBusinessId;  //车辆业务ID
     private String vehicleId;  //车辆ID
