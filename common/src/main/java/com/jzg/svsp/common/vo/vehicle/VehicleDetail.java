@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Data
 public class VehicleDetail implements BaseVo {
-    private String vehicleBusinessId;  //车辆ID
+    private String vehicleBusinessId;  //车辆业务ID
     private String vehicleId;  //车辆ID
     private String accident; //事故等级 A B C D
     private String vinCode; //vin码
@@ -47,6 +47,7 @@ public class VehicleDetail implements BaseVo {
     private String registration; //登记证
     private String key; //钥匙
     private String color; //颜色
+    private String locationCityId; //车源所在地
     private String locationCityName; //车源所在地
     private Integer transferCount; //过户次数
     private String productionTime; //生产日期
@@ -70,5 +71,6 @@ public class VehicleDetail implements BaseVo {
     private JSONArray procedurePic; //手续照片
     private List<VehicleRecommendVo> sameModelList; //同车系
     private List<VehicleRecommendVo> samePriceList; //同价位
-    private List<BrightConfig> brightConfigs;
+    private List<BrightConfig> brightConfigs; //亮点配置
+    private List<CheckResult> checkResultList; //全量检查
 }
