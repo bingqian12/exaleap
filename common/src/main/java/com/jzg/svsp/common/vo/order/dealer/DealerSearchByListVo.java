@@ -37,14 +37,14 @@ public class DealerSearchByListVo implements Serializable {
     /**
      * 创建时间
      */
-    private Date createBeTime;
-    private Date createEnTime;
+    private String createBeTime;
+    private String createEnTime;
 
     /**
      * 付款时间
      */
-    private Date payBeTime;
-    private Date payEnTime;
+    private String payBeTime;
+    private String payEnTime;
 
 
     /**
@@ -55,7 +55,6 @@ public class DealerSearchByListVo implements Serializable {
      * 每页条数
      */
     private Integer pageSize;
-
 
     public Integer getOrderStatus() {
         return orderStatus;
@@ -89,35 +88,35 @@ public class DealerSearchByListVo implements Serializable {
         this.saleName = saleName;
     }
 
-    public Date getCreateBeTime() {
+    public String getCreateBeTime() {
         return createBeTime;
     }
 
-    public void setCreateBeTime(Date createBeTime) {
+    public void setCreateBeTime(String createBeTime) {
         this.createBeTime = createBeTime;
     }
 
-    public Date getCreateEnTime() {
+    public String getCreateEnTime() {
         return createEnTime;
     }
 
-    public void setCreateEnTime(Date createEnTime) {
+    public void setCreateEnTime(String createEnTime) {
         this.createEnTime = createEnTime;
     }
 
-    public Date getPayBeTime() {
+    public String getPayBeTime() {
         return payBeTime;
     }
 
-    public void setPayBeTime(Date payBeTime) {
+    public void setPayBeTime(String payBeTime) {
         this.payBeTime = payBeTime;
     }
 
-    public Date getPayEnTime() {
+    public String getPayEnTime() {
         return payEnTime;
     }
 
-    public void setPayEnTime(Date payEnTime) {
+    public void setPayEnTime(String payEnTime) {
         this.payEnTime = payEnTime;
     }
 
