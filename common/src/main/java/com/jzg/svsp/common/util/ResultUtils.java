@@ -7,6 +7,7 @@ import com.jzg.svsp.common.vo.ResultListVo;
 import com.jzg.svsp.common.vo.ResultPageVo;
 import com.jzg.svsp.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
 import java.io.Serializable;
@@ -34,6 +35,15 @@ public class ResultUtils {
         ResultVo resultVo = new ResultVo();
         resultVo.setStatus(status);
         resultVo.setMsg(errorMsg);
+        return resultVo;
+
+    }
+
+    public static ResultVo fail(int status, String errorMsg,Object data) {
+        ResultVo resultVo = new ResultVo();
+        resultVo.setStatus(status);
+        resultVo.setMsg(errorMsg);
+        resultVo.setData(data);
         return resultVo;
 
     }
@@ -68,7 +78,6 @@ public class ResultUtils {
         resultVo.setStatus(resultListVo.getStatus());
         resultVo.setMsg(resultListVo.getMsg());
         resultVo.setData(resultListVo.getList());
-        log.info("ResultUtils>changeResultPageVo> resultVo{}", JSONObject.toJSONString(resultVo));
         return resultVo;
     }
 
@@ -83,7 +92,20 @@ public class ResultUtils {
         resultVo.setStatus(resultPageVo.getStatus());
         resultVo.setMsg(resultPageVo.getMsg());
         resultVo.setData(data);
-        log.info("ResultUtils>changeResultPageVo> resultVo{}", JSONObject.toJSONString(resultVo));
+        return resultVo;
+    }
+
+    public static ResultVo resultPageFail(int status, String errorMsg) {
+        ResultVo resultVo = new ResultVo();
+        JSONObject data = new JSONObject();
+        data.put("pageNo", 1);
+        data.put("pageSize", 10);
+        data.put("pageCount", 0);
+        data.put("total", 0);
+        data.put("list", null);
+        resultVo.setStatus(status);
+        resultVo.setMsg(errorMsg);
+        resultVo.setData(data);
         return resultVo;
     }
 }
