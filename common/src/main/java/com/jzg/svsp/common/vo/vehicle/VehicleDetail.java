@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Data
 public class VehicleDetail implements BaseVo {
+    private Integer checkStatus; //0 初检 1 复检
     private String vehicleBusinessId;  //车辆业务ID
     private String vehicleId;  //车辆ID
     private String accident; //事故等级 A B C D
@@ -47,30 +48,28 @@ public class VehicleDetail implements BaseVo {
     private String registration; //登记证
     private String key; //钥匙
     private String color; //颜色
-    private String locationCityId; //车源所在地
-    private String locationCityName; //车源所在地
+    private String locationProvinceId; //车源所在省
+    private String locationProvinceName; //车源所在省
+    private String locationCityId; //车源所在市
+    private String locationCityName; //车源所在市
     private Integer transferCount; //过户次数
     private String productionTime; //生产日期
     private String checkDescription; //检测描述
     private String appearanceDiagrammaticLink; //外观示意图
     private String structureDiagrammaticLink; //结构示意图
     private String decorateDiagrammaticLink; //内饰示意图
-    //private CheckResult accidentCheck; //事故检查
-    private CheckResult engineCheck; //机舱检查
-    private CheckResult chassisCheck; //底盘检查
-    private CheckResult electricalCheck; //电气检查
-    //private CheckResult burningCheck; //火烧检查
-    //private CheckResult waterCheck; //泡水检查
-    //private CheckResult appearanceCheck; //外观检查
-    //private CheckResult decorateCheck; //内饰检查
-    private List<CheckResult> appearanceDecorateCheck; //外观内饰检查
-    private CheckResult slightAccidentCheck; //轻微事故检查
-    private List<CheckResult> majorAccidentCheck; //重大事故检查
-    private CheckResult roadTestCheck; //路试检查
+    private BaseVehicleDetail engineCheck; //机舱检查
+    private BaseVehicleDetail chassisCheck; //底盘检查
+    private BaseVehicleDetail electricalCheck; //电气检查
+    private BaseVehicleDetail appearanceDecorateCheck; //外观内饰检查
+    private BaseVehicleDetail slightAccidentCheck; //轻微事故检查
+    private BaseVehicleDetail majorAccidentCheck; //重大事故检查
+    private BaseVehicleDetail roadTestCheck; //路试检查
     private JSONArray basicPic; //基本照片
     private JSONArray procedurePic; //手续照片
     private List<VehicleRecommendVo> sameModelList; //同车系
     private List<VehicleRecommendVo> samePriceList; //同价位
     private List<BrightConfig> brightConfigs; //亮点配置
-    private List<CheckResult> checkResultList; //全量检查
+
+
 }
