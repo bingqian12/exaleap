@@ -15,6 +15,7 @@ public class VehicleSearchParamVo {
     private Integer storeId;
     private String vinCode;
     private List<String> storeIds;
+    private List<String> excludeStoreIds;
     private Integer shelfStatus;
     private Integer vehicleStatus;
     private Integer saleStatus;
