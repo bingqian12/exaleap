@@ -24,6 +24,7 @@ public class VehicleDetail implements BaseVo {
     private String vinCode; //vin码
     private Integer stockAge;  //库龄
     private Integer styleId;   //车型ID
+    private String img;  //车型图片
     private String styleFullName; //车型全称
     private Integer cityId;    //上牌城市
     private String cityName;   //上牌城市
@@ -38,8 +39,10 @@ public class VehicleDetail implements BaseVo {
     private BigDecimal newCarPrice; //新车价
     private BigDecimal purchaseTax; //购置税
     private Long storeId; //店铺Id
+    private String storePhone; //店铺电话
     private String storeName; //店铺名称
     private String storeAddress; //店铺地址
+    private Integer onSaleNum; //在售数量
     private String dealerPhone; //车商电话
     private String marketName; //市场地址
     private String marketAddress; //市场名称
@@ -57,6 +60,8 @@ public class VehicleDetail implements BaseVo {
     private String locationCityName; //车源所在市
     private Integer transferCount; //过户次数
     private String productionTime; //生产日期
+    private String vehicleUse; //车辆用途
+    private BigDecimal freightValuation; //运费估价
     private String checkDescription; //检测描述
     private String appearanceDiagrammaticLink; //外观示意图
     private String structureDiagrammaticLink; //结构示意图
