@@ -52,6 +52,10 @@ public class ConsumerCreateOrderVo implements Serializable {
      * 车辆C端价格
      */
     private String toCPrice;
+    /**
+     * 车辆B端价格
+     */
+    private String toBPrice;
 
     /**
      * 车辆信息
@@ -70,7 +74,6 @@ public class ConsumerCreateOrderVo implements Serializable {
      * 预约单号
      */
     private String bookNumber;
-
 
     public String getProductId() {
         return productId;
@@ -150,6 +153,14 @@ public class ConsumerCreateOrderVo implements Serializable {
 
     public void setToCPrice(String toCPrice) {
         this.toCPrice = toCPrice;
+    }
+
+    public String getToBPrice() {
+        return toBPrice;
+    }
+
+    public void setToBPrice(String toBPrice) {
+        this.toBPrice = toBPrice;
     }
 
     public String getProductName() {
