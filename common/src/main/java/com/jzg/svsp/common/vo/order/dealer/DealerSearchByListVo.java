@@ -14,6 +14,11 @@ public class DealerSearchByListVo implements Serializable {
     private static final long serialVersionUID = 7419400702270027112L;
 
     /**
+     * 当前ID
+     */
+    private Long dealerId;
+
+    /**
      * 订单状态
      */
     private Integer orderStatus;
@@ -55,6 +60,15 @@ public class DealerSearchByListVo implements Serializable {
      * 每页条数
      */
     private Integer pageSize;
+
+
+    public Long getDealerId() {
+        return dealerId;
+    }
+
+    public void setDealerId(Long dealerId) {
+        this.dealerId = dealerId;
+    }
 
     public Integer getOrderStatus() {
         return orderStatus;

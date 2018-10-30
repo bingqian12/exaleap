@@ -180,14 +180,6 @@ public class VehicleInfoVo implements BaseVo {
     private String marketName;
     private String marketAddress;
 
-    /**
-     * 同车系
-     */
-    private List<VehicleRecommendVo> sameModelList;
-
-    /**
-     * 同价位
-     */
-    private List<VehicleRecommendVo> samePriceList;
+    private Integer checkStatus;
 
 }
