@@ -1,7 +1,11 @@
 /**
-  * Copyright 2018 bejson.com 
-  */
+ * Copyright 2018 bejson.com
+ */
 package com.jzg.svsp.common.vo.report;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.List;
 
 /**
@@ -12,20 +16,23 @@ import java.util.List;
  */
 public class CheckItems {
 
-    private List<String> defectValueList;
+    private List<JSONObject> defectValueList;
     private String checkItemName;
-    public void setDefectValueList(List<String> defectValueList) {
-         this.defectValueList = defectValueList;
-     }
-     public List<String> getDefectValueList() {
-         return defectValueList;
-     }
+
+    public void setDefectValueList(List<JSONObject> defectValueList) {
+        this.defectValueList = defectValueList;
+    }
+
+    public List<JSONObject> getDefectValueList() {
+        return defectValueList;
+    }
 
     public void setCheckItemName(String checkItemName) {
-         this.checkItemName = checkItemName;
-     }
-     public String getCheckItemName() {
-         return checkItemName;
-     }
+        this.checkItemName = checkItemName;
+    }
+
+    public String getCheckItemName() {
+        return checkItemName;
+    }
 
 }
