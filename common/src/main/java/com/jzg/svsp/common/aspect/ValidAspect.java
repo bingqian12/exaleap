@@ -26,9 +26,7 @@ public class ValidAspect {
     @Around("point()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info("*********参数校验***********");
-        System.out.println("参数校验=============");
         Object obj = joinPoint.proceed();
-        System.out.println("环绕后增强=============");
         return obj;
     }
 
