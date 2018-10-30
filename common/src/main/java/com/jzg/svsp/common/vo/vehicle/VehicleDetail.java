@@ -2,6 +2,7 @@ package com.jzg.svsp.common.vo.vehicle;
 
 import com.alibaba.fastjson.JSONArray;
 import com.jzg.svsp.common.vo.BaseVo;
+import com.jzg.svsp.common.vo.product.VehicleLicenseCertificateVo;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -79,6 +80,4 @@ public class VehicleDetail implements BaseVo {
     private List<VehicleRecommendVo> sameModelList; //同车系
     private List<VehicleRecommendVo> samePriceList; //同价位
     private List<BrightConfig> brightConfigs; //亮点配置
-
-
 }
