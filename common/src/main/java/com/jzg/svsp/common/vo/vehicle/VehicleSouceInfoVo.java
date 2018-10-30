@@ -41,5 +41,5 @@ public class VehicleSouceInfoVo implements BaseVo {
     private String marketAddress;//市场地址
     private String contactNumber;//联系电话
     private String chatUser;//聊天
-
+    private Integer checkStatus; //严选车 1
 }
