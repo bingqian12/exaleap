@@ -27,6 +27,7 @@
 		<module>customer</module>
 		<module>product</module>
 		<module>monitor</module>
+		<module>common-mybatis</module>
 
     </modules>
 
