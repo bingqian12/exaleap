@@ -14,10 +14,6 @@ import java.math.BigDecimal;
 public class VehicleSourceParam implements BaseVo{
 
     /**
-     * 客户ID
-     */
-    private Long customerId;
-    /**
      * 车源ID
      */
     private Long vehicleId;
