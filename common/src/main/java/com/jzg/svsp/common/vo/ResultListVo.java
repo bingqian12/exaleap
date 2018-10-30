@@ -1,5 +1,7 @@
 package com.jzg.svsp.common.vo;
 
+import org.apache.http.HttpStatus;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,5 +44,7 @@ public class ResultListVo<T> extends BaseResultVo implements Serializable {
         this.list = list;
     }
 
-
+    public boolean succeed() {
+        return getStatus() == HttpStatus.SC_OK;
+    }
 }

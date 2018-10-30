@@ -36,8 +36,10 @@ public class VehicleSouceInfoVo implements BaseVo {
     private String storeName;//店铺名称
     private Integer saleStatus;//可售状态 0 不可售 1 可售
     private Integer libraryStatus;//在库状态 0 不在库 1 在库
-    private Integer marketId;
-    private String marketName;
-    private String marketAddress;
+    private Integer marketId;//市场ID
+    private String marketName;//市场名称
+    private String marketAddress;//市场地址
+    private String contactNumber;//联系电话
+    private String chatUser;//聊天
 
 }

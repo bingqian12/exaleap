@@ -13,9 +13,9 @@ public enum VehicleSortTypeEnum {
 
     RELEASE_ASC(2, 1, VehicleConstant.releaseTime, "在库天数最长"),  //发布时间升序  在库天数最长
 
-    SELLPRICE_ASC(3, 1, VehicleConstant.toBPriceSort, "标价最低"),  //toBPrice升序  标价最低
+    SELLPRICE_ASC(3, 1, VehicleConstant.toBPrice, "标价最低"),  //toBPrice升序  标价最低
 
-    SELLPRICE_DESC(4, 0, VehicleConstant.toBPriceSort, "标价最高"),  //toBPrice降序 标价最高
+    SELLPRICE_DESC(4, 0, VehicleConstant.toBPrice, "标价最高"),  //toBPrice降序 标价最高
 
     CAR_AGE_ASC(5, 0, VehicleConstant.carAge, "车龄最短"),  //车龄升序 车龄最短
 

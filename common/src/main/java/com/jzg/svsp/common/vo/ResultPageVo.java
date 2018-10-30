@@ -1,6 +1,8 @@
 package com.jzg.svsp.common.vo;
 
 
+import org.apache.http.HttpStatus;
+
 import java.util.List;
 
 /**
@@ -133,5 +135,9 @@ public class ResultPageVo<T> extends BaseResultVo {
         this.total = page.getTotal();
 
         this.list = page.getList();
+    }
+
+    public boolean succeed() {
+        return getStatus() == HttpStatus.SC_OK;
     }
 }

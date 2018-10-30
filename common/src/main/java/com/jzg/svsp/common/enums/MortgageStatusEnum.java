@@ -26,7 +26,7 @@ public enum MortgageStatusEnum {
                 return cs;
             }
         }
-        return null;
+        return MortgageStatusEnum.NOT_MORTGAGE;
     }
 
     public int getValue() {
