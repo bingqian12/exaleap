@@ -7,9 +7,9 @@ package com.jzg.svsp.common.enums;
  */
 public enum ShelfStatusEnum {
 
-    //上架状态 0:已下架  1:已上架 2 :强制下架
+    //上架状态 0:未上架  1:已上架 2 :强制下架
 
-    DOWN_SHELF(0,"已下架"),
+    DOWN_SHELF(0,"未上架"),
     UP_SHELF(1,"已上架"),
     FORCE_UP_SHELF(2,"强制下架");
 

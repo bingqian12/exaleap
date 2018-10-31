@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jzg.svsp.common.vo.BaseVo;
 import com.jzg.svsp.common.vo.product.VehicleLicenseCertificateVo;
+import com.jzg.svsp.common.vo.report.BasicPic;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -33,6 +34,7 @@ public class VehicleDetail implements BaseVo {
     private String regDate;    //上牌时间
     private String mileage;    //行驶里程
     private String releaseTime; //发布时间
+    private String releaseDate; //发布日期
     private BigDecimal referencePriceMin; //参考价
     private BigDecimal referencePriceMax; //参考价
     private String emissionStandard; //排放标准
@@ -75,8 +77,8 @@ public class VehicleDetail implements BaseVo {
     private BaseVehicleDetail slightAccidentCheck; //轻微事故检查
     private BaseVehicleDetail majorAccidentCheck; //重大事故检查
     private BaseVehicleDetail roadTestCheck; //路试检查
-    private JSONArray basicPic; //基本照片
-    private JSONArray vehicleRealBeat; //车辆实拍
+    private List<BasicPic> basicPic; //基本照片
+    private List<BasicPic> vehicleRealBeat; //车辆实拍
     private JSONArray procedurePic; //手续照片
     private List<VehicleRecommendVo> sameModelList; //同车系
     private List<VehicleRecommendVo> samePriceList; //同价位
