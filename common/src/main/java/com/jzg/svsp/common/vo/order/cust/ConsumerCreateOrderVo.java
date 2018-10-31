@@ -80,6 +80,12 @@ public class ConsumerCreateOrderVo implements Serializable {
      */
     private String saleName;
 
+    /**
+     * 保险公司
+     */
+    private String insuranceCompany;
+
+
     public String getProductId() {
         return productId;
     }
@@ -238,5 +244,13 @@ public class ConsumerCreateOrderVo implements Serializable {
 
     public void setSaleName(String saleName) {
         this.saleName = saleName;
+    }
+
+    public String getInsuranceCompany() {
+        return insuranceCompany;
+    }
+
+    public void setInsuranceCompany(String insuranceCompany) {
+        this.insuranceCompany = insuranceCompany;
     }
 }
