@@ -34,6 +34,7 @@ public class VehicleDetail implements BaseVo {
     private String regDate;    //上牌时间
     private String mileage;    //行驶里程
     private String releaseTime; //发布时间
+    private String releaseDate; //发布日期
     private BigDecimal referencePriceMin; //参考价
     private BigDecimal referencePriceMax; //参考价
     private String emissionStandard; //排放标准

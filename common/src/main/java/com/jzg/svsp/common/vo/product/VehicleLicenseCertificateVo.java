@@ -42,7 +42,7 @@ public class VehicleLicenseCertificateVo {
     /**
      * 钥匙
      */
-    private Integer key;
+    private Integer vehicleKey;
 
     /**
      * 交强险 0 无 1 有
@@ -99,15 +99,6 @@ public class VehicleLicenseCertificateVo {
      */
     private Integer fourSRegularMaintenance;
 
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
 
 
 }

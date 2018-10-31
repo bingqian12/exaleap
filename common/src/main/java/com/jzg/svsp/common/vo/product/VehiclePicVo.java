@@ -18,8 +18,6 @@ public class VehiclePicVo {
 
     private String picDesc;
 
-    private Date createTime;
-
-    private Date updateTime;
+    private Integer masterImg;
 
 }
