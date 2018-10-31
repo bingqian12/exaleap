@@ -36,4 +36,6 @@ public class VehicleRecommendVo {
 
     private String releaseTime;
 
+    private String img;
+
 }
