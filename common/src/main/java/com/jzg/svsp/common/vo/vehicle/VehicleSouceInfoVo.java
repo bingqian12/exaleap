@@ -23,6 +23,7 @@ public class VehicleSouceInfoVo implements BaseVo {
     private Integer locationCityId;//所在地城市
     private String locationCityName;//所在地城市
     private String releaseTime;//发布时间
+    private String createTime;//入库时间
     private Integer shelfStatus;//上架状态
     private String shelfStatusDesc; //上架状态
     private Integer vehicleStatus;//车辆状态

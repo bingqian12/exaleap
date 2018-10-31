@@ -46,6 +46,7 @@ public class VehicleConstant {
     public static final String carAge = "carAge"; //carAge
     public static final String exhaust = "exhaust"; //exhaust
     public static final String releaseTime = "releaseTime"; //releaseTime
+    public static final String createTime = "createTime"; //createTime
     public static final String storeId = "storeId"; //storeId
     public static final String seatCount = "seatCount"; //seatCount
     public static final String seatCountStr = "seatCountStr"; //seatCountStr
