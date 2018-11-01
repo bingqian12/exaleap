@@ -24,7 +24,7 @@ import java.lang.reflect.Parameter;
 @Aspect
 @Component
 @Slf4j
-@ConditionalOnExpression("'${valid.enable:false}'=='true'")
+@ConditionalOnExpression("'${param.valid.enable:false}'=='true'")
 public class ValidAspect {
     /**
      * 切点
