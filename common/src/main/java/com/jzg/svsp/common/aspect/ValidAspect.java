@@ -45,7 +45,7 @@ public class ValidAspect {
             if (parameters[i].getAnnotation(RequestBody.class) != null) {
                 ResultVo valid = ValidUtils.valid(args[i]);
                 if (!valid.succeed()) {
-                    log.error("参数校验不通过:{}", valid.getMsg());
+                    log.info("参数校验不通过:{}", valid.getMsg());
                     return valid;
                 }
             }

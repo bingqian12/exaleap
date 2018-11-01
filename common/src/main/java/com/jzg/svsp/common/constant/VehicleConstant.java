@@ -58,5 +58,6 @@ public class VehicleConstant {
     public static final String auditStatus = "auditStatus"; //auditStatus
     public static final String libraryStatus = "libraryStatus"; //libraryStatus
     public static final String saleStatus = "saleStatus"; //saleStatus
+    public static final String brightId = "brightId"; //brightId
 
 }

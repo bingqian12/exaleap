@@ -157,17 +157,32 @@ public class VehicleInfoParam implements BaseVo {
      * 车牌所在地
      */
     private String licensePlateLocation;
-
+    /**
+     * 排量开始
+     */
     private String exhaustStart;
-
+    /**
+     * 排量结束
+     */
     private String exhaustEnd;
-
+    /**
+     *
+     */
     private Integer auditStatus;
-
+    /**
+     *
+     */
     private Integer checkStatus;
-
+    /**
+     *
+     */
     private String oilFuelType;
-
+    /**
+     *
+     */
     private Integer saleStatus;
-
+    /**
+     * 亮点配置
+     */
+    private String brightId;
 }
