@@ -1,7 +1,6 @@
-package com.jzg.svsp.common.mybatis.util;
+package com.jzg.svsp.common.util;
 
-import com.jzg.svsp.common.mybatis.annotations.Validate;
-import com.jzg.svsp.common.util.ResultUtils;
+import com.jzg.svsp.common.annotations.Validate;
 import com.jzg.svsp.common.vo.ResultVo;
 import com.jzg.svsp.common.vo.RetStatus;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +28,7 @@ public class ValidUtils {
      * @return
      */
     public static ResultVo valid(Object obj) {
-        Set<Field> fields = ReflectionUtils.getAllFields(obj.getClass(), f -> f.getAnnotation(Validate.class) != null);
+        Set<Field> fields = ReflectionUtils.getAllFields(obj.getClass(), ReflectionUtils.withAnnotation(Validate.class));
         for (Field f : fields) {
             try {
                 Validate annotation = f.getAnnotation(Validate.class);
