@@ -2,8 +2,8 @@ package com.jzg.svsp.common.swagger;
 
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +34,8 @@ import java.util.stream.Collectors;
 public class SwaggerConfig {
     @Value("${config-name}")
     private String configName;
+    @Value("${spring.application.name}")
+    private String appName;
 
     @Bean
     public Docket createRestApi() {
@@ -60,7 +62,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("call-center 接口文档")
+                .title(StringUtils.isNotBlank(appName) ? appName : "" + "接口文档")
                 .description("<a href=\"/api\" target=\"_blank\">Feign Client说明<a>")
                 .termsOfServiceUrl("")
                 .contact(new Contact("JZG", "http://www.jingzhengu.com", "http://www.jingzhengu.com"))
