@@ -92,25 +92,41 @@ public class ApiGenerateController {
                         if (getMapping != null) {
                             importClasses.add(GetMapping.class);
                             content.append("\t@GetMapping");
-                            content.append("(\"" + classPath + getMapping.value()[0] + "\")\n");
+                            content.append("(\"" + classPath);
+                            if (getMapping.value().length > 0) {
+                                content.append(getMapping.value()[0]);
+                            }
+                            content.append("\")\n");
                         } else {
                             PostMapping postMapping = method.getAnnotation(PostMapping.class);
                             if (postMapping != null) {
                                 importClasses.add(PostMapping.class);
                                 content.append("\t@PostMapping");
-                                content.append("(\"" + classPath + postMapping.value()[0] + "\")\n");
+                                content.append("(\"" + classPath);
+                                if (postMapping.value().length > 0) {
+                                    content.append(postMapping.value()[0]);
+                                }
+                                content.append("\")\n");
                             } else {
                                 PutMapping putMapping = method.getAnnotation(PutMapping.class);
                                 if (putMapping != null) {
                                     importClasses.add(PutMapping.class);
                                     content.append("\t@PutMapping");
-                                    content.append("(\"" + classPath + putMapping.value()[0] + "\")\n");
+                                    content.append("(\"" + classPath);
+                                    if (putMapping.value().length > 0) {
+                                        content.append(putMapping.value()[0]);
+                                    }
+                                    content.append("\")\n");
                                 } else {
                                     DeleteMapping deleteMapping = method.getAnnotation(DeleteMapping.class);
                                     if (deleteMapping != null) {
                                         importClasses.add(DeleteMapping.class);
                                         content.append("\t@DeleteMapping");
-                                        content.append("(\"" + classPath + deleteMapping.value()[0] + "\")\n");
+                                        content.append("(\"" + classPath);
+                                        if (deleteMapping.value().length > 0) {
+                                            content.append(deleteMapping.value()[0]);
+                                        }
+                                        content.append("\")\n");
                                     } else {
                                         continue;
                                     }
