@@ -27,7 +27,7 @@ auth-props:
   auth-level: local
   access-ip: 127.0.0.1
   api-urlMap: {
-    ##1. manager 系统后台; 2. customer; 3. dealer 服务平台后台;
+    ##1. manager 系统后台; 2. customer; 3. user 服务平台后台;
     customer: 3,
     product: 3,
     user: 3,
