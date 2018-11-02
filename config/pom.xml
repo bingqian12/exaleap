@@ -89,6 +89,12 @@
 				<spring.active>prod</spring.active>
 			</properties>
 		</profile>
+		<profile>
+			<id>pre</id>
+			<properties>
+				<spring.active>pre</spring.active>
+			</properties>
+		</profile>
 	</profiles>
 
 
