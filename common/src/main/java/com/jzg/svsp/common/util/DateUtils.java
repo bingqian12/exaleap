@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.http.util.TextUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.applet.Main;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -19,6 +18,7 @@ import java.util.*;
 public class DateUtils {
 
     public static final String TIME_WITH_MINUTE_PATTERN = "HH:mm";
+    public static final String DATE_MONTH_DAY_CN = "MM月dd日";
 
     public static final long DAY_MILLI = 24 * 60 * 60 * 1000; // 一天的MilliSecond
 
@@ -605,6 +605,7 @@ public class DateUtils {
      * @param interModel 区间的模式
      *                   <p>
      *                   <pre>
+<<<<<<< HEAD
      *                                                                         		取值：
      *                                                                         			LEFT_OPEN_RIGHT_OPEN
      *                                                                         			LEFT_CLOSE_RIGHT_OPEN
@@ -619,6 +620,22 @@ public class DateUtils {
      *                                                                         			COMP_MODEL_TIME		只比较时间，不比较日期
      *                                                                         			COMP_MODEL_DATETIME 比较日期，也比较时间
      *                                                                         </pre>
+=======
+     *                                                                                                             		取值：
+     *                                                                                                             			LEFT_OPEN_RIGHT_OPEN
+     *                                                                                                             			LEFT_CLOSE_RIGHT_OPEN
+     *                                                                                                             			LEFT_OPEN_RIGHT_CLOSE
+     *                                                                                                             			LEFT_CLOSE_RIGHT_CLOSE
+     *                                                                                                             </pre>
+     * @param compModel  比较的模式
+     *                   <p>
+     *                   <pre>
+     *                                                                                                             		取值：
+     *                                                                                                             			COMP_MODEL_DATE		只比较日期，不比较时间
+     *                                                                                                             			COMP_MODEL_TIME		只比较时间，不比较日期
+     *                                                                                                             			COMP_MODEL_DATETIME 比较日期，也比较时间
+     *                                                                                                             </pre>
+>>>>>>> 1b7d54933150ee88dac36ddcb2037a5a37cf06cf
      * @return
      */
     public static boolean isBetween(Date date, Date start, Date end, int interModel, int compModel) {
@@ -1029,13 +1046,9 @@ public class DateUtils {
      * @param pattern 时间格式
      * @return Date
      */
-    public static java.util.Date getDateFromString(String src, String pattern) {
+    public static java.util.Date getDateFromString(String src, String pattern) throws ParseException {
         SimpleDateFormat f = new SimpleDateFormat(pattern);
-        try {
-            return f.parse(src);
-        } catch (ParseException e) {
-            return null;
-        }
+        return f.parse(src);
     }
 
     /**
@@ -1325,6 +1338,18 @@ public class DateUtils {
     }
 
     /**
+     * 两个日期相差天数
+     *
+     * @param startDate
+     * @param endDate
+     * @return 天数
+     */
+    public static long getDateDiff(Date startDate, Date endDate) {
+        long diff = (startDate.getTime() - endDate.getTime()) / DAY_MILLI;
+        return diff;
+    }
+
+    /**
      * 两个日期相关天数
      *
      * @param startDate
@@ -1469,6 +1494,27 @@ public class DateUtils {
 
         return value;
 
+    }
+    /**
+     * 对时间进行格式化,将Data类型转成中文名称
+     * @param sdate
+     * @param sFmt 格式
+     * @return 名称
+     */
+    public static String dateFormatCN(Date sdate,String sFmt) {
+        if (sFmt == null) sFmt = "MM月dd日";
+        sdate = dateFormat(sdate);
+        Date edate = dateFormat(new Date());
+        log.info("sdate--->" + sdate);
+        log.info("edate--->" + edate);
+        long b = getDateDiff(sdate, edate);
+        if (b == 0L) {
+            return "今天";
+        } else if (b == 1L) {
+            return "明天";
+        }  else {
+            return b == -1L ? "昨天" : toString(sdate, sFmt);
+        }
     }
 
     /*public static void main(String[] args) {
