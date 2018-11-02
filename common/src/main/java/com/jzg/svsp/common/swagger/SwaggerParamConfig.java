@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Component
 public class SwaggerParamConfig {
-    @Value("${swagger.header:''}")
+    @Value("${swagger.header:}")
     private String params;
 
     private static final List<String> list = Lists.newArrayList();
