@@ -2,11 +2,11 @@ package com.jzg.svsp.common.util;
 
 import org.apache.commons.lang.StringUtils;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -152,11 +152,88 @@ public class CommonUtil {
         return prefix + sdf.format(new Date()) + sb.toString();
     }
 
-    public static String createVehicleBusinessId(){
+    public static String createVehicleBusinessId() {
         return createOrderIdByTime("CT");
     }
 
-    public static String createShelfApplyId(){
+    public static String createShelfApplyId() {
         return createOrderIdByTime("AS");
+    }
+
+    public static Object mapToObject(Map<String, Object> map, Class<?> beanClass) throws Exception {
+        if (map == null)
+            return null;
+
+        Object obj = beanClass.newInstance();
+
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            int mod = field.getModifiers();
+            if (Modifier.isStatic(mod) || Modifier.isFinal(mod)) {
+                continue;
+            }
+
+            field.setAccessible(true);
+            field.set(obj, map.get(field.getName()));
+        }
+
+        return obj;
+    }
+
+    /**
+     * JavaBean对象转换为Map
+     * @param obj
+     * @return
+     */
+    public static Map<String, Object> convertObjToMap(Object obj){
+        Map<String,Object> reMap = new HashMap<String,Object>();
+        if (obj == null){
+            return null;
+        }
+
+        try {
+            Class<?> objClass = obj.getClass();
+            while(objClass != null){
+                Field[] fields = objClass.getDeclaredFields();
+                for(int i=0;i<fields.length;i++){
+                    try {
+                        Field f = objClass.getDeclaredField(fields[i].getName());
+                        f.setAccessible(true);
+                        Object o = f.get(obj);
+                        reMap.put(fields[i].getName(), o);
+                    } catch (NoSuchFieldException e) {
+                        e.printStackTrace();
+                    } catch (IllegalArgumentException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }
+                objClass = objClass.getSuperclass();
+            }
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+        return reMap;
+    }
+
+    public static Map<String, Object> objectToMap(Object obj)  {
+        if (obj == null) {
+            return null;
+        }
+
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        Field[] declaredFields = obj.getClass().getDeclaredFields();
+        for (Field field : declaredFields) {
+            field.setAccessible(true);
+            try {
+                map.put(field.getName(), field.get(obj));
+            } catch (Exception e) {
+
+            }
+        }
+
+        return map;
     }
 }

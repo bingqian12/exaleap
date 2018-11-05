@@ -39,9 +39,9 @@ public class SignUtils {
             }
             stringBuffer.append(appKey.toLowerCase());
             String paramStr = stringBuffer.toString().toLowerCase();
-            log.info("paramStr=>" + paramStr);
+            log.info("generateSign>param=>" + paramStr);
             newSign = Md5Encrypt.toHexString(Md5Encrypt.encrypt(paramStr, "UTF-8"));
-            log.info("sign=>" + paramStr);
+            log.info("generateSign>sign=>" + paramStr);
         } catch (Exception e) {
             log.error("[third-party-core][generateSign]发生异常", e);
         }

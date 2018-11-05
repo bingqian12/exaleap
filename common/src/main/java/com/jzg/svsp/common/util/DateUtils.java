@@ -605,6 +605,22 @@ public class DateUtils {
      * @param interModel 区间的模式
      *                   <p>
      *                   <pre>
+<<<<<<< HEAD
+     *                                                                         		取值：
+     *                                                                         			LEFT_OPEN_RIGHT_OPEN
+     *                                                                         			LEFT_CLOSE_RIGHT_OPEN
+     *                                                                         			LEFT_OPEN_RIGHT_CLOSE
+     *                                                                         			LEFT_CLOSE_RIGHT_CLOSE
+     *                                                                         </pre>
+     * @param compModel  比较的模式
+     *                   <p>
+     *                   <pre>
+     *                                                                         		取值：
+     *                                                                         			COMP_MODEL_DATE		只比较日期，不比较时间
+     *                                                                         			COMP_MODEL_TIME		只比较时间，不比较日期
+     *                                                                         			COMP_MODEL_DATETIME 比较日期，也比较时间
+     *                                                                         </pre>
+=======
      *                                                                                                             		取值：
      *                                                                                                             			LEFT_OPEN_RIGHT_OPEN
      *                                                                                                             			LEFT_CLOSE_RIGHT_OPEN
@@ -619,6 +635,7 @@ public class DateUtils {
      *                                                                                                             			COMP_MODEL_TIME		只比较时间，不比较日期
      *                                                                                                             			COMP_MODEL_DATETIME 比较日期，也比较时间
      *                                                                                                             </pre>
+>>>>>>> 1b7d54933150ee88dac36ddcb2037a5a37cf06cf
      * @return
      */
     public static boolean isBetween(Date date, Date start, Date end, int interModel, int compModel) {
@@ -1111,6 +1128,7 @@ public class DateUtils {
         try {
             return dateFormat.format(LONG_DATE_FORMAT.parse(date));
         } catch (ParseException e) {
+            e.printStackTrace();
         }
         return "";
     }
@@ -1372,7 +1390,7 @@ public class DateUtils {
     }
 
 /*    public static void main(String[] args) {
-        System.out.println(formatDate(getDateByDay()));
+        System.out.println(DateUtils.formatDate("2018-10-10 00:00:00", "yyyy年MM月"));
     }*/
 
     /*public static long getDateDiff(Date date1, Date date2) {
