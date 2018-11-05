@@ -31,11 +31,13 @@ auth-props:
     service: 3,
     trade: 3,
     order: 3,
-    dealer: 1
+    dealer: 1,
+    call-center: 4
   }
   exclude-urls:
     - /service/login
     - /user/login
+    - /call-center/login
 
 
 

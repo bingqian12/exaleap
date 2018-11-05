@@ -32,7 +32,9 @@ auth-props:
   api-urlMap: {
     ##1. manager 系统后台; 2. customer; 3. dealer 服务平台后台;
     service: 3,
-    dealer: 1
+    dealer: 1,
+    call-center: 4
   }
   exclude-urls:
     - /service/login
+    - /call-center/login
