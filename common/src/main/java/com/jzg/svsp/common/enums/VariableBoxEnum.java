@@ -20,7 +20,8 @@ public enum VariableBoxEnum {
 */
 
     MANUAL(0, "手动"),
-    AUTOMATIC(1, "自动");
+    AUTOMATIC(1, "自动"),
+    TO_BE_CHECKED(2, "待查");
 
     /**
      * value
@@ -48,6 +49,8 @@ public enum VariableBoxEnum {
         switch (value) {
             case 69:
                 return VariableBoxEnum.MANUAL;
+            case 193:
+                return VariableBoxEnum.TO_BE_CHECKED;
             default:
                 return VariableBoxEnum.AUTOMATIC;
         }

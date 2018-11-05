@@ -79,7 +79,6 @@ public enum StyleBodyTypeEnum {
             case 10:
             case 11:
                 return StyleBodyTypeEnum.PICKUP;
-            case 4:
             case 12:
             case 13:
                 return StyleBodyTypeEnum.SPORT;
@@ -87,8 +86,6 @@ public enum StyleBodyTypeEnum {
             case 15:
                 return StyleBodyTypeEnum.MPV;
             case 16:
-            case 17:
-            case 18:
                 return StyleBodyTypeEnum.TARVEL;
             default:
                 return StyleBodyTypeEnum.OTHER;
