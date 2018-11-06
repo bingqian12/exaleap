@@ -100,10 +100,15 @@ public class BaseService<M extends BaseMapper<T>, T> implements InitializingBean
      * @throws Exception
      */
     @Transactional(rollbackFor = Exception.class)
-    public boolean saveOrUpdate(T t) throws Exception {
+    public boolean saveOrUpdate(T t) {
         log.debug("saveOrUpdate {},value is {}", clazz.getSimpleName(), t);
         Field field = BaseSqlProvider.getIdField(t);
-        Object id = field.get(t);
+        Object id = null;
+        try {
+            id = field.get(t);
+        } catch (Exception e) {
+            throw new RuntimeException("获取ID字段异常！");
+        }
         boolean updateFlag = id != null && getById(id) != null;
         return updateFlag ? update(t) : add(t);
     }
