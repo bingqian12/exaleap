@@ -1,18 +1,13 @@
 spring:
   application:
-    name: config
+    name: gateway
   cloud:
     config:
-      server:
-        git:
-          uri: https://github.com/bingqian12/exaleap-config.git
-          #对应git 分支名称
-          default-label: dev
-          password: oZVxay1prtm2
-          username: zhangliang02
-          #对应搜索的文件夹路径
-          searchPaths: customer,gateway,product
-#          basedir: ~/out   #配置本地仓库的位置
+      discovery:
+        enabled: true
+        service-id: config
+      profile: dev
+
 eureka:
   instance:
     prefer-ip-address: true #使用IP注册
@@ -26,4 +21,14 @@ eureka:
         defaultZone: http://exaleap:exaleap123@127.0.0.1:8761/eureka/
 
 
-testname: local
+
+auth-props:
+  access-token: dev
+  auth-level: local
+  access-ip: 127.0.0.1
+  api-urlMap: {
+    service: 3
+  }
+  exclude-urls:
+    - /service/login
+
