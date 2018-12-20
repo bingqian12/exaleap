@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: eureka
+  security:
+      user:
+        name: exaleap
+        password: exaleap123
+        role: SUPERUSER
+eureka:
+  instance:
+    hostname: eureka
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://exaleap:exaleap123@127.0.0.1:8761/eureka/
+  server:
+  #### 清理间隔（单位毫秒，默认是60*1000），开发环境设置如下可快速移除不可用的服务
+    eviction-interval-timer-in-ms: 5000
+    ### 自我保护模式（不盲目删除不可以用的微服务信息） ， 开发模式关闭。
+    enable-self-preservation: false
