@@ -3,8 +3,8 @@ spring:
     name: eureka
   security:
       user:
-        name: jzg
-        password: jzg123
+        name: exaleap
+        password: exaleap123
         role: SUPERUSER
 eureka:
   instance:
@@ -13,7 +13,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://jzg:jzg123@127.0.0.1:8080/eureka/
+      defaultZone: http://exaleap:exaleap123@127.0.0.1:8080/eureka/
   server:
   #### 清理间隔（单位毫秒，默认是60*1000），开发环境设置如下可快速移除不可用的服务
     eviction-interval-timer-in-ms: 60000
